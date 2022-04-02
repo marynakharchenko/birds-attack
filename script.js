@@ -3,14 +3,19 @@ const restartBtn = document.getElementById('restartBtn');
 const start = document.querySelector('#start');
 const lives = document.getElementById('lives');
 const score = document.querySelector('#score span');
-const player = document.querySelector('audio');
+const audio = document.querySelector('audio');
 const gameBlock = document.querySelector('#game');
 const soundBtn = document.querySelector('#sound img');
-const gamer = document.querySelector('#player');
+const bird = document.querySelector('#bird');
+const duck = document.querySelector('#duck');
 // const source = document.querySelector('audio source');
 
-let gamerSkin = 'duck';
+let sound = 'off';
+let birdSkin = 'duck';
 let countLives = 3;
+let bulletTimestamp = Date.now();
+const bulletInterval = 500;
+let gameStarted = false;
 
 startBtn.onclick = () => {
   startGame();
@@ -19,37 +24,43 @@ restartBtn.onclick = () => {
   startGame();
 };
 
-let sound = 'off';
+duck.onclick = () => {
+  duck.className = 'selected';
+  birdSkin = 'duck';
+};
 
 soundBtn.onclick = () => {
   if (sound === 'on') {
     soundBtn.src = 'images/sound-off.png';
     sound = 'off';
-    player.pause();
+    audio.pause();
   } else {
     soundBtn.src = 'images/sound-on.png';
     sound = 'on';
 
     // source.src = 'audio/music.mp3';
-    player.load();
-    player.play();
+    audio.load();
+    audio.play();
   }
 };
 
 document.onkeydown = (e) => {
-  // moveGamer(gamer)
-  console.dir(e);
-  if (e.keyCode === 37) {
-    gamer.style.left = gamer.offsetLeft - 40 + 'px';
-    gamer.classList.add('left');
-    gamer.classList.remove('right');
+  if (gameStarted && e.keyCode === 32 && bulletTimestamp + bulletInterval < Date.now()) {
+    bulletTimestamp = Date.now();
+    createBullet();
   }
-  if (e.keyCode === 39) {
-    gamer.style.left = gamer.offsetLeft + 40 + 'px';
-    gamer.classList.remove('left');
-    gamer.classList.add('right');
+};
+
+document.onclick = () => {
+  if (gameStarted && bulletTimestamp + bulletInterval < Date.now()) {
+    bulletTimestamp = Date.now();
+    createBullet();
   }
-  if (e.keyCode === 32) {
+};
+
+document.ontouchstart = () => {
+  if (gameStarted && bulletTimestamp + bulletInterval < Date.now()) {
+    bulletTimestamp = Date.now();
     createBullet();
   }
 };
@@ -57,10 +68,12 @@ document.onkeydown = (e) => {
 function startGame() {
   start.style.display = 'none';
   gameBlock.style.display = 'block';
-  gamer.className = gamerSkin;
+  bird.className = birdSkin;
 
   createEnemy();
-  createLifes();
+  createLives();
+
+  gameStarted = true;
 }
 
 function moveEnemy(enemy) {
@@ -76,11 +89,11 @@ function moveEnemy(enemy) {
 }
 
 function moveBullet(bullet) {
-  let timer = setInterval(() => {
+  let timerId = setInterval(() => {
     bullet.style.top = bullet.offsetTop + 10 + 'px';
     if (bullet.offsetTop > document.querySelector('body').clientHeight) {
       bullet.remove();
-      clearInterval(timer);
+      clearInterval(timerId);
     }
     isBoom(bullet);
   }, 10);
@@ -106,8 +119,8 @@ function typeEnemy() {
 function createBullet() {
   let bullet = document.createElement('div');
   bullet.className = 'bullet';
-  bullet.style.top = gamer.offsetTop + 140 + 'px';
-  bullet.style.left = gamer.offsetLeft + 70 + 'px';
+  bullet.style.top = bird.offsetTop + 140 + 'px';
+  bullet.style.left = bird.offsetLeft + 70 + 'px';
 
   gameBlock.appendChild(bullet);
   moveBullet(bullet);
@@ -115,7 +128,7 @@ function createBullet() {
 
 function isBoom(bullet) {
   let enemy = document.querySelector('.enemy');
-  if (bullet.offsetLeft > enemy.offsetLeft && bullet.offsetLeft < enemy.offsetLeft + enemy.clientWidth && bullet.offsetTop > enemy.offsetTop) {
+  if (enemy && bullet.offsetLeft > enemy.offsetLeft && bullet.offsetLeft < enemy.offsetLeft + enemy.clientWidth && bullet.offsetTop > enemy.offsetTop) {
     createBoom(bullet.offsetTop, bullet.offsetLeft);
     score.innerText = Number(score.innerText) + 1;
     bullet.remove();
@@ -130,9 +143,9 @@ function die() {
     endGame();
   }
 
-  createLifes();
+  createLives();
 }
-function createLifes() {
+function createLives() {
   lives.innerHTML = '';
   let count = 0;
   while (count < countLives) {
@@ -154,6 +167,8 @@ function createBoom(top, left) {
 }
 
 function endGame() {
+  gameStarted = false;
+
   let scoreBlock = document.querySelector('#end h3 span');
   scoreBlock.innerText = score.innerText;
 
@@ -173,10 +188,3 @@ function random(min, max) {
   let rand = min - 0.5 + Math.random() * (max - min + 1);
   return Math.round(rand);
 }
-
-const selectSkin1 = document.querySelector('#duck');
-selectSkin1.onclick = () => {
-  selectSkin1.className = 'selected';
-  selectSkin2.className = '';
-  gamerSkin = 'duck';
-};

@@ -91,21 +91,21 @@ body {
 }
 
 
-#player {
+#bird {
   height: 200px;
   position: absolute;
-  left: calc(50% - 225px);
+  left: 25%;
   top: 60px;
   -webkit-transition: all 0.2s;
   -moz-transition: all 0.2s;
   transition: all 0.2s;
 }
-#player.duck {
+#bird.duck {
   width: 168px;
   background: url(images/birds/duck.png);
   transition-duration: 0.0001ms;
 }
-#player.duck.left {
+#bird.duck.left {
   width: 168px;
   background: url(images/birds/duck.png);
   -moz-transform: scaleX(-1);
@@ -114,7 +114,7 @@ body {
   transform: scaleX(-1);
   transition-duration: 0.0001ms;
 }
-#player.duck.right {
+#bird.duck.right {
   width: 168px;
   background: url(images/birds/duck.png);
   transition-duration: 0.0001ms;
@@ -169,11 +169,11 @@ body {
   font-family: arial black;
   font-size: 24px;
 }
-#start #select-player {
+#start #select-bird {
   width: 475px;
   margin: 0 auto;
 }
-#start #select-player span {
+#start #select-bird span {
   border-radius: 10px;
   display: block;
   float: left;
@@ -181,7 +181,7 @@ body {
   cursor: pointer;
 }
 
-#start #select-player span.selected {
+#start #select-bird span.selected {
   border: 2px solid #326184;
 }
 #start button,
