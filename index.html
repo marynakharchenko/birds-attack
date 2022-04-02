@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Birds Attack</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+	<div id="video-bg">
+	    <video width="100%" height="auto" preload="auto" autoplay="true" loop="true" muted="muted" poster="images/backgrounds/kremlin.png"></video>
+	</div>
+
+	<div id="app">
+		<div id="game">
+			<div id="lives">
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+
+			<div id="options">
+				<div id="score">
+					Score: <span>0</span>
+				</div>
+				<div id="sound">
+					<img src="images/icons/sound-off.png">
+				</div>
+			</div>
+
+			<div id="player" class="duck"></div>
+		</div>
+
+
+		<div id="start" >
+			<audio><source></audio>
+
+			<h2>Select the bird</h2>
+
+			<div id="select-player" class="clearfix">
+				<span class="selected" id='duck'>
+					<img src="images/birds/duck.png">
+				</span>
+
+			</div>
+			<button id="startBtn">Start</button>
+		</div>
+
+			<div id="end">
+
+				<h2>Game over</h2>
+
+				<h3>Your score is: <span>0</span></h3>
+				<button id="restartBtn">Restart</button>
+			</div>
+
+
+	</div>
+
+	<script src="script.js"></script>
+
+</body>
+</html>
