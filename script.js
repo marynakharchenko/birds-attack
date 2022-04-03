@@ -56,7 +56,7 @@ const moveBullet = bullet => {
 const createEnemy = () => {
   let enemy = document.createElement('div');
   enemy.className = 'enemy ' + typeEnemy();
-  enemy.style.top = document.querySelector('#app').clientHeight - 150 + 'px';
+  enemy.style.top = document.querySelector('#app').clientHeight - 200 + 'px';
 
   gameBlock.appendChild(enemy);
   moveEnemy(enemy);

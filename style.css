@@ -1,5 +1,7 @@
 body {
   height: 100vh;
+  padding: 0;
+  margin: 0;
 }
 
 #game {
@@ -10,35 +12,38 @@ body {
   display: none;
 }
 
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-20px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
+
+
 #video-bg {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  padding: 0;
   overflow: hidden;
   z-index: 1;
-  background: url(images/backgrounds/kremlin.png) no-repeat #384657;
-  background-size: cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*background: url(images/backgrounds/bg-level2.png) repeat-x center bottom #D6E1F5;*/
+  background: url(images/backgrounds/bg-level3.png) repeat-x center bottom #181B1E;
+  background-size: 1000px;
+  animation: background-move 15s linear infinite;
 }
-
-#video-bg > video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-}
-
-@supports (object-fit: cover) {
-  #video-bg > video {
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+@keyframes background-move {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: -1000px;
   }
 }
 
@@ -101,9 +106,11 @@ body {
   transition: all 0.2s;
 }
 #bird.duck {
-  width: 168px;
-  background: url(images/birds/duck.png);
+  width: 300px;
+  background: url(images/birds/duck-fly.gif);
   transition-duration: 0.0001ms;
+
+ animation: float 3s ease-in-out infinite;
 }
 #bird.duck.left {
   width: 168px;
@@ -133,10 +140,10 @@ body {
 
 
 .boom {
-  background: url(images/weapons/boom.gif);
+  background: url(images/weapons/boom-2.gif);
   position: absolute;
-  width: 200px;
-  height: 200px;
+  width: 224px;
+  height: 254px;
   z-index: 9999;
   top: 40%;
   left: 50%;
@@ -152,8 +159,8 @@ body {
 
 
 .enemy.tank {
-  height: 250px;
-  background: url("images/enemies/tank.png") no-repeat;
+  height: 300px;
+  background: url("images/enemies/enem-2.gif") no-repeat;
   padding-bottom: 250px;
 }
 
