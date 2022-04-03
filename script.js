@@ -19,13 +19,22 @@ let countLives = 3;
 
 let sound = 'off';
 
+const createEnemyLoop = () => {
+  setTimeout(() => {
+    if (gameStarted) {
+      createEnemy();
+      createEnemyLoop();
+    }
+  }, random(1000, 5000));
+};
+
 const startGame = () => {
   start.style.display = 'none';
   gameBlock.style.display = 'block';
   bird.className = birdSkin;
 
-  createEnemy();
   createLives();
+  createEnemyLoop();
 
   gameStarted = true;
 };
@@ -35,7 +44,6 @@ const moveEnemy = enemy => {
     enemy.style.left = enemy.offsetLeft - 10 + 'px';
     if (enemy.offsetLeft < -100) {
       enemy.remove();
-      createEnemy();
       clearInterval(timerId);
       die();
     }
@@ -64,7 +72,7 @@ const createEnemy = () => {
 
 const typeEnemy = () => {
   if (random(1, 2) === 1) {
-    return 'tank';
+    return 'soldier';
   } else {
     return 'tank';
   }
@@ -92,7 +100,6 @@ const isBoom = bullet => {
     score.innerText = Number(score.innerText) + 1;
     bullet.remove();
     enemy.remove();
-    createEnemy();
   }
 };
 

@@ -99,7 +99,7 @@ body {
 #bird {
   height: 200px;
   position: absolute;
-  left: 25%;
+  left: 15%;
   top: 60px;
   -webkit-transition: all 0.2s;
   -moz-transition: all 0.2s;
@@ -158,9 +158,14 @@ body {
 }
 
 
+.enemy.soldier {
+  height: 300px;
+  background: url("images/enemies/soldier.gif") no-repeat;
+  padding-bottom: 250px;
+}
 .enemy.tank {
   height: 300px;
-  background: url("images/enemies/enem-2.gif") no-repeat;
+  background: url("images/enemies/tank.png") no-repeat;
   padding-bottom: 250px;
 }
 
