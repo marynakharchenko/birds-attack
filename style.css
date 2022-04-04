@@ -34,7 +34,7 @@ body {
   justify-content: center;
   align-items: center;
   background-size: 1000px;
-  animation: background-move 15s linear infinite;
+  animation: background-move 10s linear infinite;
 }
 @keyframes background-move {
   0% {
