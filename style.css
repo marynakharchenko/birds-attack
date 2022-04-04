@@ -33,10 +33,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  /*background: url(images/backgrounds/bg-level2.png) repeat-x center bottom #D6E1F5;*/
-  background: url(images/backgrounds/bg-level3.png) repeat-x center bottom #181B1E;
+  background: url(images/backgrounds/bg-level5.png) repeat-x center bottom #D6E1F5;
+  /*background: url(images/backgrounds/bg-level3.png) repeat-x center bottom #181B1E;*/
   background-size: 1000px;
-  animation: background-move 15s linear infinite;
+  animation: background-move 10s linear infinite;
 }
 @keyframes background-move {
   0% {
@@ -160,12 +160,12 @@ body {
 
 .enemy.soldier {
   height: 300px;
-  background: url("images/enemies/soldier.gif") no-repeat;
+  background: url("images/enemies/soldier-3.gif") no-repeat;
   padding-bottom: 250px;
 }
 .enemy.tank {
   height: 300px;
-  background: url("images/enemies/tank.png") no-repeat;
+  background: url("images/enemies/car-3.png") no-repeat;
   padding-bottom: 250px;
 }
 
