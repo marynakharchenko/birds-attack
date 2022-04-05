@@ -135,7 +135,6 @@ const startGame = () => {
     // ...Array(navyNumber + 1).fill(navyTitle),
   );
   ENEMIES_ARRAY = shuffle(ENEMIES_ARRAY);
-  console.log(ENEMIES_ARRAY);
 
   SCORE[INFANTRY].total.innerHTML = String(CONFIG.LEVELS[LEVELS[LEVEL]].enemies[INFANTRY].number);
   SCORE[MACHINERY].total.innerHTML = String(CONFIG.LEVELS[LEVELS[LEVEL]].enemies[MACHINERY].number);
