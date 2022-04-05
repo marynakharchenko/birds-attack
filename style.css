@@ -72,7 +72,7 @@ body {
   float: left;
   width: 40px;
   height: 40px;
-  background: url(images/icons/life.png);
+  background: url(images/icons/start-icon.png);
   background-size: cover;
 }
 
@@ -107,8 +107,10 @@ body {
 }
 #bird.duck {
   width: 300px;
-  background: url(images/birds/duck-fly.gif);
+
+  background: url(images/birds/duck-fly--6.gif);
   transition-duration: 0.0001ms;
+   background-size: cover;
 
  animation: float 3s ease-in-out infinite;
 }
