@@ -70,7 +70,7 @@ body {
   float: left;
   width: 40px;
   height: 40px;
-  background: url(../images/icons/life.png);
+  background: url(images/icons/start-icon.png);
   background-size: cover;
 }
 
@@ -115,7 +115,9 @@ body {
 }
 #bird.duck {
   width: 300px;
+  background: url(images/birds/duck-fly--6.gif);
   transition-duration: 0.0001ms;
+  background-size: cover;
   animation: float 3s ease-in-out infinite;
 }
 
@@ -123,7 +125,7 @@ body {
 .bullet {
   width: 20px;
   height: 40px;
-  background: url("../images/weapons/poop.png") transparent no-repeat;
+  background: url(images/weapons/poop.png) transparent no-repeat;
   position: absolute;
   top: 20%;
   left: 20%;
@@ -132,7 +134,7 @@ body {
 
 
 .boom {
-  background: url(../images/weapons/boom-2.gif);
+  background: url(images/weapons/boom-2.gif);
   position: absolute;
   width: 224px;
   height: 254px;
@@ -152,12 +154,12 @@ body {
 
 .enemy.soldier {
   height: 300px;
-  background: url("../images/enemies/soldier.gif") no-repeat;
+  background: url(images/enemies/soldier.gif) no-repeat;
   padding-bottom: 250px;
 }
 .enemy.tank {
   height: 300px;
-  background: url("../images/enemies/tank.png") no-repeat;
+  background: url(images/enemies/tank.png) no-repeat;
   padding-bottom: 250px;
 }
 
