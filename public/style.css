@@ -25,7 +25,7 @@ body {
 }
 
 
-#video-bg {
+#background {
   padding: 0;
   overflow: hidden;
   z-index: 1;
@@ -33,8 +33,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url(images/backgrounds/bg-level5.png) repeat-x center bottom #D6E1F5;
-  /*background: url(images/backgrounds/bg-level3.png) repeat-x center bottom #181B1E;*/
   background-size: 1000px;
   animation: background-move 10s linear infinite;
 }
@@ -85,7 +83,17 @@ body {
   float: left;
   cursor: pointer;
 }
-#options #score {
+#options #score-infantry {
+  color: #fff;
+  font-size: 24px;
+  margin: 6px 40px;
+}
+#options #score-machinery {
+  color: #fff;
+  font-size: 24px;
+  margin: 6px 40px;
+}
+#options #score-navy {
   color: #fff;
   font-size: 24px;
   margin: 6px 40px;
@@ -107,33 +115,17 @@ body {
 }
 #bird.duck {
   width: 300px;
-
   background: url(images/birds/duck-fly--6.gif);
   transition-duration: 0.0001ms;
-   background-size: cover;
-
- animation: float 3s ease-in-out infinite;
-}
-#bird.duck.left {
-  width: 168px;
-  background: url(images/birds/duck.png);
-  -moz-transform: scaleX(-1);
-  -o-transform: scaleX(-1);
-  -webkit-transform: scaleX(-1);
-  transform: scaleX(-1);
-  transition-duration: 0.0001ms;
-}
-#bird.duck.right {
-  width: 168px;
-  background: url(images/birds/duck.png);
-  transition-duration: 0.0001ms;
+  background-size: cover;
+  animation: float 3s ease-in-out infinite;
 }
 
 
 .bullet {
   width: 20px;
   height: 40px;
-  background: url("images/weapons/poop.png") transparent no-repeat;
+  background: url(images/weapons/poop.png) transparent no-repeat;
   position: absolute;
   top: 20%;
   left: 20%;
@@ -162,12 +154,12 @@ body {
 
 .enemy.soldier {
   height: 300px;
-  background: url("images/enemies/soldier-3.gif") no-repeat;
+  background: url(images/enemies/soldier.gif) no-repeat;
   padding-bottom: 250px;
 }
 .enemy.tank {
   height: 300px;
-  background: url("images/enemies/car-3.png") no-repeat;
+  background: url(images/enemies/tank.png) no-repeat;
   padding-bottom: 250px;
 }
 
