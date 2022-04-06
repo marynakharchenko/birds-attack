@@ -25,7 +25,7 @@ let countLives = 3;
 
 let sound = 'off';
 
-let LEVEL = 1;
+let LEVEL = 0;
 let ENEMIES_ARRAY = [];
 const LEVELS = [0, 1, 2, 3, 4, 5];
 const INFANTRY = 'infantry';
@@ -69,7 +69,7 @@ const CONFIG = {
       enemies: {
         [INFANTRY]: {
           className: 'infantry',
-          number: 10,
+          number: 5,
           boomClass: 'boom-1'
         },
         [MACHINERY]: {
@@ -91,7 +91,7 @@ const CONFIG = {
       enemies: {
         [INFANTRY]: {
           className: 'infantry',
-          number: 20,
+          number: 10,
           boomClass: 'boom-1'
         },
         [MACHINERY]: {
@@ -106,15 +106,103 @@ const CONFIG = {
         }
       },
       weaponClass: 'weapon-2'
+    },
+    [LEVELS[2]]: {
+      backgroundClass: 'bg-level-3',
+      birdClass: 'duck-fly-3',
+      enemies: {
+        [INFANTRY]: {
+          className: 'infantry',
+          number: 15,
+          boomClass: 'boom-1'
+        },
+        [MACHINERY]: {
+          className: 'machinery',
+          number: 15,
+          boomClass: 'boom-2'
+        },
+        [AIRFORCE]: {
+          className: 'airforce',
+          number: 15,
+          boomClass: 'boom-3'
+        }
+      },
+      weaponClass: 'weapon-3'
+    },
+    [LEVELS[3]]: {
+      backgroundClass: 'bg-level-4',
+      birdClass: 'duck-fly-4',
+      enemies: {
+        [INFANTRY]: {
+          className: 'infantry',
+          number: 20,
+          boomClass: 'boom-1'
+        },
+        [MACHINERY]: {
+          className: 'machinery',
+          number: 20,
+          boomClass: 'boom-2'
+        },
+        [AIRFORCE]: {
+          className: 'airforce',
+          number: 20,
+          boomClass: 'boom-3'
+        }
+      },
+      weaponClass: 'weapon-4'
+    },
+    [LEVELS[4]]: {
+      backgroundClass: 'bg-level-5',
+      birdClass: 'duck-fly-5',
+      enemies: {
+        [INFANTRY]: {
+          className: 'infantry',
+          number: 25,
+          boomClass: 'boom-1'
+        },
+        [MACHINERY]: {
+          className: 'machinery',
+          number: 25,
+          boomClass: 'boom-2'
+        },
+        [AIRFORCE]: {
+          className: 'airforce',
+          number: 25,
+          boomClass: 'boom-3'
+        }
+      },
+      weaponClass: 'weapon-5'
+    },
+    [LEVELS[5]]: {
+      backgroundClass: 'bg-level-6',
+      birdClass: 'duck-fly-6',
+      enemies: {
+        [INFANTRY]: {
+          className: 'infantry',
+          number: 30,
+          boomClass: 'boom-1'
+        },
+        [MACHINERY]: {
+          className: 'machinery',
+          number: 30,
+          boomClass: 'boom-2'
+        },
+        [AIRFORCE]: {
+          className: 'airforce',
+          number: 30,
+          boomClass: 'boom-3'
+        }
+      },
+      weaponClass: 'weapon-6'
     }
   }
 };
 
-const createEnemyLoop = () => {
+const createEnemyLoop = (level) => {
   setTimeout(() => {
-    if (gameStarted && ENEMIES_ARRAY.length) {
+    if (gameStarted && ENEMIES_ARRAY.length && level === LEVEL) {
       createEnemy();
-      createEnemyLoop();
+      createEnemyLoop(level);
     }
   }, random(1000, 5000));
 };
@@ -151,7 +239,7 @@ const startGame = () => {
   SCORE[AIRFORCE].total.innerHTML = String(CONFIG.LEVELS[LEVELS[LEVEL]].enemies[AIRFORCE].number);
 
   createLives();
-  createEnemyLoop();
+  createEnemyLoop(LEVEL);
 
   gameStarted = true;
 };
@@ -224,6 +312,14 @@ const isBoom = bullet => {
         SCORE[key].current.innerText = Number(SCORE[key].current.innerText) + 1;
       }
     });
+
+    if (
+      ENEMIES[INFANTRY].number >= CONFIG.LEVELS[LEVELS[LEVEL]].enemies[INFANTRY].number &&
+      ENEMIES[MACHINERY].number >= CONFIG.LEVELS[LEVELS[LEVEL]].enemies[MACHINERY].number &&
+      ENEMIES[AIRFORCE].number >= CONFIG.LEVELS[LEVELS[LEVEL]].enemies[AIRFORCE].number
+    ) {
+      nextLevel();
+    }
   }
 };
 
@@ -256,6 +352,13 @@ const createBoom = (top, left, enemyClass) => {
   setTimeout(() => {
     boom.remove();
   }, 1000);
+};
+
+const nextLevel = () => {
+  gameStarted = false;
+  LEVEL += 1;
+  ENEMIES_ARRAY = [];
+  startGame();
 };
 
 const endGame = () => {
