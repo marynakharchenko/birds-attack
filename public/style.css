@@ -142,7 +142,7 @@ body {
   float: left;
   width: 20px;
   height: 20px;
-  background: url(images/icons/start-icon.png);
+  background: url(images/icons/star-icon.png);
   background-size: cover;
 }
 
@@ -171,7 +171,7 @@ body {
   margin: 6px 20px;
 }
 
-#options #score-navy {
+#options #score-airforce {
   color: #fff;
   font-size: 20px;
   margin: 6px 20px;
@@ -211,7 +211,7 @@ body {
 }
 
 .boom {
-  background: url(images/weapons/boom-2.gif);
+  background: url(images/booms/boom-2.gif);
   position: absolute;
   width: 224px;
   height: 254px;

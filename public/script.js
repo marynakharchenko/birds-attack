@@ -5,10 +5,10 @@ const lives = document.getElementById('lives');
 const background = document.getElementById('background');
 const scoreInfantryCurrent = document.querySelector('#score-infantry .current');
 const scoreMachineryCurrent = document.querySelector('#score-machinery .current');
-const scoreNavyCurrent = document.querySelector('#score-navy .current');
+const scoreAirforceCurrent = document.querySelector('#score-airforce .current');
 const scoreInfantryTotal = document.querySelector('#score-infantry .total');
 const scoreMachineryTotal = document.querySelector('#score-machinery .total');
-const scoreNavyTotal = document.querySelector('#score-navy .total');
+const scoreAirforceTotal = document.querySelector('#score-airforce .total');
 const audio = document.querySelector('audio');
 const gameBlock = document.querySelector('#game');
 const soundBtn = document.querySelector('#sound img');
@@ -30,7 +30,7 @@ let ENEMIES_ARRAY = [];
 const LEVELS = [0, 1, 2, 3, 4, 5];
 const INFANTRY = 'infantry';
 const MACHINERY = 'machinery';
-const NAVY = 'navy';
+const AIRFORCE = 'airforce';
 
 const ENEMIES = {
   [INFANTRY]: {
@@ -41,7 +41,7 @@ const ENEMIES = {
     classes: ['tank'],
     number: 0
   },
-  [NAVY]: {
+  [AIRFORCE]: {
     classes: [],
     number: 0
   }
@@ -55,9 +55,9 @@ const SCORE = {
     current: scoreMachineryCurrent,
     total: scoreMachineryTotal
   },
-  [NAVY]: {
-    current: scoreNavyCurrent,
-    total: scoreNavyTotal
+  [AIRFORCE]: {
+    current: scoreAirforceCurrent,
+    total: scoreAirforceTotal
   }
 };
 
@@ -65,7 +65,7 @@ const CONFIG = {
   LEVELS: {
     [LEVELS[0]]: {
       backgroundImage: 'url(images/backgrounds/bg-level2.png)',
-      birds: 'url(images/birds/duck-fly.gif)',
+      birds: 'url(images/birds/duck-fly--1.gif)',
       enemies: {
         [INFANTRY]: {
           title: 'soldier',
@@ -84,7 +84,7 @@ const CONFIG = {
     },
     [LEVELS[1]]: {
       backgroundImage: 'url(images/backgrounds/bg-level3.png)',
-      birds: 'url(images/birds/duck-fly.gif)',
+      birds: 'url(images/birds/duck-fly--1.gif)',
       enemies: {
         [INFANTRY]: {
           title: 'soldier',
@@ -125,20 +125,21 @@ const startGame = () => {
   const infantryNumber = CONFIG.LEVELS[LEVELS[LEVEL]].enemies[INFANTRY].number;
   const machineryTitle = CONFIG.LEVELS[LEVELS[LEVEL]].enemies[MACHINERY].title;
   const machineryNumber = CONFIG.LEVELS[LEVELS[LEVEL]].enemies[MACHINERY].number;
-  // const navyTitle = CONFIG.LEVELS[LEVELS[LEVEL]].enemies[NAVY].title;
-  // const navyNumber = CONFIG.LEVELS[LEVELS[LEVEL]].enemies[NAVY].number;
+  // const airforceTitle = CONFIG.LEVELS[LEVELS[LEVEL]].enemies[AIRFORCE].title;
+  // const airforceNumber = CONFIG.LEVELS[LEVELS[LEVEL]].enemies[AIRFORCE].number;
 
   ENEMIES_ARRAY = [];
   ENEMIES_ARRAY.push(
-    ...Array(infantryNumber + 1).fill(infantryTitle),
-    ...Array(machineryNumber + 1).fill(machineryTitle),
-    // ...Array(navyNumber + 1).fill(navyTitle),
+    ...Array(infantryNumber).fill(infantryTitle),
+    ...Array(machineryNumber).fill(machineryTitle),
+    // ...Array(airforceNumber).fill(airforceTitle),
   );
   ENEMIES_ARRAY = shuffle(ENEMIES_ARRAY);
+  ENEMIES_ARRAY.push(shuffle([infantryTitle, machineryTitle/*, airforceTitle*/]));
 
   SCORE[INFANTRY].total.innerHTML = String(CONFIG.LEVELS[LEVELS[LEVEL]].enemies[INFANTRY].number);
   SCORE[MACHINERY].total.innerHTML = String(CONFIG.LEVELS[LEVELS[LEVEL]].enemies[MACHINERY].number);
-  // SCORE[NAVY].total.innerHTML = String(CONFIG.LEVELS[LEVELS[LEVEL]].enemies[NAVY].number);
+  // SCORE[AIRFORCE].total.innerHTML = String(CONFIG.LEVELS[LEVELS[LEVEL]].enemies[AIRFORCE].number);
 
   createLives();
   createEnemyLoop();
@@ -250,7 +251,7 @@ const endGame = () => {
   gameStarted = false;
 
   let scoreBlock = document.querySelector('#end h3 span');
-  scoreBlock.innerText = ENEMIES[INFANTRY].number + ENEMIES[MACHINERY].number + ENEMIES[NAVY].number;
+  scoreBlock.innerText = ENEMIES[INFANTRY].number + ENEMIES[MACHINERY].number + ENEMIES[AIRFORCE].number;
 
   gameBlock.innerHTML = '';
   let endBlock = document.querySelector('#end');
