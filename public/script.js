@@ -1,8 +1,5 @@
-const startBtn = document.getElementById('startBtn');
-const restartBtn = document.getElementById('restartBtn');
-const start = document.querySelector('#start');
-const lives = document.getElementById('lives');
 const background = document.getElementById('background');
+const lives = document.getElementById('lives');
 const scoreInfantryCurrent = document.querySelector('#score-infantry .current');
 const scoreMachineryCurrent = document.querySelector('#score-machinery .current');
 const scoreAirforceCurrent = document.querySelector('#score-airforce .current');
@@ -14,6 +11,19 @@ const gameBlock = document.querySelector('#game');
 const soundBtn = document.querySelector('#sound img');
 const bird = document.querySelector('#bird');
 const duck = document.querySelector('#duck');
+
+const startBlock = document.querySelector('#start');
+const startBtn = document.getElementById('startBtn');
+
+const nextLevelBlock = document.querySelector('#next-level');
+const nextLevelBtn = document.getElementById('nextLevelBtn');
+
+const previousLevelBlock = document.querySelector('#previous-level');
+const previousLevelBtn = document.getElementById('previousLevelBtn');
+
+const endBlock = document.querySelector('#end');
+const restartBtn = document.getElementById('restartBtn');
+
 // const source = document.querySelector('audio source');
 
 const bulletInterval = 500;
@@ -208,7 +218,7 @@ const createEnemyLoop = (level) => {
 };
 
 const startGame = () => {
-  start.style.display = 'none';
+  startBlock.style.display = 'none';
   gameBlock.style.display = 'block';
 
   background.className = '';
@@ -250,7 +260,7 @@ const moveEnemy = enemy => {
     if (enemy.offsetLeft < -100) {
       enemy.remove();
       clearInterval(timerId);
-      die();
+      miss();
     }
   }, 30);
 };
@@ -318,15 +328,19 @@ const isBoom = bullet => {
       ENEMIES[MACHINERY].number >= CONFIG.LEVELS[LEVELS[LEVEL]].enemies[MACHINERY].number &&
       ENEMIES[AIRFORCE].number >= CONFIG.LEVELS[LEVELS[LEVEL]].enemies[AIRFORCE].number
     ) {
-      nextLevel();
+      endLevelNext();
     }
   }
 };
 
-const die = () => {
+const miss = () => {
   countLives -= 1;
   if (countLives <= 0) {
-    endGame();
+    if (LEVEL === 0) {
+      endGame();
+    } else {
+      endLevelPrevious();
+    }
   }
 
   createLives();
@@ -354,21 +368,63 @@ const createBoom = (top, left, enemyClass) => {
   }, 1000);
 };
 
-const nextLevel = () => {
+const endLevelNext = () => {
   gameStarted = false;
-  LEVEL += 1;
   ENEMIES_ARRAY = [];
+  document.querySelectorAll('.enemy').forEach(e => e.remove());
+
+  nextLevelBlock.style.display = 'block';
+
+  nextLevelBtn.onclick = startNextLevel;
+};
+
+const startNextLevel = () => {
+  nextLevelBlock.style.display = 'none';
+  LEVEL += 1;
+  resetLives();
+  resetScore();
   startGame();
+};
+
+const endLevelPrevious = () => {
+  gameStarted = false;
+  ENEMIES_ARRAY = [];
+  document.querySelectorAll('.enemy').forEach(e => e.remove());
+
+  previousLevelBlock.style.display = 'block';
+
+  previousLevelBtn.onclick = startPreviousLevel;
+};
+
+const startPreviousLevel = () => {
+  previousLevelBlock.style.display = 'none';
+  LEVEL -= 1;
+  resetLives();
+  resetScore();
+  startGame();
+};
+
+const resetScore = () => {
+  ENEMIES[INFANTRY].number = 0;
+  ENEMIES[MACHINERY].number = 0;
+  ENEMIES[AIRFORCE].number = 0;
+  SCORE[INFANTRY].current.innerText = '0';
+  SCORE[MACHINERY].current.innerText = '0';
+  SCORE[AIRFORCE].current.innerText = '0';
+};
+
+const resetLives = () => {
+  countLives = 3;
 };
 
 const endGame = () => {
   gameStarted = false;
+  ENEMIES_ARRAY = [];
 
   let scoreBlock = document.querySelector('#end h3 span');
   scoreBlock.innerText = ENEMIES[INFANTRY].number + ENEMIES[MACHINERY].number + ENEMIES[AIRFORCE].number;
 
   gameBlock.innerHTML = '';
-  let endBlock = document.querySelector('#end');
   endBlock.style.display = 'block';
 
   let restartBtn = document.querySelector('#end button');

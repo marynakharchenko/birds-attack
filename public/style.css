@@ -67,7 +67,7 @@ body {
 
 }
 
-#end {
+#end, #next-level, #previous-level {
   display: none;
 }
 
@@ -320,7 +320,7 @@ body {
   line-height: normal;
 }
 
-#start, #end {
+#start, #end, #previous-level, #next-level {
   position: relative;
   top: 50%;
   left: 50%;
