@@ -64,7 +64,7 @@ const SCORE = {
 const CONFIG = {
   LEVELS: {
     [LEVELS[0]]: {
-      backgrounds: 'url(images/backgrounds/bg-level2.png) repeat-x center bottom #D6E1F5',
+      backgroundImage: 'url(images/backgrounds/bg-level2.png)',
       birds: 'url(images/birds/duck-fly.gif)',
       enemies: {
         [INFANTRY]: {
@@ -83,7 +83,7 @@ const CONFIG = {
       weapons: `url('images/weapons/poop.png') transparent no-repeat`
     },
     [LEVELS[1]]: {
-      backgrounds: 'url(images/backgrounds/bg-level3.png) repeat-x center bottom #181B1E',
+      backgroundImage: 'url(images/backgrounds/bg-level3.png)',
       birds: 'url(images/birds/duck-fly.gif)',
       enemies: {
         [INFANTRY]: {
@@ -118,7 +118,7 @@ const startGame = () => {
   gameBlock.style.display = 'block';
   bird.className = birdSkin;
 
-  background.style.background=CONFIG.LEVELS[LEVELS[LEVEL]].backgrounds;
+  background.style.backgroundImage=CONFIG.LEVELS[LEVELS[LEVEL]].backgroundImage;
   bird.style.background=CONFIG.LEVELS[LEVELS[LEVEL]].birds;
 
   const infantryTitle = CONFIG.LEVELS[LEVELS[LEVEL]].enemies[INFANTRY].title;

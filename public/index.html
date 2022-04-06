@@ -12,21 +12,28 @@
 
 	<div id="app">
 		<div id="game">
-			<div id="lives">
-				<span></span>
-				<span></span>
-				<span></span>
+			<div class="levelAndLife">
+				<img src="images/icons/level1.png" class="levelIcon">
+				<div id="lives">
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
 			</div>
 
+
 			<div id="options">
-				<div id="score-infantry">
-					Score infantry: <span class="current">0</span>/<span class="total">0</span>
+				<div id="score-infantry" class="scoreBox">
+					<img src="images/icons/infantry-icon.png" class="iconOptions">
+					<span class="current">0</span><span class="scoreLine">/</span><span class="total">0</span>
 				</div>
-				<div id="score-machinery">
-					Score machinery: <span class="current">0</span>/<span class="total">0</span>
+				<div id="score-machinery" class="scoreBox">
+					<img src="images/icons/machinery-icon.png" class="iconOptions">
+					<span class="current">0</span><span class="scoreLine">/</span><span class="total">0</span>
 				</div>
-				<div id="score-navy">
-					Score navy: <span class="current">0</span>/<span class="total">0</span>
+				<div id="score-navy" class="scoreBox">
+					<img src="images/icons/navy-icon.png" class="iconOptions">
+					<span class="current">0</span><span class="scoreLine">/</span><span class="total">0</span>
 				</div>
 				<div id="sound">
 					<img src="images/icons/sound-off.png">
@@ -39,26 +46,22 @@
 
 		<div id="start" >
 			<audio><source></audio>
-
-			<h2>Select the bird</h2>
+            <img src="images/birds/logo-pop-up.png" class="logoPopUp">
+			<h2 class="titlePopUp">Бойовий качур готовий до полювання на рашистів</h2>
 
 			<div id="select-bird" class="clearfix">
 				<span class="selected" id='duck'>
-					<img src="images/birds/duck.png">
+					<img src="images/birds/duck-start.png">
 				</span>
-
 			</div>
-			<button id="startBtn">Start</button>
+			<button id="startBtn">Розпочати</button>
 		</div>
-
-			<div id="end">
-
-				<h2>Game over</h2>
-
-				<h3>Your score is: <span>0</span></h3>
-				<button id="restartBtn">Restart</button>
-			</div>
-
+		<div id="end">
+			<img src="images/birds/logo-pop-up.png" class="logoPopUp">
+			<h2 class="titlePopUp">Спробуй ще раз</h2>
+			<h3>Your score is: <span>0</span></h3>
+			<button id="restartBtn">Restart</button>
+		</div>
 
 	</div>
 
