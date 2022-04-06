@@ -37,6 +37,22 @@ body {
   /*background-color: #0083ff;*/
 }
 
+#background.bg-level-1 {
+  background-image: url(images/backgrounds/bg-level-1.png);
+}
+#background.bg-level-2 {
+  background-image: url(images/backgrounds/bg-level-2.png);
+}
+#background.bg-level-3 {
+  background-image: url(images/backgrounds/bg-level-3.png);
+}
+#background.bg-level-4 {
+  background-image: url(images/backgrounds/bg-level-4.png);
+}
+#background.bg-level-5 {
+  background-image: url(images/backgrounds/bg-level-5.png);
+}
+
 @keyframes background-move {
   0% {
     background-position-x: 0;
@@ -191,27 +207,59 @@ body {
   -moz-transition: all 0.2s;
   transition: all 0.2s;
 }
-
 #bird.duck {
   width: 300px;
-  background: url(images/birds/duck-fly--6.gif);
   transition-duration: 0.0001ms;
   background-size: cover;
   animation: float 3s ease-in-out infinite;
+}
+#bird.duck-fly-1 {
+  background: url(images/birds/duck-fly-1.gif);
+}
+#bird.duck-fly-2 {
+  background: url(images/birds/duck-fly-2.gif);
+}
+#bird.duck-fly-3 {
+  background: url(images/birds/duck-fly-3.gif);
+}
+#bird.duck-fly-4 {
+  background: url(images/birds/duck-fly-4.gif);
+}
+#bird.duck-fly-5 {
+  background: url(images/birds/duck-fly-5.gif);
+}
+#bird.duck-fly-6 {
+  background: url(images/birds/duck-fly-6.gif);
 }
 
 .bullet {
   width: 20px;
   height: 40px;
-  background: url(images/weapons/poop.png) transparent no-repeat;
   position: absolute;
   top: 20%;
   left: 20%;
   z-index: 5;
 }
+.bullet.weapon-1 {
+  background: url(images/weapons/weapon-1.png) transparent no-repeat;
+}
+.bullet.weapon-2 {
+  background: url(images/weapons/weapon-2.png) transparent no-repeat;
+}
+.bullet.weapon-3 {
+  background: url(images/weapons/weapon-3.png) transparent no-repeat;
+}
+.bullet.weapon-4 {
+  background: url(images/weapons/weapon-4.png) transparent no-repeat;
+}
+.bullet.weapon-5 {
+  background: url(images/weapons/weapon-5.png) transparent no-repeat;
+}
+.bullet.weapon-6 {
+  background: url(images/weapons/weapon-6.png) transparent no-repeat;
+}
 
 .boom {
-  background: url(images/booms/boom-2.gif);
   position: absolute;
   width: 224px;
   height: 254px;
@@ -219,23 +267,41 @@ body {
   top: 40%;
   left: 50%;
 }
-
-.enemy {
-  position: absolute;
-  top: calc(70% - 85px);
-  right: 20px;
-  z-index: 999999;
+.boom.boom-1 {
+  background: url(images/booms/boom-1.gif);
+}
+.boom.boom-2 {
+  background: url(images/booms/boom-2.gif);
+}
+.boom.boom-3 {
+  background: url(images/booms/boom-3.gif);
 }
 
-.enemy.soldier {
+.enemy.infantry {
+  position: absolute;
+  right: 20px;
+  z-index: 999999;
   height: 300px;
-  background: url(images/enemies/soldier.gif) no-repeat;
+  background: url(images/enemies/infantry-1.gif) no-repeat;
   padding-bottom: 250px;
 }
 
-.enemy.tank {
+.enemy.machinery {
+  position: absolute;
+  right: 20px;
+  z-index: 999999;
   height: 300px;
-  background: url(images/enemies/tank.png) no-repeat;
+  background: url(images/enemies/machinery-1.png) no-repeat;
+  padding-bottom: 250px;
+}
+
+.enemy.airforce {
+  position: absolute;
+  top: 50% !important;
+  right: 20px;
+  z-index: 999999;
+  height: 300px;
+  background: url(images/enemies/airforce-1.png) no-repeat;
   padding-bottom: 250px;
 }
 

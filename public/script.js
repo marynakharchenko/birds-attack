@@ -25,7 +25,7 @@ let countLives = 3;
 
 let sound = 'off';
 
-let LEVEL = 0;
+let LEVEL = 1;
 let ENEMIES_ARRAY = [];
 const LEVELS = [0, 1, 2, 3, 4, 5];
 const INFANTRY = 'infantry';
@@ -34,15 +34,15 @@ const AIRFORCE = 'airforce';
 
 const ENEMIES = {
   [INFANTRY]: {
-    classes: ['soldier'],
+    classes: ['infantry'],
     number: 0
   },
   [MACHINERY]: {
-    classes: ['tank'],
+    classes: ['machinery'],
     number: 0
   },
   [AIRFORCE]: {
-    classes: [],
+    classes: ['airforce'],
     number: 0
   }
 };
@@ -64,49 +64,55 @@ const SCORE = {
 const CONFIG = {
   LEVELS: {
     [LEVELS[0]]: {
-      backgroundImage: 'url(images/backgrounds/bg-level2.png)',
-      birds: 'url(images/birds/duck-fly--1.gif)',
+      backgroundClass: 'bg-level-1',
+      birdClass: 'duck-fly-1',
       enemies: {
         [INFANTRY]: {
-          title: 'soldier',
-          url: 'soldier.gif',
+          className: 'infantry',
           number: 10,
-          boom: 'boom.gif'
+          boomClass: 'boom-1'
         },
         [MACHINERY]: {
-          title: 'tank',
-          url: 'tank.png',
+          className: 'machinery',
           number: 5,
-          boom: 'boom-2.gif'
+          boomClass: 'boom-2'
+        },
+        [AIRFORCE]: {
+          className: 'airforce',
+          number: 5,
+          boomClass: 'boom-3'
         }
       },
-      weapons: `url('images/weapons/poop.png') transparent no-repeat`
+      weaponClass: 'weapon-1'
     },
     [LEVELS[1]]: {
-      backgroundImage: 'url(images/backgrounds/bg-level3.png)',
-      birds: 'url(images/birds/duck-fly--1.gif)',
+      backgroundClass: 'bg-level-2',
+      birdClass: 'duck-fly-2',
       enemies: {
         [INFANTRY]: {
-          title: 'soldier',
-          url: 'soldier.gif',
+          className: 'infantry',
           number: 20,
-          boom: 'boom.gif'
+          boomClass: 'boom-1'
         },
         [MACHINERY]: {
-          title: 'tank',
-          url: 'tank.png',
+          className: 'machinery',
           number: 10,
-          boom: 'boom-2.gif'
+          boomClass: 'boom-2'
+        },
+        [AIRFORCE]: {
+          className: 'airforce',
+          number: 10,
+          boomClass: 'boom-3'
         }
       },
-      weapons: `url('images/weapons/poop.png') transparent no-repeat`
+      weaponClass: 'weapon-2'
     }
   }
 };
 
 const createEnemyLoop = () => {
   setTimeout(() => {
-    if (gameStarted) {
+    if (gameStarted && ENEMIES_ARRAY.length) {
       createEnemy();
       createEnemyLoop();
     }
@@ -116,30 +122,33 @@ const createEnemyLoop = () => {
 const startGame = () => {
   start.style.display = 'none';
   gameBlock.style.display = 'block';
+
+  background.className = '';
+  background.classList.add(CONFIG.LEVELS[LEVELS[LEVEL]].backgroundClass);
+
+  bird.className = '';
   bird.className = birdSkin;
+  bird.classList.add(CONFIG.LEVELS[LEVELS[LEVEL]].birdClass);
 
-  background.style.backgroundImage=CONFIG.LEVELS[LEVELS[LEVEL]].backgroundImage;
-  bird.style.background=CONFIG.LEVELS[LEVELS[LEVEL]].birds;
-
-  const infantryTitle = CONFIG.LEVELS[LEVELS[LEVEL]].enemies[INFANTRY].title;
+  const infantryClass = CONFIG.LEVELS[LEVELS[LEVEL]].enemies[INFANTRY].className;
   const infantryNumber = CONFIG.LEVELS[LEVELS[LEVEL]].enemies[INFANTRY].number;
-  const machineryTitle = CONFIG.LEVELS[LEVELS[LEVEL]].enemies[MACHINERY].title;
+  const machineryClass = CONFIG.LEVELS[LEVELS[LEVEL]].enemies[MACHINERY].className;
   const machineryNumber = CONFIG.LEVELS[LEVELS[LEVEL]].enemies[MACHINERY].number;
-  // const airforceTitle = CONFIG.LEVELS[LEVELS[LEVEL]].enemies[AIRFORCE].title;
-  // const airforceNumber = CONFIG.LEVELS[LEVELS[LEVEL]].enemies[AIRFORCE].number;
+  const airforceClass = CONFIG.LEVELS[LEVELS[LEVEL]].enemies[AIRFORCE].className;
+  const airforceNumber = CONFIG.LEVELS[LEVELS[LEVEL]].enemies[AIRFORCE].number;
 
   ENEMIES_ARRAY = [];
   ENEMIES_ARRAY.push(
-    ...Array(infantryNumber).fill(infantryTitle),
-    ...Array(machineryNumber).fill(machineryTitle),
-    // ...Array(airforceNumber).fill(airforceTitle),
+    ...Array(infantryNumber).fill(infantryClass),
+    ...Array(machineryNumber).fill(machineryClass),
+    ...Array(airforceNumber).fill(airforceClass),
   );
   ENEMIES_ARRAY = shuffle(ENEMIES_ARRAY);
-  ENEMIES_ARRAY.push(shuffle([infantryTitle, machineryTitle/*, airforceTitle*/]));
+  ENEMIES_ARRAY.push(...shuffle([...Array(2).fill(infantryClass), ...Array(2).fill(machineryClass), ...Array(2).fill(airforceClass)]));
 
   SCORE[INFANTRY].total.innerHTML = String(CONFIG.LEVELS[LEVELS[LEVEL]].enemies[INFANTRY].number);
   SCORE[MACHINERY].total.innerHTML = String(CONFIG.LEVELS[LEVELS[LEVEL]].enemies[MACHINERY].number);
-  // SCORE[AIRFORCE].total.innerHTML = String(CONFIG.LEVELS[LEVELS[LEVEL]].enemies[AIRFORCE].number);
+  SCORE[AIRFORCE].total.innerHTML = String(CONFIG.LEVELS[LEVELS[LEVEL]].enemies[AIRFORCE].number);
 
   createLives();
   createEnemyLoop();
@@ -187,11 +196,9 @@ const typeEnemy = () => {
 const createBullet = () => {
   let bullet = document.createElement('div');
   bullet.className = 'bullet';
-
-  bullet.style.background = CONFIG.LEVELS[LEVELS[LEVEL]].weapons;
-
   bullet.style.top = bird.offsetTop + 150 + 'px';
   bullet.style.left = bird.offsetLeft + 50 + 'px';
+  bullet.classList.add(CONFIG.LEVELS[LEVELS[LEVEL]].weaponClass);
 
   gameBlock.appendChild(bullet);
   moveBullet(bullet);
@@ -205,12 +212,14 @@ const isBoom = bullet => {
     bullet.offsetLeft < enemy.offsetLeft + enemy.clientWidth &&
     bullet.offsetTop > enemy.offsetTop
   ) {
-    createBoom(bullet.offsetTop, bullet.offsetLeft);
+    const enemyClass = enemy.classList[1]; // 'enemy infantry'
+
+    createBoom(bullet.offsetTop, bullet.offsetLeft, enemyClass);
     bullet.remove();
     enemy.remove();
 
     Object.keys(ENEMIES).forEach((key) => {
-      if (ENEMIES[key].classes.includes(enemy.classList[1])) {
+      if (ENEMIES[key].classes.includes(enemyClass)) {
         ENEMIES[key].number += 1;
         SCORE[key].current.innerText = Number(SCORE[key].current.innerText) + 1;
       }
@@ -226,6 +235,7 @@ const die = () => {
 
   createLives();
 };
+
 const createLives = () => {
   lives.innerHTML = '';
   let count = 0;
@@ -236,11 +246,12 @@ const createLives = () => {
   }
 };
 
-const createBoom = (top, left) => {
+const createBoom = (top, left, enemyClass) => {
   let boom = document.createElement('div');
   boom.className = 'boom';
   boom.style.top = top - 100 + 'px';
   boom.style.left = left - 100 + 'px';
+  boom.classList.add(CONFIG.LEVELS[LEVELS[LEVEL]].enemies[enemyClass].boomClass);
   gameBlock.appendChild(boom);
   setTimeout(() => {
     boom.remove();
