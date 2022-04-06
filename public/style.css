@@ -64,7 +64,10 @@ body {
 
 #game {
   display: none;
+}
 
+#startBtn:disabled {
+  background: gray;
 }
 
 #end, #next-level, #previous-level {
