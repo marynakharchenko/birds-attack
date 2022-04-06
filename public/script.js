@@ -78,17 +78,17 @@ const CONFIG = {
       birdClass: 'duck-fly-1',
       enemies: {
         [INFANTRY]: {
-          className: 'infantry',
+          className: 'infantry-1',
           number: 5,
           boomClass: 'boom-1'
         },
         [MACHINERY]: {
-          className: 'machinery',
+          className: 'machinery-1',
           number: 5,
           boomClass: 'boom-2'
         },
         [AIRFORCE]: {
-          className: 'airforce',
+          className: 'airforce-1',
           number: 5,
           boomClass: 'boom-3'
         }
@@ -100,17 +100,17 @@ const CONFIG = {
       birdClass: 'duck-fly-2',
       enemies: {
         [INFANTRY]: {
-          className: 'infantry',
+          className: 'infantry-2',
           number: 10,
           boomClass: 'boom-1'
         },
         [MACHINERY]: {
-          className: 'machinery',
+          className: 'machinery-2',
           number: 10,
           boomClass: 'boom-2'
         },
         [AIRFORCE]: {
-          className: 'airforce',
+          className: 'airforce-2',
           number: 10,
           boomClass: 'boom-3'
         }
@@ -122,17 +122,17 @@ const CONFIG = {
       birdClass: 'duck-fly-3',
       enemies: {
         [INFANTRY]: {
-          className: 'infantry',
+          className: 'infantry-3',
           number: 15,
           boomClass: 'boom-1'
         },
         [MACHINERY]: {
-          className: 'machinery',
+          className: 'machinery-3',
           number: 15,
           boomClass: 'boom-2'
         },
         [AIRFORCE]: {
-          className: 'airforce',
+          className: 'airforce-3',
           number: 15,
           boomClass: 'boom-3'
         }
@@ -144,17 +144,17 @@ const CONFIG = {
       birdClass: 'duck-fly-4',
       enemies: {
         [INFANTRY]: {
-          className: 'infantry',
+          className: 'infantry-4',
           number: 20,
           boomClass: 'boom-1'
         },
         [MACHINERY]: {
-          className: 'machinery',
+          className: 'machinery-4',
           number: 20,
           boomClass: 'boom-2'
         },
         [AIRFORCE]: {
-          className: 'airforce',
+          className: 'airforce-4',
           number: 20,
           boomClass: 'boom-3'
         }
@@ -166,17 +166,17 @@ const CONFIG = {
       birdClass: 'duck-fly-5',
       enemies: {
         [INFANTRY]: {
-          className: 'infantry',
+          className: 'infantry-5',
           number: 25,
           boomClass: 'boom-1'
         },
         [MACHINERY]: {
-          className: 'machinery',
+          className: 'machinery-5',
           number: 25,
           boomClass: 'boom-2'
         },
         [AIRFORCE]: {
-          className: 'airforce',
+          className: 'airforce-5',
           number: 25,
           boomClass: 'boom-3'
         }
@@ -188,17 +188,17 @@ const CONFIG = {
       birdClass: 'duck-fly-6',
       enemies: {
         [INFANTRY]: {
-          className: 'infantry',
+          className: 'infantry-6',
           number: 30,
           boomClass: 'boom-1'
         },
         [MACHINERY]: {
-          className: 'machinery',
+          className: 'machinery-6',
           number: 30,
           boomClass: 'boom-2'
         },
         [AIRFORCE]: {
-          className: 'airforce',
+          className: 'airforce-6',
           number: 30,
           boomClass: 'boom-3'
         }
@@ -228,21 +228,18 @@ const startGame = () => {
   bird.className = birdSkin;
   bird.classList.add(CONFIG.LEVELS[LEVELS[LEVEL]].birdClass);
 
-  const infantryClass = CONFIG.LEVELS[LEVELS[LEVEL]].enemies[INFANTRY].className;
   const infantryNumber = CONFIG.LEVELS[LEVELS[LEVEL]].enemies[INFANTRY].number;
-  const machineryClass = CONFIG.LEVELS[LEVELS[LEVEL]].enemies[MACHINERY].className;
   const machineryNumber = CONFIG.LEVELS[LEVELS[LEVEL]].enemies[MACHINERY].number;
-  const airforceClass = CONFIG.LEVELS[LEVELS[LEVEL]].enemies[AIRFORCE].className;
   const airforceNumber = CONFIG.LEVELS[LEVELS[LEVEL]].enemies[AIRFORCE].number;
 
   ENEMIES_ARRAY = [];
   ENEMIES_ARRAY.push(
-    ...Array(infantryNumber).fill(infantryClass),
-    ...Array(machineryNumber).fill(machineryClass),
-    ...Array(airforceNumber).fill(airforceClass),
+    ...Array(infantryNumber).fill(INFANTRY),
+    ...Array(machineryNumber).fill(MACHINERY),
+    ...Array(airforceNumber).fill(AIRFORCE),
   );
   ENEMIES_ARRAY = shuffle(ENEMIES_ARRAY);
-  ENEMIES_ARRAY.push(...shuffle([...Array(2).fill(infantryClass), ...Array(2).fill(machineryClass), ...Array(2).fill(airforceClass)]));
+  ENEMIES_ARRAY.push(...shuffle([...Array(2).fill(INFANTRY), ...Array(2).fill(MACHINERY), ...Array(2).fill(AIRFORCE)]));
 
   SCORE[INFANTRY].total.innerHTML = String(CONFIG.LEVELS[LEVELS[LEVEL]].enemies[INFANTRY].number);
   SCORE[MACHINERY].total.innerHTML = String(CONFIG.LEVELS[LEVELS[LEVEL]].enemies[MACHINERY].number);
@@ -276,19 +273,20 @@ const moveBullet = bullet => {
   }, 10);
 };
 
-const createEnemy = () => {
-  let enemy = document.createElement('div');
-  enemy.className = 'enemy ' + typeEnemy();
-  enemy.style.top = document.querySelector('#app').clientHeight - 200 + 'px';
-
-  gameBlock.appendChild(enemy);
-  moveEnemy(enemy);
-};
-
 const typeEnemy = () => {
   const [enemyType, ...enemyTypes] = ENEMIES_ARRAY;
   ENEMIES_ARRAY = enemyTypes;
   return enemyType;
+};
+
+const createEnemy = () => {
+  let enemy = document.createElement('div');
+  const type = typeEnemy();
+  enemy.className = `enemy ${type} ${CONFIG.LEVELS[LEVELS[LEVEL]].enemies[type].className}`;
+  enemy.style.top = document.querySelector('#app').clientHeight - 200 + 'px';
+
+  gameBlock.appendChild(enemy);
+  moveEnemy(enemy);
 };
 
 const createBullet = () => {

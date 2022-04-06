@@ -277,22 +277,42 @@ body {
   background: url(images/booms/boom-3.gif);
 }
 
-.enemy.infantry {
+.enemy.infantry, .enemy.machinery {
   position: absolute;
   right: 20px;
   z-index: 999999;
   height: 300px;
-  background: url(images/enemies/infantry-1.gif) no-repeat;
   padding-bottom: 250px;
 }
-
-.enemy.machinery {
-  position: absolute;
-  right: 20px;
-  z-index: 999999;
-  height: 300px;
+.enemy.infantry-1 {
+  background: url(images/enemies/infantry-1.gif) no-repeat;
+}
+.enemy.infantry-2 {
+  background: url(images/enemies/infantry-2.gif) no-repeat;
+}
+.enemy.infantry-3 {
+  background: url(images/enemies/infantry-3.gif) no-repeat;
+}
+.enemy.infantry-4 {
+  background: url(images/enemies/infantry-4.gif) no-repeat;
+}
+.enemy.infantry-5 {
+  background: url(images/enemies/infantry-5.gif) no-repeat;
+}
+.enemy.machinery-1 {
   background: url(images/enemies/machinery-1.png) no-repeat;
-  padding-bottom: 250px;
+}
+.enemy.machinery-2 {
+  background: url(images/enemies/machinery-2.png) no-repeat;
+}
+.enemy.machinery-3 {
+  background: url(images/enemies/machinery-3.png) no-repeat;
+}
+.enemy.machinery-4 {
+  background: url(images/enemies/machinery-4.png) no-repeat;
+}
+.enemy.machinery-5 {
+  background: url(images/enemies/machinery-5.png) no-repeat;
 }
 
 .enemy.airforce {
@@ -301,8 +321,22 @@ body {
   right: 20px;
   z-index: 999999;
   height: 300px;
-  background: url(images/enemies/airforce-1.png) no-repeat;
   padding-bottom: 250px;
+}
+.enemy.airforce-1 {
+  background: url(images/enemies/airforce-1.png) no-repeat;
+}
+.enemy.airforce-2 {
+  background: url(images/enemies/airforce-2.png) no-repeat;
+}
+.enemy.airforce-3 {
+  background: url(images/enemies/airforce-3.png) no-repeat;
+}
+.enemy.airforce-4 {
+  background: url(images/enemies/airforce-4.png) no-repeat;
+}
+.enemy.airforce-5 {
+  background: url(images/enemies/airforce-5.png) no-repeat;
 }
 
 .logoPopUp{
