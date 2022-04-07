@@ -2,123 +2,15 @@ body {
   height: 100vh;
   padding: 0;
   margin: 0;
-}
-
-@media (min-width: 1280px) {
-  #background {
-    background-size: 1000px;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1279px) {
-  #background {
-    background-size: 1000px;
-  }
-}
-
-@media (min-width: 320px) and (max-width: 767px) {
-  #background {
-    background-size: 700px;
-  }
-}
-
-#background {
-  padding: 0;
-  overflow: hidden;
-  z-index: 1;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #D6E1F5;
-  animation: background-move 10s linear infinite;
-  background-repeat: repeat-x;
-  background-position: center bottom;
-  /*background-color: #0083ff;*/
-}
-
-#background.bg-level-1 {
-  background-image: url(images/backgrounds/bg-level-1.png);
-}
-#background.bg-level-2 {
-  background-image: url(images/backgrounds/bg-level-2.png);
-}
-#background.bg-level-3 {
-  background-image: url(images/backgrounds/bg-level-3.png);
-}
-#background.bg-level-4 {
-  background-image: url(images/backgrounds/bg-level-4.png);
-}
-#background.bg-level-5 {
-  background-image: url(images/backgrounds/bg-level-5.png);
-}
-
-@keyframes background-move {
-  0% {
-    background-position-x: 0;
-  }
-  100% {
-    background-position-x: -1000px;
-  }
+  font-family: "Tahoma", "Arial Black", sans-serif;
 }
 
 #game {
   display: none;
-
 }
 
 #end {
   display: none;
-}
-
-@keyframes float {
-  0% {
-    transform: translatey(0px);
-  }
-  50% {
-    transform: translatey(-20px);
-  }
-  100% {
-    transform: translatey(0px);
-  }
-}
-
-.iconOptions{
-  width: 80px;
-  position: absolute;
-  left: -30px;
-  top: -30px;
-}
-
-.current{
-  font-weight: bold;
-  font-family: "Open Sans";
-  font-size: 16px;
-  color: black;
-  margin-left: 40px;
-}
-
-.total{
-  font-weight: bold;
-  font-family: "Open Sans";
-  font-size: 12px;
-  color: #6f6f6f;
-}
-
-.scoreLine{
-   font-weight: bold;
-  font-family: "Open Sans";
-  font-size: 12px;
-  color: #6f6f6f;
-}
-
-.scoreBox{
-  position: relative;
-  width: 70px;
-  background-color: white;
-  border: 3px solid black;
-  border-radius: 50px;
-  height: 20px;
 }
 
 #app {
@@ -133,69 +25,182 @@ body {
   z-index: 9;
 }
 
-.levelAndLife{
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  width: fit-content;
-  position: absolute;
-  top: 5px;
-  left: 20px;
+.clearfix {
+  zoom: 1;
 }
 
-.levelIcon{
-  width: 100px;
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
 }
 
-#lives {
-  margin-left: 20px;
+.clearfix:after {
+  clear: both;
 }
 
-#lives span {
-  display: block;
-  margin: 0;
-  float: left;
-  width: 20px;
-  height: 20px;
-  background: url(images/icons/star-icon.png);
-  background-size: cover;
-}
 
-#options {
+@media (min-width: 1280px) {
+  #background {
+    background-size: 1000px;
+  }
+  #bird.duck {
+  width: 300px;
+}
+  @keyframes background-move {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: -1000px;
+  }
+}
+  #options {
   margin: 30px auto;
-  height: 30px;
+  }
+  .scoreBox{
+    margin: 6px 20px;
+  }
+  .levelAndLife{
+    top: 5px;
+    left: 20px;
+  }
+  .levelIcon{
+    width: 100px;
+  }
+  #lives {
+    margin-left: 20px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  #background {
+    background-size: 1000px;
+  }
+  @keyframes background-move {
+     0% {
+        background-position-x: 0;
+    }
+     100% {
+      background-position-x: -1000px;
+    }
+  }
+  #bird.duck {
+     width: 200px;
+  }
+  #bird.duck-fly-1 {
+    width: 200px !important;
+    background-repeat: no-repeat !important;
+    background-size: contain !important;
+    margin-top: 50px !important;
+  }
+  #options {
+    margin: 30px auto;
+   }
+  .scoreBox{
+    margin: 6px 20px;
+  }
+  .levelAndLife{
+    top: 5px;
+    left: 20px;
+  }
+  .levelIcon{
+    width: 100px;
+  }
+  #lives {
+    margin-left: 20px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  #background {
+    background-size: 700px;
+  }
+   @keyframes background-move {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: -700px;
+  }
+}
+  #bird.duck {
+    width: 200px;
+  }
+  #bird.duck-fly-1 {
+    width: 200px !important;
+    background-repeat: no-repeat !important;
+    background-size: contain !important;
+    margin-top: 80px !important;
+  }
+  #options {
+     margin: 10px auto;
+    }
+  .scoreBox{
+    margin: 6px 10px 6px 20px;
+  }
+  .levelAndLife{
+    top: 45px;
+    left: 10px;
+  }
+  .levelIcon{
+    width: 70px;
+  }
+  #lives {
+    margin-left: 0;
+  }
+}
+
+/*----------------background---------------- */
+
+#background {
+  padding: 0;
+  overflow: hidden;
+  z-index: 1;
+  height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  background-color: #D6E1F5;
+  background-repeat: repeat-x;
+  background-position: center bottom;
+  /*background-color: #0083ff;*/
 }
 
-#options div {
-  float: left;
-  cursor: pointer;
+#background.bg-level-1 {
+  background-image: url(images/backgrounds/bg-level-1.png);
+  animation: background-move 5s linear infinite;
+}
+#background.bg-level-2 {
+  background-image: url(images/backgrounds/bg-level-2.png);
+  animation: background-move 5s linear infinite;
+}
+#background.bg-level-3 {
+  background-image: url(images/backgrounds/bg-level-3.png);
+  background-color: #181b1e;
+  animation: background-move 5s linear infinite;
+}
+#background.bg-level-4 {
+  background-image: url(images/backgrounds/bg-level-4.png);
+  animation: background-move 3s linear infinite;
+}
+#background.bg-level-5 {
+  background-image: url(images/backgrounds/bg-level-5.png);
+  animation: background-move 3s linear infinite;
 }
 
-#options #score-infantry {
-  color: #fff;
-  font-size: 20px;
-  margin: 6px 20px;
-}
+/*--------------------------------birds---------------- */
 
-#options #score-machinery {
-  color: #fff;
-  font-size: 20px;
-  margin: 6px 20px;
-}
-
-#options #score-airforce {
-  color: #fff;
-  font-size: 20px;
-  margin: 6px 20px;
-}
-
-#options #sound,
-#options #sound img {
-  height: 100%;
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-20px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
 }
 
 #bird {
@@ -208,7 +213,6 @@ body {
   transition: all 0.2s;
 }
 #bird.duck {
-  width: 300px;
   transition-duration: 0.0001ms;
   background-size: cover;
   animation: float 3s ease-in-out infinite;
@@ -218,19 +222,102 @@ body {
 }
 #bird.duck-fly-2 {
   background: url(images/birds/duck-fly-2.gif);
+  background-size: cover;
+  width: 250px;
 }
 #bird.duck-fly-3 {
   background: url(images/birds/duck-fly-3.gif);
 }
 #bird.duck-fly-4 {
   background: url(images/birds/duck-fly-4.gif);
+  background-size: cover;
+  width: 250px;
 }
 #bird.duck-fly-5 {
   background: url(images/birds/duck-fly-5.gif);
+  background-size: cover;
+  width: 250px;
+
 }
 #bird.duck-fly-6 {
   background: url(images/birds/duck-fly-6.gif);
+  background-size: cover;
+  width: 250px;
 }
+
+/*--------------------------------score---------------- */
+
+.iconOptions{
+  width: 60px;
+  position: absolute;
+  left: -30px;
+  top: -20px;
+}
+.current{
+  font-weight: bold;
+  font-size: 11px;
+  color: black;
+  margin-left: 25px;
+}
+.total{
+  font-weight: bold;
+  font-size: 9px;
+  color: #6f6f6f;
+}
+.scoreLine{
+  font-weight: bold;
+  font-size: 9px;
+  color: #6f6f6f;
+}
+.scoreBox{
+  position: relative;
+  width: 70px;
+  background-color: white;
+  border: 3px solid black;
+  border-radius: 50px;
+  height: 20px;
+}
+.levelAndLife{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: fit-content;
+  position: absolute;
+}
+#lives span {
+  display: block;
+  margin: 0;
+  float: left;
+  width: 20px;
+  height: 20px;
+  background: url(images/icons/star-icon.png);
+  background-size: cover;
+}
+#options {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#options div {
+  float: left;
+}
+#options #score-infantry {
+  color: #fff;
+}
+#options #score-machinery {
+  color: #fff;
+}
+#options #score-airforce {
+  color: #fff;
+}
+#options #sound,
+#options #sound img {
+  height: 100%;
+}
+
+/*--------------------------------weapon---------------- */
 
 .bullet {
   width: 20px;
@@ -248,17 +335,26 @@ body {
 }
 .bullet.weapon-3 {
   background: url(images/weapons/weapon-3.png) transparent no-repeat;
+  width: 50px;
+  height: 70px;
 }
 .bullet.weapon-4 {
   background: url(images/weapons/weapon-4.png) transparent no-repeat;
+  width: 50px;
+  height: 130px;
 }
 .bullet.weapon-5 {
   background: url(images/weapons/weapon-5.png) transparent no-repeat;
+  width: 70px;
+  height: 170px;
+  background-size: cover;
 }
 .bullet.weapon-6 {
   background: url(images/weapons/weapon-6.png) transparent no-repeat;
+  width: 70px;
+  height: 170px;
+  background-size: cover;
 }
-
 .boom {
   position: absolute;
   width: 224px;
@@ -268,15 +364,14 @@ body {
   left: 50%;
 }
 .boom.boom-1 {
-  background: url(images/booms/boom-1.gif);
+  background: url(images/booms/boom-1.gif) transparent no-repeat;
 }
 .boom.boom-2 {
-  background: url(images/booms/boom-2.gif);
+  background: url(images/booms/boom-2.gif) transparent no-repeat;
 }
 .boom.boom-3 {
-  background: url(images/booms/boom-3.gif);
+  background: url(images/booms/boom-3.gif) transparent no-repeat;
 }
-
 .enemy.infantry {
   position: absolute;
   right: 20px;
@@ -285,7 +380,6 @@ body {
   background: url(images/enemies/infantry-1.gif) no-repeat;
   padding-bottom: 250px;
 }
-
 .enemy.machinery {
   position: absolute;
   right: 20px;
@@ -294,7 +388,6 @@ body {
   background: url(images/enemies/machinery-1.png) no-repeat;
   padding-bottom: 250px;
 }
-
 .enemy.airforce {
   position: absolute;
   top: 50% !important;
@@ -305,6 +398,8 @@ body {
   padding-bottom: 250px;
 }
 
+/*--------------------------------popUps---------------- */
+
 .logoPopUp{
   position: absolute;
   top: -80px;
@@ -314,7 +409,6 @@ body {
 
 .titlePopUp{
   margin-top: 80px;
-  font-family: "Open Sans";
   font-weight: bold;
   font-size: 16px;
   line-height: normal;
@@ -347,7 +441,6 @@ body {
   font-size: 16px;
   width: 160px;
   height: 45px;
-  font-family: "Open Sans" ;
   font-weight: bold;
   background: #0083ff;
   border-radius: 50px;
@@ -369,16 +462,4 @@ body {
   transition-duration: 0.2s;
 }
 
-.clearfix {
-  zoom: 1;
-}
 
-.clearfix:before,
-.clearfix:after {
-  content: "";
-  display: table;
-}
-
-.clearfix:after {
-  clear: both;
-}

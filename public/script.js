@@ -410,11 +410,11 @@ duck.onclick = () => {
 
 soundBtn.onclick = () => {
   if (sound === 'on') {
-    soundBtn.src = 'images/sound-off.png';
+    soundBtn.src = 'images/icons/sound-off.png';
     sound = 'off';
     audio.pause();
   } else {
-    soundBtn.src = 'images/sound-on.png';
+    soundBtn.src = 'images/icons/sound-on.png';
     sound = 'on';
 
     // source.src = 'audio/music.mp3';
