@@ -190,11 +190,11 @@ body {
 }
 #background.bg-level-4 {
   background-image: url(images/backgrounds/bg-level-4.png);
-  animation: background-move 3s linear infinite;
+  animation: background-move 5s linear infinite;
 }
 #background.bg-level-5 {
   background-image: url(images/backgrounds/bg-level-5.png);
-  animation: background-move 3s linear infinite;
+  animation: background-move 5s linear infinite;
 }
 
 /*--------------------------------birds---------------- */

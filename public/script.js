@@ -20,13 +20,41 @@ window.onload = () => {
   const scoreInfantryTotal = document.querySelector('#score-infantry .total');
   const scoreMachineryTotal = document.querySelector('#score-machinery .total');
   const scoreAirforceTotal = document.querySelector('#score-airforce .total');
-  const audio = document.querySelector('audio');
   const gameBlock = document.querySelector('#game');
   const soundBtn = document.querySelector('#sound img');
   const bird = document.querySelector('#bird');
   const duck = document.querySelector('#duck');
 
-  // const source = document.querySelector('audio source');
+  const audio = document.querySelector('audio');
+  const source = document.querySelector('audio source');
+
+  const random = (min, max) => {
+    let rand = min - 0.5 + Math.random() * (max - min + 1);
+    return Math.round(rand);
+  };
+  const shuffle = (array) => {
+    let currentIndex = array.length;
+    let randomIndex;
+
+    while (currentIndex !== 0) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+      [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+    }
+
+    return array;
+  };
+
+  const AUDIO_TRACKS = shuffle([
+    './audio/Carved%20From%20Stone%20-%20TrackTribe.mp3',
+    './audio/Desert%20Brawl%20-%20Vans%20in%20Japan.mp3',
+    './audio/Go%20Down%20Swinging%20(Instrumental)%20-%20NEFFEX.mp3',
+    './audio/Higher%20Octane%20-%20Vans%20in%20Japan.mp3',
+    './audio/Riffs%20For%20Days%20-%20TrackTribe.mp3',
+    './audio/Tropical%20Thunder%20-%20RKVC.mp3',
+    './audio/Tuff%20Data%20-%20Vans%20in%20Japan.mp3'
+  ]);
+  let AUDIO_TRACK = 0;
 
   const bulletInterval = 500;
   let bulletTimestamp = Date.now();
@@ -221,6 +249,7 @@ window.onload = () => {
 
   const startGame = () => {
     startBlock.style.display = 'none';
+    endBlock.style.display = 'none';
     gameBlock.style.display = 'block';
 
     background.className = '';
@@ -420,36 +449,19 @@ window.onload = () => {
   const endGame = () => {
     gameStarted = false;
     ENEMIES_ARRAY = [];
+    LEVEL = 0;
 
     let scoreBlock = document.querySelector('#end h3 span');
     scoreBlock.innerText = ENEMIES[INFANTRY].number + ENEMIES[MACHINERY].number + ENEMIES[AIRFORCE].number;
 
-    gameBlock.innerHTML = '';
+    resetLives();
+    resetScore();
+    document.querySelectorAll('.enemy').forEach(e => e.remove());
+
     endBlock.style.display = 'block';
 
     let restartBtn = document.querySelector('#end button');
-    restartBtn.onclick = restart;
-  };
-
-  const restart = () => {
-    location.reload();
-  };
-
-  const random = (min, max) => {
-    let rand = min - 0.5 + Math.random() * (max - min + 1);
-    return Math.round(rand);
-  };
-  const shuffle = (array) => {
-    let currentIndex = array.length;
-    let randomIndex;
-
-    while (currentIndex !== 0) {
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex--;
-      [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
-    }
-
-    return array;
+    restartBtn.onclick = startGame;
   };
 
   startBtn.onclick = () => {
@@ -464,6 +476,19 @@ window.onload = () => {
     birdSkin = 'duck';
   };
 
+  source.src = AUDIO_TRACKS[AUDIO_TRACK];
+  audio.load();
+  audio.addEventListener('ended', () => {
+    AUDIO_TRACK += 1;
+    if (AUDIO_TRACK === AUDIO_TRACKS.length) {
+      AUDIO_TRACK = 0;
+    }
+    audio.src = AUDIO_TRACKS[AUDIO_TRACK];
+    audio.pause();
+    audio.load();
+    audio.play();
+  });
+
   soundBtn.onclick = () => {
     if (sound === 'on') {
       soundBtn.src = 'images/icons/sound-off.png';
@@ -472,9 +497,6 @@ window.onload = () => {
     } else {
       soundBtn.src = 'images/icons/sound-on.png';
       sound = 'on';
-
-      // source.src = 'audio/music.mp3';
-      audio.load();
       audio.play();
     }
   };
