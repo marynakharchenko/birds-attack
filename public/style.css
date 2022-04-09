@@ -196,6 +196,12 @@ body {
   background-image: url(images/backgrounds/bg-level-5.png);
   animation: background-move 5s linear infinite;
 }
+#background.bg-level-6 {
+  background-image: url(images/backgrounds/bg-level-6.png);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
 
 /*--------------------------------birds---------------- */
 
@@ -383,9 +389,10 @@ body {
 
 .enemy.infantry, .enemy.machinery {
   position: absolute;
-  right: 20px;
+  right: -300px;
   z-index: 999999;
   height: 300px;
+  width: 300px;
   padding-bottom: 250px;
 }
 .enemy.infantry-1 {
@@ -421,9 +428,10 @@ body {
 .enemy.airforce {
   position: absolute;
   top: 50% !important;
-  right: 20px;
+  right: -300px;
   z-index: 999999;
   height: 300px;
+  width: 300px;
   padding-bottom: 250px;
 }
 .enemy.airforce-1 {
@@ -440,6 +448,15 @@ body {
 }
 .enemy.airforce-5 {
   background: url(images/enemies/airforce-5.png) no-repeat;
+}
+.enemy.putin {
+  position: absolute;
+  right: 20px;
+  z-index: 999999;
+  height: 250px;
+  width: 250px;
+  background-size: contain !important;
+  background: url(images/enemies/putin.gif) no-repeat;
 }
 
 /*--------------------------------popUps---------------- */
