@@ -286,7 +286,7 @@ window.onload = () => {
 
     duckSound.load();
     duckSound.play();
-    music.play();
+    if (sound === 'on') music.play();
 
     background.className = '';
     background.classList.add(CONFIG.LEVELS[LEVELS[LEVEL]].backgroundClass);
@@ -327,7 +327,7 @@ window.onload = () => {
 
     duckSound.load();
     duckSound.play();
-    music.play();
+    if (sound === 'on') music.play();
 
     background.className = '';
     background.classList.add(CONFIG.LEVELS[LEVELS[LEVEL]].backgroundClass);
@@ -446,7 +446,7 @@ window.onload = () => {
           endGameSuccess();
         }
       } else {
-        createBoom(bullet.offsetTop, bullet.offsetLeft, enemyClass);
+        createBoom(enemy.offsetTop, enemy.offsetLeft, enemyClass);
         bullet.remove();
         enemy.remove();
 
@@ -495,7 +495,7 @@ window.onload = () => {
     let boom = document.createElement('div');
     boom.className = 'boom';
     boom.style.top = top - 100 + 'px';
-    boom.style.left = left - 100 + 'px';
+    boom.style.left = left + 'px';
     boom.classList.add(CONFIG.LEVELS[LEVELS[LEVEL]].enemies[enemyClass].boomClass);
     boomSoundSource.src = CONFIG.LEVELS[LEVELS[LEVEL]].enemies[enemyClass].boomSound;
     boomSound.load();

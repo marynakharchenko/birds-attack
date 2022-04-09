@@ -392,7 +392,7 @@ body {
   right: -300px;
   z-index: 999999;
   height: 300px;
-  width: 300px;
+  width: 400px;
   padding-bottom: 250px;
 }
 .enemy.infantry-1 {
@@ -431,7 +431,7 @@ body {
   right: -300px;
   z-index: 999999;
   height: 300px;
-  width: 300px;
+  width: 400px;
   padding-bottom: 250px;
 }
 .enemy.airforce-1 {
@@ -453,8 +453,8 @@ body {
   position: absolute;
   right: 20px;
   z-index: 999999;
-  height: 250px;
-  width: 250px;
+  height: 300px;
+  width: 400px;
   background-size: contain !important;
   background: url(images/enemies/putin.gif) no-repeat;
 }
