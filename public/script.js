@@ -26,8 +26,14 @@ window.onload = () => {
   const bird = document.querySelector('#bird');
   const duck = document.querySelector('#duck');
 
-  const audio = document.querySelector('audio');
-  const source = document.querySelector('audio source');
+  const music = document.querySelector('.music');
+  const source = document.querySelector('.music source');
+
+  const duckSound = document.querySelector('.duck-sound');
+  const duckSoundSource = document.querySelector('.duck-sound source');
+
+  const boomSound = document.querySelector('.boom-sound');
+  const boomSoundSource = document.querySelector('.boom-sound source');
 
   const random = (min, max) => {
     let rand = min - 0.5 + Math.random() * (max - min + 1);
@@ -47,13 +53,13 @@ window.onload = () => {
   };
 
   const AUDIO_TRACKS = shuffle([
-    './audio/Carved%20From%20Stone%20-%20TrackTribe.mp3',
-    './audio/Desert%20Brawl%20-%20Vans%20in%20Japan.mp3',
-    './audio/Go%20Down%20Swinging%20(Instrumental)%20-%20NEFFEX.mp3',
-    './audio/Higher%20Octane%20-%20Vans%20in%20Japan.mp3',
-    './audio/Riffs%20For%20Days%20-%20TrackTribe.mp3',
-    './audio/Tropical%20Thunder%20-%20RKVC.mp3',
-    './audio/Tuff%20Data%20-%20Vans%20in%20Japan.mp3'
+    './audio/music/Carved%20From%20Stone%20-%20TrackTribe.mp3',
+    './audio/music/Desert%20Brawl%20-%20Vans%20in%20Japan.mp3',
+    './audio/music/Go%20Down%20Swinging%20(Instrumental)%20-%20NEFFEX.mp3',
+    './audio/music/Higher%20Octane%20-%20Vans%20in%20Japan.mp3',
+    './audio/music/Riffs%20For%20Days%20-%20TrackTribe.mp3',
+    './audio/music/Tropical%20Thunder%20-%20RKVC.mp3',
+    './audio/music/Tuff%20Data%20-%20Vans%20in%20Japan.mp3'
   ]);
   let AUDIO_TRACK = 0;
 
@@ -64,7 +70,7 @@ window.onload = () => {
   let birdSkin = 'duck';
   let countLives = 3;
 
-  let sound = 'off';
+  let sound = 'on';
 
   let LEVEL = 0;
   let ENEMIES_ARRAY = [];
@@ -113,17 +119,20 @@ window.onload = () => {
           [INFANTRY]: {
             className: 'infantry-1',
             number: 5,
-            boomClass: 'boom-1'
+            boomClass: 'boom-1',
+            boomSound: './audio/booms/Gunfire%20And%20Voices.mp3'
           },
           [MACHINERY]: {
             className: 'machinery-1',
             number: 5,
-            boomClass: 'boom-2'
+            boomClass: 'boom-2',
+            boomSound: './audio/booms/Big%20Explosion%20Cut%20Off.mp3'
           },
           [AIRFORCE]: {
             className: 'airforce-1',
             number: 5,
-            boomClass: 'boom-3'
+            boomClass: 'boom-3',
+            boomSound: './audio/booms/Magnum%20Shots%20-%20single.mp3'
           }
         },
         weaponClass: 'weapon-1'
@@ -135,17 +144,20 @@ window.onload = () => {
           [INFANTRY]: {
             className: 'infantry-2',
             number: 10,
-            boomClass: 'boom-1'
+            boomClass: 'boom-1',
+            boomSound: './audio/booms/Gunfire%20And%20Voices.mp3'
           },
           [MACHINERY]: {
             className: 'machinery-2',
             number: 10,
-            boomClass: 'boom-2'
+            boomClass: 'boom-2',
+            boomSound: './audio/booms/Big%20Explosion%20Cut%20Off.mp3'
           },
           [AIRFORCE]: {
             className: 'airforce-2',
             number: 10,
-            boomClass: 'boom-3'
+            boomClass: 'boom-3',
+            boomSound: './audio/booms/Magnum%20Shots%20-%20single.mp3'
           }
         },
         weaponClass: 'weapon-2'
@@ -157,17 +169,20 @@ window.onload = () => {
           [INFANTRY]: {
             className: 'infantry-3',
             number: 15,
-            boomClass: 'boom-1'
+            boomClass: 'boom-1',
+            boomSound: './audio/booms/Gunfire%20And%20Voices.mp3'
           },
           [MACHINERY]: {
             className: 'machinery-3',
             number: 15,
-            boomClass: 'boom-2'
+            boomClass: 'boom-2',
+            boomSound: './audio/booms/Big%20Explosion%20Cut%20Off.mp3'
           },
           [AIRFORCE]: {
             className: 'airforce-3',
             number: 15,
-            boomClass: 'boom-3'
+            boomClass: 'boom-3',
+            boomSound: './audio/booms/Magnum%20Shots%20-%20single.mp3'
           }
         },
         weaponClass: 'weapon-3'
@@ -179,17 +194,20 @@ window.onload = () => {
           [INFANTRY]: {
             className: 'infantry-4',
             number: 20,
-            boomClass: 'boom-1'
+            boomClass: 'boom-1',
+            boomSound: './audio/booms/Gunfire%20And%20Voices.mp3'
           },
           [MACHINERY]: {
             className: 'machinery-4',
             number: 20,
-            boomClass: 'boom-2'
+            boomClass: 'boom-2',
+            boomSound: './audio/booms/Big%20Explosion%20Cut%20Off.mp3'
           },
           [AIRFORCE]: {
             className: 'airforce-4',
             number: 20,
-            boomClass: 'boom-3'
+            boomClass: 'boom-3',
+            boomSound: './audio/booms/Magnum%20Shots%20-%20single.mp3'
           }
         },
         weaponClass: 'weapon-4'
@@ -201,17 +219,20 @@ window.onload = () => {
           [INFANTRY]: {
             className: 'infantry-5',
             number: 25,
-            boomClass: 'boom-1'
+            boomClass: 'boom-1',
+            boomSound: './audio/booms/Gunfire%20And%20Voices.mp3'
           },
           [MACHINERY]: {
             className: 'machinery-5',
             number: 25,
-            boomClass: 'boom-2'
+            boomClass: 'boom-2',
+            boomSound: './audio/booms/Big%20Explosion%20Cut%20Off.mp3'
           },
           [AIRFORCE]: {
             className: 'airforce-5',
             number: 25,
-            boomClass: 'boom-3'
+            boomClass: 'boom-3',
+            boomSound: './audio/booms/Magnum%20Shots%20-%20single.mp3'
           }
         },
         weaponClass: 'weapon-5'
@@ -223,17 +244,20 @@ window.onload = () => {
           [INFANTRY]: {
             className: 'putin',
             number: 30,
-            boomClass: 'boom-1'
+            boomClass: 'boom-1',
+            boomSound: './audio/booms/Gunfire%20And%20Voices.mp3'
           },
           [MACHINERY]: {
             className: 'putin',
             number: 30,
-            boomClass: 'boom-2'
+            boomClass: 'boom-2',
+            boomSound: './audio/booms/Big%20Explosion%20Cut%20Off.mp3'
           },
           [AIRFORCE]: {
             className: 'putin',
             number: 30,
-            boomClass: 'boom-3'
+            boomClass: 'boom-3',
+            boomSound: './audio/booms/Magnum%20Shots%20-%20single.mp3'
           }
         },
         weaponClass: 'weapon-6'
@@ -259,6 +283,10 @@ window.onload = () => {
     startBlock.style.display = 'none';
     endBlock.style.display = 'none';
     gameBlock.style.display = 'block';
+
+    duckSound.load();
+    duckSound.play();
+    music.play();
 
     background.className = '';
     background.classList.add(CONFIG.LEVELS[LEVELS[LEVEL]].backgroundClass);
@@ -296,6 +324,10 @@ window.onload = () => {
     startBlock.style.display = 'none';
     endBlock.style.display = 'none';
     gameBlock.style.display = 'block';
+
+    duckSound.load();
+    duckSound.play();
+    music.play();
 
     background.className = '';
     background.classList.add(CONFIG.LEVELS[LEVELS[LEVEL]].backgroundClass);
@@ -465,6 +497,9 @@ window.onload = () => {
     boom.style.top = top - 100 + 'px';
     boom.style.left = left - 100 + 'px';
     boom.classList.add(CONFIG.LEVELS[LEVELS[LEVEL]].enemies[enemyClass].boomClass);
+    boomSoundSource.src = CONFIG.LEVELS[LEVELS[LEVEL]].enemies[enemyClass].boomSound;
+    boomSound.load();
+    boomSound.play();
     gameBlock.appendChild(boom);
     setTimeout(() => {
       boom.remove();
@@ -565,27 +600,27 @@ window.onload = () => {
   };
 
   source.src = AUDIO_TRACKS[AUDIO_TRACK];
-  audio.load();
-  audio.addEventListener('ended', () => {
+  music.load();
+  music.addEventListener('ended', () => {
     AUDIO_TRACK += 1;
     if (AUDIO_TRACK === AUDIO_TRACKS.length) {
       AUDIO_TRACK = 0;
     }
-    audio.src = AUDIO_TRACKS[AUDIO_TRACK];
-    audio.pause();
-    audio.load();
-    audio.play();
+    music.src = AUDIO_TRACKS[AUDIO_TRACK];
+    music.pause();
+    music.load();
+    music.play();
   });
 
   soundBtn.onclick = () => {
     if (sound === 'on') {
       soundBtn.src = 'images/icons/sound-off.png';
       sound = 'off';
-      audio.pause();
+      music.pause();
     } else {
       soundBtn.src = 'images/icons/sound-on.png';
       sound = 'on';
-      audio.play();
+      music.play();
     }
   };
 
