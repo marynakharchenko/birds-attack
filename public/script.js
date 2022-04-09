@@ -69,9 +69,11 @@ window.onload = () => {
   let LEVEL = 0;
   let ENEMIES_ARRAY = [];
   const LEVELS = [0, 1, 2, 3, 4, 5];
+  let PUTIN_LIVES = 10;
   const INFANTRY = 'infantry';
   const MACHINERY = 'machinery';
   const AIRFORCE = 'airforce';
+  const PUTIN = 'putin';
 
   const ENEMIES = {
     [INFANTRY]: {
@@ -219,17 +221,17 @@ window.onload = () => {
         birdClass: 'duck-fly-6',
         enemies: {
           [INFANTRY]: {
-            className: 'infantry-6',
+            className: 'putin',
             number: 30,
             boomClass: 'boom-1'
           },
           [MACHINERY]: {
-            className: 'machinery-6',
+            className: 'putin',
             number: 30,
             boomClass: 'boom-2'
           },
           [AIRFORCE]: {
-            className: 'airforce-6',
+            className: 'putin',
             number: 30,
             boomClass: 'boom-3'
           }
@@ -246,6 +248,11 @@ window.onload = () => {
         createEnemyLoop(level);
       }
     }, random(1000, 5000));
+  };
+
+  const putinCreateEnemyLoop = () => {
+    putinCreateEnemy();
+    createEnemyLoop();
   };
 
   const startGame = () => {
@@ -285,6 +292,26 @@ window.onload = () => {
     gameStarted = true;
   };
 
+  const putinStartGame = () => {
+    startBlock.style.display = 'none';
+    endBlock.style.display = 'none';
+    gameBlock.style.display = 'block';
+
+    background.className = '';
+    background.classList.add(CONFIG.LEVELS[LEVELS[LEVEL]].backgroundClass);
+
+    levelIcon.src = `./images/icons/level${LEVEL + 1}.png`;
+
+    bird.className = '';
+    bird.className = birdSkin;
+    bird.classList.add(CONFIG.LEVELS[LEVELS[LEVEL]].birdClass);
+
+    createLives();
+    putinCreateEnemyLoop();
+
+    gameStarted = true;
+  };
+
   const moveEnemy = enemy => {
     let timerId = setInterval(() => {
       enemy.style.left = enemy.offsetLeft - 10 + 'px';
@@ -294,6 +321,31 @@ window.onload = () => {
         miss();
       }
     }, 30);
+  };
+
+  const putinMoveEnemy = enemy => {
+    const goLeft = () => {
+      let moveLeft = setInterval(() => {
+        enemy.style.left = enemy.offsetLeft - 10 + 'px';
+        if (enemy.offsetLeft < 200) {
+          clearInterval(moveLeft);
+          goRight();
+        }
+      }, 30);
+    };
+
+    const goRight = () => {
+      let moveRight = setInterval(() => {
+        enemy.style.left = enemy.offsetLeft + 10 + 'px';
+        if (enemy.offsetLeft > 1500) {
+          clearInterval(moveRight);
+          goLeft();
+        }
+      }, 30);
+    };
+
+    enemy.style.left = '1500px';
+    goLeft();
   };
 
   const moveBullet = bullet => {
@@ -323,6 +375,15 @@ window.onload = () => {
     moveEnemy(enemy);
   };
 
+  const putinCreateEnemy = () => {
+    let enemy = document.createElement('div');
+    enemy.className = `enemy ${PUTIN}`;
+    enemy.style.top = document.querySelector('#app').clientHeight - 350 + 'px';
+
+    gameBlock.appendChild(enemy);
+    putinMoveEnemy(enemy);
+  };
+
   const createBullet = () => {
     let bullet = document.createElement('div');
     bullet.className = 'bullet';
@@ -344,23 +405,33 @@ window.onload = () => {
     ) {
       const enemyClass = enemy.classList[1]; // 'enemy infantry'
 
-      createBoom(bullet.offsetTop, bullet.offsetLeft, enemyClass);
-      bullet.remove();
-      enemy.remove();
-
-      Object.keys(ENEMIES).forEach((key) => {
-        if (ENEMIES[key].classes.includes(enemyClass)) {
-          ENEMIES[key].number += 1;
-          SCORE[key].current.innerText = Number(SCORE[key].current.innerText) + 1;
+      if (enemyClass === PUTIN) {
+        createBoom(bullet.offsetTop, bullet.offsetLeft, MACHINERY);
+        bullet.remove();
+        PUTIN_LIVES -= 1;
+        if (PUTIN_LIVES === 0) {
+          enemy.remove();
+          endGameSuccess();
         }
-      });
+      } else {
+        createBoom(bullet.offsetTop, bullet.offsetLeft, enemyClass);
+        bullet.remove();
+        enemy.remove();
 
-      if (
-          ENEMIES[INFANTRY].number >= CONFIG.LEVELS[LEVELS[LEVEL]].enemies[INFANTRY].number &&
-          ENEMIES[MACHINERY].number >= CONFIG.LEVELS[LEVELS[LEVEL]].enemies[MACHINERY].number &&
-          ENEMIES[AIRFORCE].number >= CONFIG.LEVELS[LEVELS[LEVEL]].enemies[AIRFORCE].number
-      ) {
-        endLevelNext();
+        Object.keys(ENEMIES).forEach((key) => {
+          if (ENEMIES[key].classes.includes(enemyClass)) {
+            ENEMIES[key].number += 1;
+            SCORE[key].current.innerText = Number(SCORE[key].current.innerText) + 1;
+          }
+        });
+
+        if (
+            ENEMIES[INFANTRY].number >= CONFIG.LEVELS[LEVELS[LEVEL]].enemies[INFANTRY].number &&
+            ENEMIES[MACHINERY].number >= CONFIG.LEVELS[LEVELS[LEVEL]].enemies[MACHINERY].number &&
+            ENEMIES[AIRFORCE].number >= CONFIG.LEVELS[LEVELS[LEVEL]].enemies[AIRFORCE].number
+        ) {
+          endLevelNext();
+        }
       }
     }
   };
@@ -415,7 +486,7 @@ window.onload = () => {
     LEVEL += 1;
     resetLives();
     resetScore();
-    startGame();
+    LEVEL === LEVELS[LEVELS.length - 1] ? putinStartGame() : startGame();
   };
 
   const endLevelPrevious = () => {
@@ -433,7 +504,7 @@ window.onload = () => {
     LEVEL -= 1;
     resetLives();
     resetScore();
-    startGame();
+    LEVEL === LEVELS[LEVELS.length - 1] ? putinStartGame() : startGame();
   };
 
   const resetScore = () => {
@@ -467,11 +538,25 @@ window.onload = () => {
     restartBtn.onclick = startGame;
   };
 
+  const endGameSuccess = () => {
+    gameStarted = false;
+    ENEMIES_ARRAY = [];
+    LEVEL = 0;
+
+    let scoreBlock = document.querySelector('#end h3 span');
+    scoreBlock.innerText = 'Success';
+
+    endBlock.style.display = 'block';
+
+    let restartBtn = document.querySelector('#end button');
+    restartBtn.onclick = startGame;
+  };
+
   startBtn.onclick = () => {
-    startGame();
+    LEVEL === LEVELS[LEVELS.length - 1] ? putinStartGame() : startGame();
   };
   restartBtn.onclick = () => {
-    startGame();
+    LEVEL === LEVELS[LEVELS.length - 1] ? putinStartGame() : startGame();
   };
 
   duck.onclick = () => {
