@@ -2,49 +2,24 @@ body {
   height: 100vh;
   padding: 0;
   margin: 0;
+  font-family: "Tahoma", "Arial Black", sans-serif;
 }
 
 #game {
   display: none;
 }
 
-#end {
+#startBtn:disabled {
+  background: gray;
+}
+
+#end, #next-level, #previous-level {
   display: none;
 }
 
-@keyframes float {
-  0% {
-    transform: translatey(0px);
-  }
-  50% {
-    transform: translatey(-20px);
-  }
-  100% {
-    transform: translatey(0px);
-  }
+#end {
+  display: none;
 }
-
-
-#background {
-  padding: 0;
-  overflow: hidden;
-  z-index: 1;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-size: 1000px;
-  animation: background-move 10s linear infinite;
-}
-@keyframes background-move {
-  0% {
-    background-position-x: 0;
-  }
-  100% {
-    background-position-x: -1000px;
-  }
-}
-
 
 #app {
   width: 100%;
@@ -58,51 +33,189 @@ body {
   z-index: 9;
 }
 
-#lives {
-  position: absolute;
-  top: 5px;
-  left: 20px;
+.clearfix {
+  zoom: 1;
 }
 
-#lives span {
-  display: block;
-  margin: 10px;
-  float: left;
-  width: 40px;
-  height: 40px;
-  background: url(images/icons/start-icon.png);
-  background-size: cover;
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
 }
 
-#options {
-  float: right;
-  height: 40px;
-  margin: 10px;
-}
-#options div {
-  float: left;
-  cursor: pointer;
-}
-#options #score-infantry {
-  color: #fff;
-  font-size: 24px;
-  margin: 6px 40px;
-}
-#options #score-machinery {
-  color: #fff;
-  font-size: 24px;
-  margin: 6px 40px;
-}
-#options #score-navy {
-  color: #fff;
-  font-size: 24px;
-  margin: 6px 40px;
-}
-#options #sound,
-#options #sound img {
-  height: 100%;
+.clearfix:after {
+  clear: both;
 }
 
+
+@media (min-width: 1280px) {
+  #background {
+    background-size: 1000px;
+  }
+  #bird.duck {
+  width: 300px;
+}
+  @keyframes background-move {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: -1000px;
+  }
+}
+  #options {
+  margin: 30px auto;
+  }
+  .scoreBox{
+    margin: 6px 20px;
+  }
+  .levelAndLife{
+    top: 5px;
+    left: 20px;
+  }
+  .levelIcon{
+    width: 100px;
+  }
+  #lives {
+    margin-left: 20px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  #background {
+    background-size: 1000px;
+  }
+  @keyframes background-move {
+     0% {
+        background-position-x: 0;
+    }
+     100% {
+      background-position-x: -1000px;
+    }
+  }
+  #bird.duck {
+     width: 200px;
+  }
+  #bird.duck-fly-1 {
+    width: 200px !important;
+    background-repeat: no-repeat !important;
+    background-size: contain !important;
+    margin-top: 50px !important;
+  }
+  #options {
+    margin: 30px auto;
+   }
+  .scoreBox{
+    margin: 6px 20px;
+  }
+  .levelAndLife{
+    top: 5px;
+    left: 20px;
+  }
+  .levelIcon{
+    width: 100px;
+  }
+  #lives {
+    margin-left: 20px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  #background {
+    background-size: 700px;
+  }
+   @keyframes background-move {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: -700px;
+  }
+}
+  #bird.duck {
+    width: 200px;
+  }
+  #bird.duck-fly-1 {
+    width: 200px !important;
+    background-repeat: no-repeat !important;
+    background-size: contain !important;
+    margin-top: 80px !important;
+  }
+  #options {
+     margin: 10px auto;
+    }
+  .scoreBox{
+    margin: 6px 10px 6px 20px;
+  }
+  .levelAndLife{
+    top: 45px;
+    left: 10px;
+  }
+  .levelIcon{
+    width: 70px;
+  }
+  #lives {
+    margin-left: 0;
+  }
+}
+
+/*----------------background---------------- */
+
+#background {
+  padding: 0;
+  overflow: hidden;
+  z-index: 1;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #D6E1F5;
+  background-repeat: repeat-x;
+  background-position: center bottom;
+  /*background-color: #0083ff;*/
+}
+
+#background.bg-level-1 {
+  background-image: url(images/backgrounds/bg-level-1.png);
+  animation: background-move 5s linear infinite;
+}
+#background.bg-level-2 {
+  background-image: url(images/backgrounds/bg-level-2.png);
+  animation: background-move 5s linear infinite;
+}
+#background.bg-level-3 {
+  background-image: url(images/backgrounds/bg-level-3.png);
+  background-color: #181b1e;
+  animation: background-move 5s linear infinite;
+}
+#background.bg-level-4 {
+  background-image: url(images/backgrounds/bg-level-4.png);
+  animation: background-move 5s linear infinite;
+}
+#background.bg-level-5 {
+  background-image: url(images/backgrounds/bg-level-5.png);
+  animation: background-move 5s linear infinite;
+}
+#background.bg-level-6 {
+  background-image: url(images/backgrounds/bg-level-6.png);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/*--------------------------------birds---------------- */
+
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-20px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
 
 #bird {
   height: 200px;
@@ -114,27 +227,149 @@ body {
   transition: all 0.2s;
 }
 #bird.duck {
-  width: 300px;
-  background: url(images/birds/duck-fly--6.gif);
   transition-duration: 0.0001ms;
   background-size: cover;
   animation: float 3s ease-in-out infinite;
 }
+#bird.duck-fly-1 {
+  background: url(images/birds/duck-fly-1.gif);
+}
+#bird.duck-fly-2 {
+  background: url(images/birds/duck-fly-2.gif);
+  background-size: cover;
+  width: 250px;
+}
+#bird.duck-fly-3 {
+  background: url(images/birds/duck-fly-3.gif);
+}
+#bird.duck-fly-4 {
+  background: url(images/birds/duck-fly-4.gif);
+  background-size: cover;
+  width: 250px;
+}
+#bird.duck-fly-5 {
+  background: url(images/birds/duck-fly-5.gif);
+  background-size: cover;
+  width: 250px;
 
+}
+#bird.duck-fly-6 {
+  background: url(images/birds/duck-fly-6.gif);
+  background-size: cover;
+  width: 250px;
+}
+
+/*--------------------------------score---------------- */
+
+.iconOptions{
+  width: 60px;
+  position: absolute;
+  left: -30px;
+  top: -20px;
+}
+.current{
+  font-weight: bold;
+  font-size: 11px;
+  color: black;
+  margin-left: 25px;
+}
+.total{
+  font-weight: bold;
+  font-size: 9px;
+  color: #6f6f6f;
+}
+.scoreLine{
+  font-weight: bold;
+  font-size: 9px;
+  color: #6f6f6f;
+}
+.scoreBox{
+  position: relative;
+  width: 70px;
+  background-color: white;
+  border: 3px solid black;
+  border-radius: 50px;
+  height: 20px;
+}
+.levelAndLife{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: fit-content;
+  position: absolute;
+}
+#lives span {
+  display: block;
+  margin: 0;
+  float: left;
+  width: 20px;
+  height: 20px;
+  background: url(images/icons/star-icon.png);
+  background-size: cover;
+}
+#options {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#options div {
+  float: left;
+}
+#options #score-infantry {
+  color: #fff;
+}
+#options #score-machinery {
+  color: #fff;
+}
+#options #score-airforce {
+  color: #fff;
+}
+#options #sound,
+#options #sound img {
+  height: 100%;
+}
+
+/*--------------------------------weapon---------------- */
 
 .bullet {
   width: 20px;
   height: 40px;
-  background: url(images/weapons/poop.png) transparent no-repeat;
   position: absolute;
   top: 20%;
   left: 20%;
   z-index: 5;
 }
-
-
+.bullet.weapon-1 {
+  background: url(images/weapons/weapon-1.png) transparent no-repeat;
+}
+.bullet.weapon-2 {
+  background: url(images/weapons/weapon-2.png) transparent no-repeat;
+}
+.bullet.weapon-3 {
+  background: url(images/weapons/weapon-3.png) transparent no-repeat;
+  width: 50px;
+  height: 70px;
+}
+.bullet.weapon-4 {
+  background: url(images/weapons/weapon-4.png) transparent no-repeat;
+  width: 50px;
+  height: 130px;
+}
+.bullet.weapon-5 {
+  background: url(images/weapons/weapon-5.png) transparent no-repeat;
+  width: 70px;
+  height: 170px;
+  background-size: cover;
+}
+.bullet.weapon-6 {
+  background: url(images/weapons/weapon-6.png) transparent no-repeat;
+  width: 70px;
+  height: 170px;
+  background-size: cover;
+}
 .boom {
-  background: url(images/weapons/boom-2.gif);
   position: absolute;
   width: 224px;
   height: 254px;
@@ -142,81 +377,154 @@ body {
   top: 40%;
   left: 50%;
 }
+.boom.boom-1 {
+  background: url(images/booms/boom-1.gif) transparent no-repeat;
+}
+.boom.boom-2 {
+  background: url(images/booms/boom-2.gif) transparent no-repeat;
+}
+.boom.boom-3 {
+  background: url(images/booms/boom-3.gif) transparent no-repeat;
+}
 
-
-.enemy {
+.enemy.infantry, .enemy.machinery {
   position: absolute;
-  top: calc(70% - 85px);
+  right: -300px;
+  z-index: 999999;
+  height: 300px;
+  width: 400px;
+  padding-bottom: 250px;
+}
+.enemy.infantry-1 {
+  background: url(images/enemies/infantry-1.gif) no-repeat;
+}
+.enemy.infantry-2 {
+  background: url(images/enemies/infantry-2.gif) no-repeat;
+}
+.enemy.infantry-3 {
+  background: url(images/enemies/infantry-3.gif) no-repeat;
+}
+.enemy.infantry-4 {
+  background: url(images/enemies/infantry-4.gif) no-repeat;
+}
+.enemy.infantry-5 {
+  background: url(images/enemies/infantry-5.gif) no-repeat;
+}
+.enemy.machinery-1 {
+  background: url(images/enemies/machinery-1.png) no-repeat;
+}
+.enemy.machinery-2 {
+  background: url(images/enemies/machinery-2.png) no-repeat;
+}
+.enemy.machinery-3 {
+  background: url(images/enemies/machinery-3.png) no-repeat;
+}
+.enemy.machinery-4 {
+  background: url(images/enemies/machinery-4.png) no-repeat;
+}
+.enemy.machinery-5 {
+  background: url(images/enemies/machinery-5.png) no-repeat;
+}
+.enemy.airforce {
+  position: absolute;
+  top: 50% !important;
+  right: -300px;
+  z-index: 999999;
+  height: 300px;
+  width: 400px;
+  padding-bottom: 250px;
+}
+.enemy.airforce-1 {
+  background: url(images/enemies/airforce-1.png) no-repeat;
+}
+.enemy.airforce-2 {
+  background: url(images/enemies/airforce-2.png) no-repeat;
+}
+.enemy.airforce-3 {
+  background: url(images/enemies/airforce-3.png) no-repeat;
+}
+.enemy.airforce-4 {
+  background: url(images/enemies/airforce-4.png) no-repeat;
+}
+.enemy.airforce-5 {
+  background: url(images/enemies/airforce-5.png) no-repeat;
+}
+.enemy.putin {
+  position: absolute;
   right: 20px;
   z-index: 999999;
-}
-
-
-.enemy.soldier {
   height: 300px;
-  background: url(images/enemies/soldier.gif) no-repeat;
-  padding-bottom: 250px;
-}
-.enemy.tank {
-  height: 300px;
-  background: url(images/enemies/tank.png) no-repeat;
-  padding-bottom: 250px;
+  width: 400px;
+  background-size: contain !important;
+  background: url(images/enemies/putin.gif) no-repeat;
 }
 
+/*--------------------------------popUps---------------- */
 
-#start, #end {
+.logoPopUp{
+  position: absolute;
+  top: -80px;
+  width: 200px;
+  left: 20px;
+}
+
+.titlePopUp{
+  margin-top: 80px;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: normal;
+}
+
+#start, #end, #previous-level, #next-level {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
   background: #fff;
-  width: 600px;
-  height: 520px;
+  border: 4px solid black;
+  width: 200px;
+  height: 400px;
   border-radius: 20px;
   text-align: center;
   padding: 2px 20px;
-  margin: 80px auto;
-  font-family: arial black;
-  font-size: 24px;
-}
-#start #select-bird {
-  width: 475px;
-  margin: 0 auto;
-}
-#start #select-bird span {
-  border-radius: 10px;
-  display: block;
-  float: left;
-  padding: 30px;
-  cursor: pointer;
+ -webkit-box-shadow: 0px 15px 20px -10px #000000;
+  box-shadow: 0px 15px 20px -10px #000000;
 }
 
-#start #select-bird span.selected {
-  border: 2px solid #326184;
+#start #select-bird {
+  width: 200px;
+  margin: 0 auto;
 }
+
 #start button,
-#end button {
-  padding: 20px 60px;
-  font-size: 24px;
-  font-family: arial black;
-  background: #f78422;
+#end button,
+#previousLevelBtn,
+#nextLevelBtn{
+  font-size: 16px;
+  width: 160px;
+  height: 45px;
+  font-weight: bold;
+  background: #0083ff;
   border-radius: 50px;
-  border: 4px solid #336184;
+  border: 3px solid black;
   cursor: pointer;
-  margin: 20px;
   outline: none;
   color: #fff;
   text-transform: uppercase;
-}
-#start button:hover,
-#end button:hover {
-  background: #8a7868;
+  transition-duration: 0.2s;
+  margin: 20px auto 0;
 }
 
-.clearfix {
-  zoom: 1;
+#start button:hover,
+#end button:hover,
+#previousLevelBtn,
+#nextLevelBtn{
+  -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
+  box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
+  transform: translateY(-5px);
+  transition-timing-function: ease-in;
+  transition-duration: 0.2s;
 }
-.clearfix:before,
-.clearfix:after {
-  content: "";
-  display: table;
-}
-.clearfix:after {
-  clear: both;
-}
+
+
