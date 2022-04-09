@@ -13,6 +13,7 @@ window.onload = () => {
   const restartBtn = document.getElementById('restartBtn');
 
   const background = document.getElementById('background');
+  const levelIcon = document.querySelector('.levelIcon');
   const lives = document.getElementById('lives');
   const scoreInfantryCurrent = document.querySelector('#score-infantry .current');
   const scoreMachineryCurrent = document.querySelector('#score-machinery .current');
@@ -254,6 +255,8 @@ window.onload = () => {
 
     background.className = '';
     background.classList.add(CONFIG.LEVELS[LEVELS[LEVEL]].backgroundClass);
+
+    levelIcon.src = `./images/icons/level${LEVEL + 1}.png`;
 
     bird.className = '';
     bird.className = birdSkin;
