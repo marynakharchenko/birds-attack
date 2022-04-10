@@ -51,10 +51,17 @@ body {
 @media (min-width: 1280px) {
   #background {
     background-size: 1000px;
+
   }
   #bird.duck {
   width: 300px;
 }
+  #bird.duck-fly-2, #bird.duck-fly-6, #bird.duck-fly-5, #bird.duck-fly-4  {
+    width: 250px;
+    background-repeat: no-repeat !important;
+    background-size: contain !important;
+    margin-top: 50px !important;
+  }
   @keyframes background-move {
   0% {
     background-position-x: 0;
@@ -96,8 +103,14 @@ body {
   #bird.duck {
      width: 200px;
   }
-  #bird.duck-fly-1 {
+  #bird.duck-fly-1, #bird.duck-fly-3 {
     width: 200px !important;
+    background-repeat: no-repeat !important;
+    background-size: contain !important;
+    margin-top: 50px !important;
+  }
+  #bird.duck-fly-2, #bird.duck-fly-6, #bird.duck-fly-5, #bird.duck-fly-4  {
+    width: 250px;
     background-repeat: no-repeat !important;
     background-size: contain !important;
     margin-top: 50px !important;
@@ -135,8 +148,14 @@ body {
   #bird.duck {
     width: 200px;
   }
-  #bird.duck-fly-1 {
+  #bird.duck-fly-1, #bird.duck-fly-3  {
     width: 200px !important;
+    background-repeat: no-repeat !important;
+    background-size: contain !important;
+    margin-top: 80px !important;
+  }
+  #bird.duck-fly-2, #bird.duck-fly-6, #bird.duck-fly-5, #bird.duck-fly-4 {
+    width: 200px;
     background-repeat: no-repeat !important;
     background-size: contain !important;
     margin-top: 80px !important;
@@ -177,16 +196,16 @@ body {
 
 #background.bg-level-1 {
   background-image: url(images/backgrounds/bg-level-1.png);
-  animation: background-move 5s linear infinite;
+  animation: background-move 6s linear infinite;
 }
 #background.bg-level-2 {
   background-image: url(images/backgrounds/bg-level-2.png);
-  animation: background-move 5s linear infinite;
+  animation: background-move 6s linear infinite;
 }
 #background.bg-level-3 {
   background-image: url(images/backgrounds/bg-level-3.png);
-  background-color: #181b1e;
-  animation: background-move 5s linear infinite;
+  background-color:#0f1418;
+  animation: background-move 6s linear infinite;
 }
 #background.bg-level-4 {
   background-image: url(images/backgrounds/bg-level-4.png);
@@ -236,27 +255,18 @@ body {
 }
 #bird.duck-fly-2 {
   background: url(images/birds/duck-fly-2.gif);
-  background-size: cover;
-  width: 250px;
 }
 #bird.duck-fly-3 {
   background: url(images/birds/duck-fly-3.gif);
 }
 #bird.duck-fly-4 {
   background: url(images/birds/duck-fly-4.gif);
-  background-size: cover;
-  width: 250px;
 }
 #bird.duck-fly-5 {
   background: url(images/birds/duck-fly-5.gif);
-  background-size: cover;
-  width: 250px;
-
 }
 #bird.duck-fly-6 {
   background: url(images/birds/duck-fly-6.gif);
-  background-size: cover;
-  width: 250px;
 }
 
 /*--------------------------------score---------------- */
@@ -359,14 +369,14 @@ body {
 }
 .bullet.weapon-5 {
   background: url(images/weapons/weapon-5.png) transparent no-repeat;
-  width: 70px;
-  height: 170px;
+  width: 40px;
+  height: 100px;
   background-size: cover;
 }
 .bullet.weapon-6 {
   background: url(images/weapons/weapon-6.png) transparent no-repeat;
-  width: 70px;
-  height: 170px;
+  width: 54px;
+  height: 120px;
   background-size: cover;
 }
 .boom {
@@ -392,38 +402,58 @@ body {
   right: -300px;
   z-index: 999999;
   height: 300px;
-  width: 300px;
   padding-bottom: 250px;
 }
 .enemy.infantry-1 {
   background: url(images/enemies/infantry-1.gif) no-repeat;
+  width: 170px;
+   background-size: contain;
 }
 .enemy.infantry-2 {
   background: url(images/enemies/infantry-2.gif) no-repeat;
+  width: 170px;
+    background-size: contain;
 }
 .enemy.infantry-3 {
   background: url(images/enemies/infantry-3.gif) no-repeat;
+    width: 170px;
+    background-size: contain;
 }
 .enemy.infantry-4 {
   background: url(images/enemies/infantry-4.gif) no-repeat;
+    width: 170px;
+    background-size: contain;
 }
 .enemy.infantry-5 {
   background: url(images/enemies/infantry-5.gif) no-repeat;
+    width: 170px;
+    background-size: contain;
 }
 .enemy.machinery-1 {
   background: url(images/enemies/machinery-1.png) no-repeat;
+    width: 250px;
+   background-size: contain;
 }
 .enemy.machinery-2 {
   background: url(images/enemies/machinery-2.png) no-repeat;
+    width: 250px;
+   background-size: contain;
 }
 .enemy.machinery-3 {
   background: url(images/enemies/machinery-3.png) no-repeat;
+  width: 250px;
+  height: 127px;
+  background-size: contain;
 }
 .enemy.machinery-4 {
   background: url(images/enemies/machinery-4.png) no-repeat;
+    width: 250px;
+   background-size: contain;
 }
 .enemy.machinery-5 {
   background: url(images/enemies/machinery-5.png) no-repeat;
+    width: 400px;
+   background-size: contain;
 }
 .enemy.airforce {
   position: absolute;
@@ -431,32 +461,41 @@ body {
   right: -300px;
   z-index: 999999;
   height: 300px;
-  width: 300px;
   padding-bottom: 250px;
 }
 .enemy.airforce-1 {
   background: url(images/enemies/airforce-1.png) no-repeat;
+  width: 90px;
+  background-size: contain;
 }
 .enemy.airforce-2 {
   background: url(images/enemies/airforce-2.png) no-repeat;
+  width: 150px;
+  background-size: contain;
 }
 .enemy.airforce-3 {
   background: url(images/enemies/airforce-3.png) no-repeat;
+width: 200px;
+  background-size: contain;
 }
 .enemy.airforce-4 {
   background: url(images/enemies/airforce-4.png) no-repeat;
+ width: 200px;
+  background-size: contain;
 }
 .enemy.airforce-5 {
   background: url(images/enemies/airforce-5.png) no-repeat;
+  width: 200px;
+  background-size: contain;
 }
 .enemy.putin {
   position: absolute;
   right: 20px;
   z-index: 999999;
-  height: 250px;
-  width: 250px;
+  height: 300px;
+  width: 300px;
   background-size: contain !important;
-  background: url(images/enemies/putin.gif) no-repeat;
+  background: url(images/enemies/putin-300.gif) no-repeat;
 }
 
 /*--------------------------------popUps---------------- */
