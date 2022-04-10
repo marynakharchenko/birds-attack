@@ -8,10 +8,10 @@ body {
 #game {
   display: none;
 }
-#start{
+#start {
   display: none;
 }
-#background{
+#background {
   padding: 0 ;
   display: none !important;
 }
@@ -221,24 +221,28 @@ body {
   display: flex;
   flex-direction: column;
 }
-.bg-start-phone{
+.bg-start-phone {
     max-width: 100%;
     position: absolute;
     bottom: 0;
     background-color: #008fd0;
     background-size: cover;
 }
-.logo-and-btn-wrap{
+.logo-and-btn-wrap {
   display: flex;
   padding-top: 250px;
   flex-direction: column;
-   position: absolute;
+  position: absolute;
   top: 20%;
   left: 50%;
   margin-right: -50%;
-  transform: translate(-50%, -50%)
+  transform: translate(-50%, -50%);
+  height: 465px;
 }
-.btn-start{
+.loading {
+  display: none;
+}
+.btn-start, .btn-about, .btn-help {
   font-size: 16px;
   width: 160px;
   height: 45px;
@@ -253,7 +257,7 @@ body {
   transition-duration: 0.2s;
   margin: 20px auto 0;
 }
-.btn-start:hover{
+.btn-start:hover, .btn-about:hover, .btn-help:hover {
   -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
   box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
   transform: translateY(-5px);
@@ -632,4 +636,67 @@ width: 200px;
   transition-duration: 0.2s;
 }
 
-
+.boxLoadingText {
+  margin: 20px auto 0 auto;
+  font-size: 24px;
+  color: #ffffff;
+}
+.boxLoading {
+  width: 50px;
+  height: 50px;
+  margin: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 500px;
+  bottom: 0;
+}
+.boxLoading:before {
+  content: "";
+  width: 50px;
+  height: 5px;
+  background: #000;
+  opacity: 0.1;
+  position: absolute;
+  top: 59px;
+  left: 0;
+  border-radius: 50%;
+  animation: shadow 0.5s linear infinite;
+}
+.boxLoading:after {
+  content: "";
+  width: 50px;
+  height: 50px;
+  background: #ffffff;
+  animation: animate 0.5s linear infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 3px;
+}
+@keyframes animate {
+  17% {
+    border-bottom-right-radius: 3px;
+  }
+  25% {
+    transform: translateY(9px) rotate(22.5deg);
+  }
+  50% {
+    transform: translateY(18px) scale(1,0.9) rotate(45deg);
+    border-bottom-right-radius: 40px;
+  }
+  75% {
+    transform: translateY(9px) rotate(67.5deg);
+  }
+  100% {
+    transform: translateY(0) rotate(90deg);
+  }
+}
+@keyframes shadow {
+  0%, 100% {
+    transform: scale(1,1);
+  }
+  50% {
+    transform: scale(1.2,1);
+  }
+}

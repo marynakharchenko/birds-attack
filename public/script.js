@@ -1,7 +1,16 @@
 window.onload = () => {
+  const btnWrap = document.querySelectorAll('.logo-and-btn-wrap button');
+  const divWrap = document.querySelectorAll('.logo-and-btn-wrap div');
+  btnWrap.forEach(bw => bw.classList.remove('loading'));
+  divWrap.forEach(dw => dw.classList.add('loading'));
+
+  const backgroundStart = document.getElementById('background-start');
+
+  const btnStart = document.querySelector('.btn-start');
+  const btnHelp = document.querySelector('.btn-help');
+
   const startBlock = document.querySelector('#start');
   const startBtn = document.getElementById('startBtn');
-  startBtn.disabled = false;
 
   const nextLevelBlock = document.querySelector('#next-level');
   const nextLevelBtn = document.getElementById('nextLevelBtn');
@@ -51,6 +60,8 @@ window.onload = () => {
 
     return array;
   };
+
+  const LINK_BANK = 'https://bank.gov.ua/ua/news/all/natsionalniy-bank-vidkriv-spetsrahunok-dlya-zboru-koshtiv-na-potrebi-armiyi';
 
   const AUDIO_TRACKS = shuffle([
     './audio/music/Carved%20From%20Stone%20-%20TrackTribe.mp3',
@@ -265,6 +276,15 @@ window.onload = () => {
     }
   };
 
+  const createDuckSoundLoop = () => {
+    setTimeout(() => {
+      if (gameStarted) {
+        duckSound.play();
+        createDuckSoundLoop();
+      }
+    }, random(20000, 25000));
+  };
+
   const createEnemyLoop = (level) => {
     setTimeout(() => {
       if (gameStarted && ENEMIES_ARRAY.length && level === LEVEL) {
@@ -272,11 +292,6 @@ window.onload = () => {
         createEnemyLoop(level);
       }
     }, random(1000, 5000));
-  };
-
-  const putinCreateEnemyLoop = () => {
-    putinCreateEnemy();
-    createEnemyLoop();
   };
 
   const startGame = () => {
@@ -316,6 +331,7 @@ window.onload = () => {
 
     createLives();
     createEnemyLoop(LEVEL);
+    createDuckSoundLoop();
 
     gameStarted = true;
   };
@@ -339,7 +355,7 @@ window.onload = () => {
     bird.classList.add(CONFIG.LEVELS[LEVELS[LEVEL]].birdClass);
 
     createLives();
-    putinCreateEnemyLoop();
+    putinCreateEnemy();
 
     gameStarted = true;
   };
@@ -592,6 +608,20 @@ window.onload = () => {
   };
   restartBtn.onclick = () => {
     LEVEL === LEVELS[LEVELS.length - 1] ? putinStartGame() : startGame();
+  };
+
+  btnStart.onclick = () => {
+    backgroundStart.style.display = 'none';
+    background.style.setProperty('display', 'block', 'important');
+    startBlock.style.display = 'block';
+  };
+
+  btnHelp.onclick = () => {
+    window.open(LINK_BANK,'_blank');
+  };
+
+  bird.onclick = () => {
+    duckSound.play();
   };
 
   duck.onclick = () => {
