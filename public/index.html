@@ -5,9 +5,29 @@
 	<title>Birds Attack</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/x-icon" href="images/favicon.png">
 </head>
 <body>
+	<div class="start-bg" id="background-start">
+		<picture >
+   			<source
+			  media="(min-width: 768px)"
+			  srcset="images/backgrounds/bg-main-100.jpg">
+  			<source
+			  media="(max-width: 767px) and (min-width: 320px)"
+			  srcset="images/backgrounds/bg-main-phone.jpg">
+   			<img src="images/backgrounds/bg-main-100.jpg" class="bg-start-phone">
+		</picture>
+		<div class="logo-and-btn-wrap">
+			<img src="images/icons/logo.png" class="logo-start">
+			<button class="btn-start loading">Старт</button>
+			<button class="btn-about loading">Про гру</button>
+			<button class="btn-help loading">Допомогти ЗСУ</button>
+			<div class="boxLoading"></div>
+			<div class="boxLoadingText">Завантаження...</div>
+		</div>
 
+	</div>
 	<div id="background"></div>
 
 	<audio class="music" autoplay><source></audio>
@@ -24,7 +44,6 @@
 					<span></span>
 				</div>
 			</div>
-
 
 			<div id="options">
 				<div id="score-infantry" class="scoreBox">
@@ -57,11 +76,11 @@
 					<img src="images/icons/duck-start.png">
 				</span>
 			</div>
-			<button id="startBtn" disabled>Розпочати</button>
+			<button id="startBtn">Розпочати</button>
 		</div>
 		<div id="next-level">
             <img src="images/icons/logo-pop-up.png" class="logoPopUp">
-			<h2 class="titlePopUp">Бойовий качур готовий до полювання на рашистів</h2>
+			<h2 class="titlePopUp">Бойове завдання успішно виконано</h2>
 			<button id="nextLevelBtn">Наступний рівень</button>
 		</div>
 		<div id="previous-level">
