@@ -7,7 +7,22 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+	<div class="start-bg" id="background-start">
+		<picture >
+   			<source
+			  media="(min-width: 768px)"
+			  srcset="images/backgrounds/bg-main-100.jpg">
+  			<source
+			  media="(max-width: 767px) and (min-width: 320px)"
+			  srcset="images/backgrounds/bg-main-phone.jpg">
+   			<img src="images/backgrounds/bg-main-100.jpg" class="bg-start-phone">
+		</picture>
+		<div class="logo-and-btn-wrap">
+			<img src="images/icons/logo.png" class="logo-start">
+			<button class="btn-start">Розпочати</button>
+		</div>
 
+	</div>
 	<div id="background"></div>
 
 	<audio class="music" autoplay><source></audio>
@@ -24,7 +39,6 @@
 					<span></span>
 				</div>
 			</div>
-
 
 			<div id="options">
 				<div id="score-infantry" class="scoreBox">

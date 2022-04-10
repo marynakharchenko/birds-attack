@@ -8,7 +8,13 @@ body {
 #game {
   display: none;
 }
-
+#start{
+  display: none;
+}
+#background{
+  padding: 0 ;
+  display: none !important;
+}
 #startBtn:disabled {
   background: gray;
 }
@@ -30,7 +36,6 @@ body {
   bottom: 0;
   left: 0;
   overflow: hidden;
-  z-index: 9;
 }
 
 .clearfix {
@@ -51,11 +56,16 @@ body {
 @media (min-width: 1280px) {
   #background {
     background-size: 1000px;
-
+  }
+  .bg-start{
+    width: 100vw;
   }
   #bird.duck {
-  width: 300px;
-}
+    width: 300px;
+  }
+  .logo-start {
+    width: 300px;
+  }
   #bird.duck-fly-2, #bird.duck-fly-6, #bird.duck-fly-5, #bird.duck-fly-4  {
     width: 250px;
     background-repeat: no-repeat !important;
@@ -91,6 +101,12 @@ body {
 @media (min-width: 768px) and (max-width: 1279px) {
   #background {
     background-size: 1000px;
+  }
+  .bg-start{
+    width: 100vw;
+  }
+  .logo-start {
+    width: 300px;
   }
   @keyframes background-move {
      0% {
@@ -136,6 +152,9 @@ body {
 @media (min-width: 320px) and (max-width: 767px) {
   #background {
     background-size: 700px;
+  }
+ .logo-start {
+    width: 150px;
   }
    @keyframes background-move {
   0% {
@@ -191,9 +210,56 @@ body {
   background-color: #D6E1F5;
   background-repeat: repeat-x;
   background-position: center bottom;
-  /*background-color: #0083ff;*/
 }
-
+#background-start{
+  height: 100%;
+  position: relative;
+  padding: 0;
+  overflow: hidden;
+  z-index: 1;
+  background-color: #008fd0;
+  display: flex;
+  flex-direction: column;
+}
+.bg-start-phone{
+    max-width: 100%;
+    position: absolute;
+    bottom: 0;
+    background-color: #008fd0;
+    background-size: cover;
+}
+.logo-and-btn-wrap{
+  display: flex;
+  padding-top: 150px;
+  flex-direction: column;
+   position: absolute;
+  top: 20%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
+}
+.btn-start{
+  font-size: 16px;
+  width: 160px;
+  height: 45px;
+  font-weight: bold;
+  background: #fff;
+  border-radius: 50px;
+  border: 3px solid black;
+  cursor: pointer;
+  outline: none;
+  color: #0083ff;
+  text-transform: uppercase;
+  transition-duration: 0.2s;
+  margin: 20px auto 0;
+}
+.btn-start:hover{
+  -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
+  box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
+  transform: translateY(-5px);
+  transition-timing-function: ease-in;
+  transition-duration: 0.2s;
+}
 #background.bg-level-1 {
   background-image: url(images/backgrounds/bg-level-1.png);
   animation: background-move 6s linear infinite;
