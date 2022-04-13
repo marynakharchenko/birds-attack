@@ -24,12 +24,19 @@ window.onload = () => {
   const background = document.getElementById('background');
   const levelIcon = document.querySelector('.levelIcon');
   const lives = document.getElementById('lives');
+  const infantry = document.querySelector('#score-infantry');
+  const machinery = document.querySelector('#score-machinery');
+  const airforce = document.querySelector('#score-airforce');
+  const putin = document.querySelector('#score-putin');
+
   const scoreInfantryCurrent = document.querySelector('#score-infantry .current');
   const scoreMachineryCurrent = document.querySelector('#score-machinery .current');
   const scoreAirforceCurrent = document.querySelector('#score-airforce .current');
+  const scorePutinCurrent = document.querySelector('#score-putin .current');
   const scoreInfantryTotal = document.querySelector('#score-infantry .total');
   const scoreMachineryTotal = document.querySelector('#score-machinery .total');
   const scoreAirforceTotal = document.querySelector('#score-airforce .total');
+  const scorePutinTotal = document.querySelector('#score-putin .total');
   const gameBlock = document.querySelector('#game');
   const soundBtn = document.querySelector('#sound img');
   const bird = document.querySelector('#bird');
@@ -298,6 +305,7 @@ window.onload = () => {
     startBlock.style.display = 'none';
     endBlock.style.display = 'none';
     gameBlock.style.display = 'block';
+    putin.style.display = 'none';
 
     duckSound.load();
     duckSound.play();
@@ -340,6 +348,9 @@ window.onload = () => {
     startBlock.style.display = 'none';
     endBlock.style.display = 'none';
     gameBlock.style.display = 'block';
+    infantry.style.display = 'none';
+    machinery.style.display = 'none';
+    airforce.style.display = 'none';
 
     duckSound.load();
     duckSound.play();
@@ -426,7 +437,7 @@ window.onload = () => {
   const putinCreateEnemy = () => {
     let enemy = document.createElement('div');
     enemy.className = `enemy ${PUTIN}`;
-    enemy.style.top = document.querySelector('#app').clientHeight - 350 + 'px';
+    enemy.style.top = document.querySelector('#app').clientHeight - 200 + 'px';
 
     gameBlock.appendChild(enemy);
     putinMoveEnemy(enemy);

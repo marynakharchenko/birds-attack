@@ -96,6 +96,12 @@ body {
   #lives {
     margin-left: 20px;
   }
+  #background.bg-level-6 {
+  background-image: url(images/backgrounds/bg-level6-d.png);
+  background-position: bottom;
+  background-color: #008fd0;
+  background-repeat: repeat-x;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1279px) {
@@ -147,6 +153,12 @@ body {
   #lives {
     margin-left: 20px;
   }
+  #background.bg-level-6 {
+  background-image: url(images/backgrounds/bg-level6-d.png);
+  background-position: bottom;
+  background-color: #008fd0;
+  background-repeat: repeat-x;
+  }
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
@@ -195,6 +207,18 @@ body {
   #lives {
     margin-left: 0;
   }
+  #background.bg-level-6 {
+  background-image: url(images/backgrounds/bg-level6-m.png);
+  background-position: bottom;
+  position: absolute;
+  background-color: #008fd0;
+  background-repeat: repeat-x;
+  bottom: 0;
+  width: 100vw;
+  background-size: contain;
+  z-index: auto;
+
+}
 }
 
 /*----------------background---------------- */
@@ -222,7 +246,7 @@ body {
   flex-direction: column;
 }
 .bg-start-phone {
-    max-width: 100%;
+    width: 100vw;
     position: absolute;
     bottom: 0;
     background-color: #008fd0;
@@ -285,12 +309,7 @@ body {
   background-image: url(images/backgrounds/bg-level-5.png);
   animation: background-move 5s linear infinite;
 }
-#background.bg-level-6 {
-  background-image: url(images/backgrounds/bg-level-6.png);
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-}
+
 
 /*--------------------------------birds---------------- */
 
@@ -410,7 +429,9 @@ body {
 #options #sound img {
   height: 100%;
 }
-
+#score-putin .iconOptions{
+  top: -10px;
+}
 /*--------------------------------weapon---------------- */
 
 .bullet {
@@ -562,8 +583,9 @@ width: 200px;
   position: absolute;
   right: 20px;
   z-index: 999999;
-  height: 300px;
-  width: 300px;
+  height: 200px;
+  width: 200px;
+  bottom: 0 !important;
   background-size: contain !important;
   background: url(images/enemies/putin-300.gif) no-repeat;
 }
