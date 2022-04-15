@@ -7,8 +7,11 @@ window.onload = () => {
   const backgroundStart = document.getElementById('background-start');
 
   const btnStart = document.querySelector('.btn-start');
-  const btnHelp = document.querySelector('.btn-help');
+  const btnAbout = document.querySelector('.btn-about');
+  const btnHelp = document.querySelectorAll('.btn-help');
 
+  const aboutBlock = document.querySelector('#about');
+  const aboutCloseBtn = document.querySelector('#about-close');
   const startBlock = document.querySelector('#start');
   const startBtn = document.getElementById('startBtn');
 
@@ -627,9 +630,19 @@ window.onload = () => {
     startBlock.style.display = 'block';
   };
 
-  btnHelp.onclick = () => {
-    window.open(LINK_BANK,'_blank');
+  btnAbout.onclick = () => {
+    aboutBlock.style.display = 'block';
   };
+
+  aboutCloseBtn.onclick = () => {
+    aboutBlock.style.display = 'none';
+  };
+
+  btnHelp.forEach(bh => {
+    bh.onclick = () => {
+      window.open(LINK_BANK,'_blank');
+    };
+  });
 
   bird.onclick = () => {
     duckSound.play();
