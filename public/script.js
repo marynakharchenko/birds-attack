@@ -264,19 +264,19 @@ window.onload = () => {
         enemies: {
           [INFANTRY]: {
             className: 'putin',
-            number: 30,
+            number: 10,
             boomClass: 'boom-1',
             boomSound: './audio/booms/Gunfire%20And%20Voices.mp3'
           },
           [MACHINERY]: {
             className: 'putin',
-            number: 30,
+            number: 10,
             boomClass: 'boom-2',
             boomSound: './audio/booms/Big%20Explosion%20Cut%20Off.mp3'
           },
           [AIRFORCE]: {
             className: 'putin',
-            number: 30,
+            number: 10,
             boomClass: 'boom-3',
             boomSound: './audio/booms/Magnum%20Shots%20-%20single.mp3'
           }
@@ -309,6 +309,9 @@ window.onload = () => {
     endBlock.style.display = 'none';
     gameBlock.style.display = 'block';
     putin.style.display = 'none';
+    infantry.style.display = 'block';
+    machinery.style.display = 'block';
+    airforce.style.display = 'block';
 
     duckSound.load();
     duckSound.play();
@@ -368,8 +371,12 @@ window.onload = () => {
     bird.className = birdSkin;
     bird.classList.add(CONFIG.LEVELS[LEVELS[LEVEL]].birdClass);
 
+    scorePutinCurrent.innerHTML = String(PUTIN_LIVES);
+    scorePutinTotal.innerHTML = String(PUTIN_LIVES);
+
     createLives();
     putinCreateEnemy();
+    createDuckSoundLoop();
 
     gameStarted = true;
   };
@@ -471,6 +478,7 @@ window.onload = () => {
         createBoom(bullet.offsetTop, bullet.offsetLeft, MACHINERY);
         bullet.remove();
         PUTIN_LIVES -= 1;
+        scorePutinCurrent.innerHTML = String(PUTIN_LIVES);
         if (PUTIN_LIVES === 0) {
           enemy.remove();
           endGameSuccess();
