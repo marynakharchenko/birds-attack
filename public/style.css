@@ -61,6 +61,7 @@ button {
 
 @media (min-width: 1280px) {
   #background {
+    width: 2000px;
     background-size: 1000px;
   }
   .bg-start{
@@ -79,13 +80,16 @@ button {
     margin-top: 50px !important;
   }
   @keyframes background-move {
-     0% {
-        background-position-x: 0;
+    0% {
+      transform: translate3d(0px, 0, 0);
     }
-     100% {
-      background-position-x: -1000px;
+    50% {
+      transform: translate3d(-500px, 0, 0);
     }
-}
+    100% {
+      transform: translate3d(-1000px, 0, 0);
+    }
+  }
   #options {
   margin: 30px auto;
   }
@@ -165,6 +169,7 @@ button {
 
 @media (min-width: 768px) and (max-width: 1279px) {
   #background {
+    width: 2000px;
     background-size: 1000px;
   }
   .bg-start{
@@ -174,11 +179,14 @@ button {
     width: 300px;
   }
   @keyframes background-move {
-     0% {
-        background-position-x: 0;
+    0% {
+      transform: translateX(0px);
     }
-     100% {
-      background-position-x: -1000px;
+    50% {
+      transform: translateX(-500px);
+    }
+    100% {
+      transform: translateX(-1000px);
     }
   }
   #bird.duck {
@@ -274,19 +282,23 @@ button {
 
 @media (min-width: 320px) and (max-width: 767px) {
   #background {
+    width: 1400px;
     background-size: 700px;
   }
  .logo-start {
     width: 150px;
   }
-   @keyframes background-move {
-  0% {
-    background-position-x: 0;
+  @keyframes background-move {
+    0% {
+     transform: translateX(0px);
+    }
+    50% {
+     transform: translateX(-350px);
+    }
+    100% {
+     transform: translateX(-700px);
+    }
   }
-  100% {
-    background-position-x: -700px;
-  }
-}
   #bird.duck {
     width: 200px;
   }
@@ -464,6 +476,10 @@ button {
 }
 /*----------------background---------------- */
 
+.background-block {
+  position: relative;
+  overflow: hidden
+}
 #background {
   padding: 0;
   overflow: hidden;
