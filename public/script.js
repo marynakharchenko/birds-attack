@@ -1,8 +1,8 @@
 window.onload = () => {
   const btnWrap = document.querySelectorAll('.logo-and-btn-wrap button');
   const divWrap = document.querySelectorAll('.logo-and-btn-wrap div');
-  btnWrap.forEach(bw => bw.classList.remove('loading'));
-  divWrap.forEach(dw => dw.classList.add('loading'));
+  btnWrap.forEach((bw) => bw.classList.remove('loading'));
+  divWrap.forEach((dw) => dw.classList.add('loading'));
 
   const backgroundStart = document.getElementById('background-start');
 
@@ -80,7 +80,7 @@ window.onload = () => {
     './audio/music/Higher%20Octane%20-%20Vans%20in%20Japan.mp3',
     './audio/music/Riffs%20For%20Days%20-%20TrackTribe.mp3',
     './audio/music/Tropical%20Thunder%20-%20RKVC.mp3',
-    './audio/music/Tuff%20Data%20-%20Vans%20in%20Japan.mp3'
+    './audio/music/Tuff%20Data%20-%20Vans%20in%20Japan.mp3',
   ]);
   let AUDIO_TRACK = 0;
 
@@ -105,30 +105,30 @@ window.onload = () => {
   const ENEMIES = {
     [INFANTRY]: {
       classes: ['infantry'],
-      number: 0
+      number: 0,
     },
     [MACHINERY]: {
       classes: ['machinery'],
-      number: 0
+      number: 0,
     },
     [AIRFORCE]: {
       classes: ['airforce'],
-      number: 0
-    }
+      number: 0,
+    },
   };
   const SCORE = {
     [INFANTRY]: {
       current: scoreInfantryCurrent,
-      total: scoreInfantryTotal
+      total: scoreInfantryTotal,
     },
     [MACHINERY]: {
       current: scoreMachineryCurrent,
-      total: scoreMachineryTotal
+      total: scoreMachineryTotal,
     },
     [AIRFORCE]: {
       current: scoreAirforceCurrent,
-      total: scoreAirforceTotal
-    }
+      total: scoreAirforceTotal,
+    },
   };
 
   const CONFIG = {
@@ -141,22 +141,22 @@ window.onload = () => {
             className: 'infantry-1',
             number: 5,
             boomClass: 'boom-1',
-            boomSound: './audio/booms/Gunfire%20And%20Voices.mp3'
+            boomSound: './audio/booms/Gunfire%20And%20Voices.mp3',
           },
           [MACHINERY]: {
             className: 'machinery-1',
             number: 5,
             boomClass: 'boom-2',
-            boomSound: './audio/booms/Big%20Explosion%20Cut%20Off.mp3'
+            boomSound: './audio/booms/Big%20Explosion%20Cut%20Off.mp3',
           },
           [AIRFORCE]: {
             className: 'airforce-1',
             number: 5,
             boomClass: 'boom-3',
-            boomSound: './audio/booms/Magnum%20Shots%20-%20single.mp3'
-          }
+            boomSound: './audio/booms/Magnum%20Shots%20-%20single.mp3',
+          },
         },
-        weaponClass: 'weapon-1'
+        weaponClass: 'weapon-1',
       },
       [LEVELS[1]]: {
         backgroundClass: 'bg-level-2',
@@ -166,22 +166,22 @@ window.onload = () => {
             className: 'infantry-2',
             number: 10,
             boomClass: 'boom-1',
-            boomSound: './audio/booms/Gunfire%20And%20Voices.mp3'
+            boomSound: './audio/booms/Gunfire%20And%20Voices.mp3',
           },
           [MACHINERY]: {
             className: 'machinery-2',
             number: 10,
             boomClass: 'boom-2',
-            boomSound: './audio/booms/Big%20Explosion%20Cut%20Off.mp3'
+            boomSound: './audio/booms/Big%20Explosion%20Cut%20Off.mp3',
           },
           [AIRFORCE]: {
             className: 'airforce-2',
             number: 10,
             boomClass: 'boom-3',
-            boomSound: './audio/booms/Magnum%20Shots%20-%20single.mp3'
-          }
+            boomSound: './audio/booms/Magnum%20Shots%20-%20single.mp3',
+          },
         },
-        weaponClass: 'weapon-2'
+        weaponClass: 'weapon-2',
       },
       [LEVELS[2]]: {
         backgroundClass: 'bg-level-3',
@@ -191,22 +191,22 @@ window.onload = () => {
             className: 'infantry-3',
             number: 15,
             boomClass: 'boom-1',
-            boomSound: './audio/booms/Gunfire%20And%20Voices.mp3'
+            boomSound: './audio/booms/Gunfire%20And%20Voices.mp3',
           },
           [MACHINERY]: {
             className: 'machinery-3',
             number: 15,
             boomClass: 'boom-2',
-            boomSound: './audio/booms/Big%20Explosion%20Cut%20Off.mp3'
+            boomSound: './audio/booms/Big%20Explosion%20Cut%20Off.mp3',
           },
           [AIRFORCE]: {
             className: 'airforce-3',
             number: 15,
             boomClass: 'boom-3',
-            boomSound: './audio/booms/Magnum%20Shots%20-%20single.mp3'
-          }
+            boomSound: './audio/booms/Magnum%20Shots%20-%20single.mp3',
+          },
         },
-        weaponClass: 'weapon-3'
+        weaponClass: 'weapon-3',
       },
       [LEVELS[3]]: {
         backgroundClass: 'bg-level-4',
@@ -216,22 +216,22 @@ window.onload = () => {
             className: 'infantry-4',
             number: 20,
             boomClass: 'boom-1',
-            boomSound: './audio/booms/Gunfire%20And%20Voices.mp3'
+            boomSound: './audio/booms/Gunfire%20And%20Voices.mp3',
           },
           [MACHINERY]: {
             className: 'machinery-4',
             number: 20,
             boomClass: 'boom-2',
-            boomSound: './audio/booms/Big%20Explosion%20Cut%20Off.mp3'
+            boomSound: './audio/booms/Big%20Explosion%20Cut%20Off.mp3',
           },
           [AIRFORCE]: {
             className: 'airforce-4',
             number: 20,
             boomClass: 'boom-3',
-            boomSound: './audio/booms/Magnum%20Shots%20-%20single.mp3'
-          }
+            boomSound: './audio/booms/Magnum%20Shots%20-%20single.mp3',
+          },
         },
-        weaponClass: 'weapon-4'
+        weaponClass: 'weapon-4',
       },
       [LEVELS[4]]: {
         backgroundClass: 'bg-level-5',
@@ -241,22 +241,22 @@ window.onload = () => {
             className: 'infantry-5',
             number: 25,
             boomClass: 'boom-1',
-            boomSound: './audio/booms/Gunfire%20And%20Voices.mp3'
+            boomSound: './audio/booms/Gunfire%20And%20Voices.mp3',
           },
           [MACHINERY]: {
             className: 'machinery-5',
             number: 25,
             boomClass: 'boom-2',
-            boomSound: './audio/booms/Big%20Explosion%20Cut%20Off.mp3'
+            boomSound: './audio/booms/Big%20Explosion%20Cut%20Off.mp3',
           },
           [AIRFORCE]: {
             className: 'airforce-5',
             number: 25,
             boomClass: 'boom-3',
-            boomSound: './audio/booms/Magnum%20Shots%20-%20single.mp3'
-          }
+            boomSound: './audio/booms/Magnum%20Shots%20-%20single.mp3',
+          },
         },
-        weaponClass: 'weapon-5'
+        weaponClass: 'weapon-5',
       },
       [LEVELS[5]]: {
         backgroundClass: 'bg-level-6',
@@ -264,26 +264,26 @@ window.onload = () => {
         enemies: {
           [INFANTRY]: {
             className: 'putin',
-            number: 30,
+            number: 10,
             boomClass: 'boom-1',
-            boomSound: './audio/booms/Gunfire%20And%20Voices.mp3'
+            boomSound: './audio/booms/Gunfire%20And%20Voices.mp3',
           },
           [MACHINERY]: {
             className: 'putin',
-            number: 30,
+            number: 10,
             boomClass: 'boom-2',
-            boomSound: './audio/booms/Big%20Explosion%20Cut%20Off.mp3'
+            boomSound: './audio/booms/Big%20Explosion%20Cut%20Off.mp3',
           },
           [AIRFORCE]: {
             className: 'putin',
-            number: 30,
+            number: 10,
             boomClass: 'boom-3',
-            boomSound: './audio/booms/Magnum%20Shots%20-%20single.mp3'
-          }
+            boomSound: './audio/booms/Magnum%20Shots%20-%20single.mp3',
+          },
         },
-        weaponClass: 'weapon-6'
-      }
-    }
+        weaponClass: 'weapon-6',
+      },
+    },
   };
 
   const createDuckSoundLoop = () => {
@@ -309,6 +309,9 @@ window.onload = () => {
     endBlock.style.display = 'none';
     gameBlock.style.display = 'block';
     putin.style.display = 'none';
+    infantry.style.display = 'block';
+    machinery.style.display = 'block';
+    airforce.style.display = 'block';
 
     duckSound.load();
     duckSound.play();
@@ -328,11 +331,7 @@ window.onload = () => {
     const airforceNumber = CONFIG.LEVELS[LEVELS[LEVEL]].enemies[AIRFORCE].number;
 
     ENEMIES_ARRAY = [];
-    ENEMIES_ARRAY.push(
-        ...Array(infantryNumber).fill(INFANTRY),
-        ...Array(machineryNumber).fill(MACHINERY),
-        ...Array(airforceNumber).fill(AIRFORCE),
-    );
+    ENEMIES_ARRAY.push(...Array(infantryNumber).fill(INFANTRY), ...Array(machineryNumber).fill(MACHINERY), ...Array(airforceNumber).fill(AIRFORCE));
     ENEMIES_ARRAY = shuffle(ENEMIES_ARRAY);
     ENEMIES_ARRAY.push(...shuffle([...Array(2).fill(INFANTRY), ...Array(2).fill(MACHINERY), ...Array(2).fill(AIRFORCE)]));
 
@@ -368,13 +367,17 @@ window.onload = () => {
     bird.className = birdSkin;
     bird.classList.add(CONFIG.LEVELS[LEVELS[LEVEL]].birdClass);
 
+    scorePutinCurrent.innerHTML = String(PUTIN_LIVES);
+    scorePutinTotal.innerHTML = String(PUTIN_LIVES);
+
     createLives();
     putinCreateEnemy();
+    createDuckSoundLoop();
 
     gameStarted = true;
   };
 
-  const moveEnemy = enemy => {
+  const moveEnemy = (enemy) => {
     let timerId = setInterval(() => {
       enemy.style.left = enemy.offsetLeft - 10 + 'px';
       if (enemy.offsetLeft < -100) {
@@ -385,7 +388,7 @@ window.onload = () => {
     }, 30);
   };
 
-  const putinMoveEnemy = enemy => {
+  const putinMoveEnemy = (enemy) => {
     const goLeft = () => {
       let moveLeft = setInterval(() => {
         enemy.style.left = enemy.offsetLeft - 10 + 'px';
@@ -410,7 +413,7 @@ window.onload = () => {
     goLeft();
   };
 
-  const moveBullet = bullet => {
+  const moveBullet = (bullet) => {
     let timerId = setInterval(() => {
       bullet.style.top = bullet.offsetTop + 10 + 'px';
       if (bullet.offsetTop > document.querySelector('body').clientHeight) {
@@ -457,13 +460,13 @@ window.onload = () => {
     moveBullet(bullet);
   };
 
-  const isBoom = bullet => {
+  const isBoom = (bullet) => {
     let enemy = document.querySelector('.enemy');
     if (
-        enemy &&
-        bullet.offsetLeft > enemy.offsetLeft &&
-        bullet.offsetLeft < enemy.offsetLeft + enemy.clientWidth &&
-        bullet.offsetTop > enemy.offsetTop
+      enemy &&
+      bullet.offsetLeft > enemy.offsetLeft &&
+      bullet.offsetLeft < enemy.offsetLeft + enemy.clientWidth &&
+      bullet.offsetTop > enemy.offsetTop
     ) {
       const enemyClass = enemy.classList[1]; // 'enemy infantry'
 
@@ -471,6 +474,7 @@ window.onload = () => {
         createBoom(bullet.offsetTop, bullet.offsetLeft, MACHINERY);
         bullet.remove();
         PUTIN_LIVES -= 1;
+        scorePutinCurrent.innerHTML = String(PUTIN_LIVES);
         if (PUTIN_LIVES === 0) {
           enemy.remove();
           endGameSuccess();
@@ -488,9 +492,9 @@ window.onload = () => {
         });
 
         if (
-            ENEMIES[INFANTRY].number >= CONFIG.LEVELS[LEVELS[LEVEL]].enemies[INFANTRY].number &&
-            ENEMIES[MACHINERY].number >= CONFIG.LEVELS[LEVELS[LEVEL]].enemies[MACHINERY].number &&
-            ENEMIES[AIRFORCE].number >= CONFIG.LEVELS[LEVELS[LEVEL]].enemies[AIRFORCE].number
+          ENEMIES[INFANTRY].number >= CONFIG.LEVELS[LEVELS[LEVEL]].enemies[INFANTRY].number &&
+          ENEMIES[MACHINERY].number >= CONFIG.LEVELS[LEVELS[LEVEL]].enemies[MACHINERY].number &&
+          ENEMIES[AIRFORCE].number >= CONFIG.LEVELS[LEVELS[LEVEL]].enemies[AIRFORCE].number
         ) {
           endLevelNext();
         }
@@ -539,7 +543,7 @@ window.onload = () => {
   const endLevelNext = () => {
     gameStarted = false;
     ENEMIES_ARRAY = [];
-    document.querySelectorAll('.enemy').forEach(e => e.remove());
+    document.querySelectorAll('.enemy').forEach((e) => e.remove());
 
     nextLevelBlock.style.display = 'block';
 
@@ -557,7 +561,7 @@ window.onload = () => {
   const endLevelPrevious = () => {
     gameStarted = false;
     ENEMIES_ARRAY = [];
-    document.querySelectorAll('.enemy').forEach(e => e.remove());
+    document.querySelectorAll('.enemy').forEach((e) => e.remove());
 
     previousLevelBlock.style.display = 'block';
 
@@ -595,7 +599,7 @@ window.onload = () => {
 
     resetLives();
     resetScore();
-    document.querySelectorAll('.enemy').forEach(e => e.remove());
+    document.querySelectorAll('.enemy').forEach((e) => e.remove());
 
     endBlock.style.display = 'block';
 
@@ -638,9 +642,9 @@ window.onload = () => {
     aboutBlock.style.display = 'none';
   };
 
-  btnHelp.forEach(bh => {
+  btnHelp.forEach((bh) => {
     bh.onclick = () => {
-      window.open(LINK_BANK,'_blank');
+      window.open(LINK_BANK, '_blank');
     };
   });
 
@@ -679,11 +683,7 @@ window.onload = () => {
   };
 
   document.onkeydown = (e) => {
-    if (
-        gameStarted &&
-        e.keyCode === 32 &&
-        bulletTimestamp + bulletInterval < Date.now()
-    ) {
+    if (gameStarted && e.keyCode === 32 && bulletTimestamp + bulletInterval < Date.now()) {
       bulletTimestamp = Date.now();
       createBullet();
     }

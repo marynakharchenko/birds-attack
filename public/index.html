@@ -1,41 +1,35 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<title>Birds Attack</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" type="image/x-icon" href="images/favicon.png">
-</head>
-<body>
-	<div class="start-bg" id="background-start">
-		<picture >
-   			<source
-			  media="(min-width: 768px)"
-			  srcset="images/backgrounds/bg-main-100.jpg">
-  			<source
-			  media="(max-width: 767px) and (min-width: 320px) and (orientation: portrait)"
-			  srcset="images/backgrounds/bg-main-phone.jpg">
-            <source
-			  media="(max-width: 767px) and (min-width: 320px) and (orientation: landscape)"
-			  srcset="images/backgrounds/bg-main-100.jpg">
-   			<img src="images/backgrounds/bg-main-100.jpg" class="bg-start-phone">
-		</picture>
-		<div class="logo-and-btn-wrap">
-			<img src="images/icons/logo.png" class="logo-start">
-			<button class="btn-start loading">Старт</button>
-			<button class="btn-about loading">Про гру</button>
-			<button class="btn-help loading">Допомогти ЗСУ</button>
-			<div class="boxLoading"></div>
-			<div class="boxLoadingText">Завантаження...</div>
-		</div>
-
-	</div>
-	<div id="background"></div>
-	<div id="about">
+  <head>
+    <meta charset="utf-8" />
+    <title>Birds Attack</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="images/favicon.png" />
+  </head>
+  <body>
+    <div class="start-bg" id="background-start">
+      <picture>
+        <source media="(min-width: 768px)" srcset="images/backgrounds/bg-main-100.jpg" />
+        <source media="(max-width: 767px) and (min-width: 320px) and (orientation: portrait)" srcset="images/backgrounds/bg-main-phone.jpg" />
+        <source media="(max-width: 767px) and (min-width: 320px) and (orientation: landscape)" srcset="images/backgrounds/bg-main-100.jpg" />
+        <img src="images/backgrounds/bg-main-100.jpg" class="bg-start-phone" />
+      </picture>
+      <div class="logo-and-btn-wrap">
+        <img src="images/icons/logo.png" class="logo-start" />
+        <button class="btn-start loading">Старт</button>
+        <button class="btn-about loading">Про гру</button>
+        <button class="btn-help loading">Допомогти ЗСУ</button>
+        <div class="boxLoading"></div>
+        <div class="boxLoadingText">Завантаження...</div>
+      </div>
+    </div>
+    <div class="background-block">
+      <div id="background"></div>
+    </div>
+    <div id="about">
 		<div class="aboutTextWrap">
 			<img src="images/icons/logo-pop-up.png" class="logoAbout">
-<!--			<h2 class="aboutTitle">Про Birds Attack 2022</h2>-->
 			<div class="aboutWraper">
 				<p class="aboutDescr">Не дай рашистам та техніці окупантів пройти поряд, бойовий качур допоможе тобі в цьому.
 					Тебе очікує 5 різних локацій, для знешкодження загарбників, та фінішний рівень в бункері, де твоя ціль - головний негідник.</p>
@@ -58,149 +52,144 @@
 			<div class="aboutBtnWrap">
 				<button id="about-close" class="btn-start">На головну</button>
 			</div>
-
 		</div>
-
 	</div>
 
-	<audio class="music"><source></audio>
-	<audio class="duck-sound" src="audio/duck/Mallard%20Duck%20Call%20-%20QuickSounds.com%20-%20double.mp3"><source></audio>
-	<audio class="boom-sound"><source></audio>
+    <audio class="music"><source /></audio>
+    <audio class="duck-sound" src="audio/duck/Mallard%20Duck%20Call%20-%20QuickSounds.com%20-%20double.mp3"><source /></audio>
+    <audio class="boom-sound"><source /></audio>
 
-	<div id="app">
-		<div id="game">
-			<div class="levelAndLife">
-				<img src="images/icons/level1.png" class="levelIcon">
-				<div id="lives">
-					<span></span>
-					<span></span>
-					<span></span>
-				</div>
-			</div>
+    <div id="app">
+      <div id="game">
+        <div class="levelAndLife">
+          <img src="images/icons/level1.png" class="levelIcon" />
+          <div id="lives">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
 
-			<div id="options">
-				<div id="score-infantry" class="scoreBox">
-					<img src="images/icons/infantry-icon.png" class="iconOptions">
-					<span class="current">0</span><span class="scoreLine">/</span><span class="total">0</span>
-				</div>
-				<div id="score-machinery" class="scoreBox">
-					<img src="images/icons/machinery-icon.png" class="iconOptions">
-					<span class="current">0</span><span class="scoreLine">/</span><span class="total">0</span>
-				</div>
-				<div id="score-airforce" class="scoreBox">
-					<img src="images/icons/airforce-icon.png" class="iconOptions">
-					<span class="current">0</span><span class="scoreLine">/</span><span class="total">0</span>
-				</div>
-                <div id="score-putin" class="scoreBox">
-					<img src="images/icons/putin-icon.png" class="iconOptions">
-					<span class="current">0</span><span class="scoreLine">/</span><span class="total">0</span>
-				</div>
-				<div id="sound">
-					<img src="images/icons/sound-on.png">
-				</div>
-			</div>
+        <div id="options">
+          <div id="score-infantry" class="scoreBox">
+            <img src="images/icons/infantry-icon.png" class="iconOptions" />
+            <span class="current">0</span><span class="scoreLine">/</span><span class="total">0</span>
+          </div>
+          <div id="score-machinery" class="scoreBox">
+            <img src="images/icons/machinery-icon.png" class="iconOptions" />
+            <span class="current">0</span><span class="scoreLine">/</span><span class="total">0</span>
+          </div>
+          <div id="score-airforce" class="scoreBox">
+            <img src="images/icons/airforce-icon.png" class="iconOptions" />
+            <span class="current">0</span><span class="scoreLine">/</span><span class="total">0</span>
+          </div>
+          <div id="score-putin" class="scoreBox">
+            <img src="images/icons/putin-icon.png" class="iconOptions" />
+            <span class="current">0</span><span class="scoreLine">/</span><span class="total">0</span>
+          </div>
+          <div id="sound">
+            <img src="images/icons/sound-on.png" />
+          </div>
+        </div>
 
-			<div id="bird" class="duck"></div>
-		</div>
+        <div id="bird" class="duck"></div>
+      </div>
 
+      <div id="start">
+        <img src="images/icons/logo-pop-up.png" class="logoPopUp" />
+        <h2 class="titlePopUp">Бойовий качур готовий до полювання на рашистів</h2>
 
-		<div id="start">
-            <img src="images/icons/logo-pop-up.png" class="logoPopUp">
-			<h2 class="titlePopUp">Бойовий качур готовий до полювання на рашистів</h2>
+        <div id="select-bird" class="clearfix">
+          <span class="selected" id="duck">
+            <img src="images/icons/duck-start.png" class="duckStartWrap" />
+          </span>
+        </div>
+        <button id="startBtn">Розпочати</button>
+      </div>
+      <div id="next-level">
+        <img src="images/icons/logo-pop-up.png" class="logoPopUp" />
+        <h2 class="titlePopUp">Бойове завдання успішно виконано</h2>
+        <button id="nextLevelBtn">Наступний рівень</button>
+        <button class="btn-help">Допомогти ЗСУ</button>
+      </div>
+      <div id="previous-level">
+        <img src="images/icons/logo-pop-up.png" class="logoPopUp" />
+        <h2 class="titlePopUp">Бойовий качур готовий до полювання на рашистів</h2>
+        <button id="previousLevelBtn">Попередній рівень</button>
+      </div>
+      <div id="end">
+        <img src="images/icons/logo-pop-up.png" class="logoPopUp" />
+        <h2 class="titlePopUp">Спробуй ще раз</h2>
+        <h3>Твій рахунок: <span>0</span></h3>
+        <button id="restartBtn">Розпочати полювання</button>
+      </div>
+    </div>
 
-			<div id="select-bird" class="clearfix">
-				<span class="selected" id='duck'>
-					<img src="images/icons/duck-start.png" class="duckStartWrap">
-				</span>
-			</div>
-			<button id="startBtn">Розпочати</button>
-		</div>
-		<div id="next-level">
-            <img src="images/icons/logo-pop-up.png" class="logoPopUp">
-			<h2 class="titlePopUp">Бойове завдання успішно виконано</h2>
-			<button id="nextLevelBtn">Наступний рівень</button>
-			<button class="btn-help">Допомогти ЗСУ</button>
-		</div>
-		<div id="previous-level">
-            <img src="images/icons/logo-pop-up.png" class="logoPopUp">
-			<h2 class="titlePopUp">Бойовий качур готовий до полювання на рашистів</h2>
-			<button id="previousLevelBtn">Попередній рівень</button>
-		</div>
-		<div id="end">
-			<img src="images/icons/logo-pop-up.png" class="logoPopUp">
-			<h2 class="titlePopUp">Спробуй ще раз</h2>
-			<h3>Твій рахунок: <span>0</span></h3>
-			<button id="restartBtn">Розпочати полювання</button>
-		</div>
+    <!-- load all static files -->
+    <div id="content" style="display: none">
+      <img src="./images/icons/airforce-icon.png" />
+      <img src="./images/icons/infantry-icon.png" />
+      <img src="./images/icons/level1.png" />
+      <img src="./images/icons/level2.png" />
+      <img src="./images/icons/level3.png" />
+      <img src="./images/icons/level4.png" />
+      <img src="./images/icons/level5.png" />
+      <img src="./images/icons/level6.png" />
+      <img src="./images/icons/logo.png" />
+      <img src="./images/icons/logo-pop-up.png" />
+      <img src="./images/icons/machinery-icon.png" />
+      <img src="./images/icons/sound-on.png" />
+      <img src="./images/icons/sound-off.png" />
+      <img src="./images/icons/star-icon.png" />
 
-	</div>
+      <img src="./images/backgrounds/bg-level6-d.png" />
+      <img src="./images/backgrounds/bg-level6-m.png" />
+      <img src="./images/backgrounds/bg-level-1.png" />
+      <img src="./images/backgrounds/bg-level-2.png" />
+      <img src="./images/backgrounds/bg-level-3.png" />
+      <img src="./images/backgrounds/bg-level-4.png" />
+      <img src="./images/backgrounds/bg-level-5.png" />
+      <img src="./images/backgrounds/bg-level-6.png" />
+      <img src="./images/backgrounds/bg-main-100.jpg" />
+      <img src="./images/backgrounds/bg-main-phone.jpg" />
 
-	<!-- load all static files -->
-	<div id="content" style="display: none">
-		<img src="./images/icons/airforce-icon.png">
-		<img src="./images/icons/infantry-icon.png">
-		<img src="./images/icons/level1.png">
-		<img src="./images/icons/level2.png">
-		<img src="./images/icons/level3.png">
-		<img src="./images/icons/level4.png">
-		<img src="./images/icons/level5.png">
-		<img src="./images/icons/level6.png">
-		<img src="./images/icons/logo.png">
-		<img src="./images/icons/logo-pop-up.png">
-		<img src="./images/icons/machinery-icon.png">
-		<img src="./images/icons/sound-on.png">
-		<img src="./images/icons/sound-off.png">
-		<img src="./images/icons/star-icon.png">
+      <img src="./images/birds/duck-fly-1.gif" />
+      <img src="./images/birds/duck-fly-2.gif" />
+      <img src="./images/birds/duck-fly-3.gif" />
+      <img src="./images/birds/duck-fly-4.gif" />
+      <img src="./images/birds/duck-fly-5.gif" />
+      <img src="./images/birds/duck-fly-6.gif" />
 
-		<img src="./images/backgrounds/bg-level6-d.png">
-		<img src="./images/backgrounds/bg-level6-m.png">
-		<img src="./images/backgrounds/bg-level-1.png">
-		<img src="./images/backgrounds/bg-level-2.png">
-		<img src="./images/backgrounds/bg-level-3.png">
-		<img src="./images/backgrounds/bg-level-4.png">
-		<img src="./images/backgrounds/bg-level-5.png">
-		<img src="./images/backgrounds/bg-level-6.png">
-		<img src="./images/backgrounds/bg-main-100.jpg">
-		<img src="./images/backgrounds/bg-main-phone.jpg">
+      <img src="./images/weapons/weapon-1.png" />
+      <img src="./images/weapons/weapon-2.png" />
+      <img src="./images/weapons/weapon-3.png" />
+      <img src="./images/weapons/weapon-4.png" />
+      <img src="./images/weapons/weapon-5.png" />
+      <img src="./images/weapons/weapon-6.png" />
 
-		<img src="./images/birds/duck-fly-1.gif">
-		<img src="./images/birds/duck-fly-2.gif">
-		<img src="./images/birds/duck-fly-3.gif">
-		<img src="./images/birds/duck-fly-4.gif">
-		<img src="./images/birds/duck-fly-5.gif">
-		<img src="./images/birds/duck-fly-6.gif">
+      <img src="./images/enemies/airforce-1.png" />
+      <img src="./images/enemies/airforce-2.png" />
+      <img src="./images/enemies/airforce-3.png" />
+      <img src="./images/enemies/airforce-4.png" />
+      <img src="./images/enemies/airforce-5.png" />
+      <img src="./images/enemies/infantry-1.gif" />
+      <img src="./images/enemies/infantry-2.gif" />
+      <img src="./images/enemies/infantry-3.gif" />
+      <img src="./images/enemies/infantry-4.gif" />
+      <img src="./images/enemies/infantry-5.gif" />
+      <img src="./images/enemies/machinery-1.png" />
+      <img src="./images/enemies/machinery-2.png" />
+      <img src="./images/enemies/machinery-3.png" />
+      <img src="./images/enemies/machinery-4.png" />
+      <img src="./images/enemies/machinery-5.png" />
+      <img src="./images/enemies/putin.gif" />
+      <img src="./images/enemies/putin-300.gif" />
 
-		<img src="./images/weapons/weapon-1.png">
-		<img src="./images/weapons/weapon-2.png">
-		<img src="./images/weapons/weapon-3.png">
-		<img src="./images/weapons/weapon-4.png">
-		<img src="./images/weapons/weapon-5.png">
-		<img src="./images/weapons/weapon-6.png">
+      <img src="./images/booms/boom-1.gif" />
+      <img src="./images/booms/boom-2.gif" />
+      <img src="./images/booms/boom-3.gif" />
+    </div>
 
-		<img src="./images/enemies/airforce-1.png">
-		<img src="./images/enemies/airforce-2.png">
-		<img src="./images/enemies/airforce-3.png">
-		<img src="./images/enemies/airforce-4.png">
-		<img src="./images/enemies/airforce-5.png">
-		<img src="./images/enemies/infantry-1.gif">
-		<img src="./images/enemies/infantry-2.gif">
-		<img src="./images/enemies/infantry-3.gif">
-		<img src="./images/enemies/infantry-4.gif">
-		<img src="./images/enemies/infantry-5.gif">
-		<img src="./images/enemies/machinery-1.png">
-		<img src="./images/enemies/machinery-2.png">
-		<img src="./images/enemies/machinery-3.png">
-		<img src="./images/enemies/machinery-4.png">
-		<img src="./images/enemies/machinery-5.png">
-		<img src="./images/enemies/putin.gif">
-		<img src="./images/enemies/putin-300.gif">
-
-		<img src="./images/booms/boom-1.gif">
-		<img src="./images/booms/boom-2.gif">
-		<img src="./images/booms/boom-3.gif">
-	</div>
-
-	<script src="script.js"></script>
-
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>

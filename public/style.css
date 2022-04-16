@@ -2,7 +2,7 @@ body {
   height: 100vh;
   padding: 0;
   margin: 0;
-  font-family: "Tahoma", "Arial Black", sans-serif;
+  font-family: 'Tahoma', 'Arial Black', sans-serif;
 }
 button {
   cursor: pointer;
@@ -18,14 +18,16 @@ button {
   display: none;
 }
 #background {
-  padding: 0 ;
+  padding: 0;
   display: none !important;
 }
 #startBtn:disabled {
   background: gray;
 }
 
-#end, #next-level, #previous-level {
+#end,
+#next-level,
+#previous-level {
   display: none;
 }
 
@@ -50,7 +52,7 @@ button {
 
 .clearfix:before,
 .clearfix:after {
-  content: "";
+  content: '';
   display: table;
 }
 
@@ -58,12 +60,12 @@ button {
   clear: both;
 }
 
-
 @media (min-width: 1280px) {
   #background {
+    width: 2000px;
     background-size: 1000px;
   }
-  .bg-start{
+  .bg-start {
     width: 100vw;
   }
   #bird.duck {
@@ -72,31 +74,37 @@ button {
   .logo-start {
     width: 300px;
   }
-  #bird.duck-fly-2, #bird.duck-fly-6, #bird.duck-fly-5, #bird.duck-fly-4  {
+  #bird.duck-fly-2,
+  #bird.duck-fly-6,
+  #bird.duck-fly-5,
+  #bird.duck-fly-4 {
     width: 250px;
     background-repeat: no-repeat !important;
     background-size: contain !important;
     margin-top: 50px !important;
   }
   @keyframes background-move {
-     0% {
-        background-position-x: 0;
+    0% {
+      transform: translate3d(0px, 0, 0);
     }
-     100% {
-      background-position-x: -1000px;
+    50% {
+      transform: translate3d(-500px, 0, 0);
     }
-}
-  #options {
-  margin: 30px auto;
+    100% {
+      transform: translate3d(-1000px, 0, 0);
+    }
   }
-  .scoreBox{
+  #options {
+    margin: 30px auto;
+  }
+  .scoreBox {
     margin: 6px 20px;
   }
-  .levelAndLife{
+  .levelAndLife {
     top: 5px;
     left: 20px;
   }
-  .levelIcon{
+  .levelIcon {
     width: 100px;
   }
   #lives {
@@ -108,12 +116,15 @@ button {
     background-color: #008fd0;
     background-repeat: repeat-x;
   }
-  .logoPopUp{
+  .logoPopUp {
     top: -80px;
     width: 200px;
     left: 20px;
   }
-  #start, #end, #previous-level, #next-level {
+  #start,
+  #end,
+  #previous-level,
+  #next-level {
     top: 50%;
     width: 200px;
     height: 400px;
@@ -127,10 +138,14 @@ button {
   #nextLevelBtn {
     margin: 20px auto 0;
   }
-  .titlePopUp{
+  .titlePopUp {
     margin-top: 80px;
   }
-  .enemy.infantry-1, .enemy.infantry-2, .enemy.infantry-3, .enemy.infantry-4, .enemy.infantry-5 {
+  .enemy.infantry-1,
+  .enemy.infantry-2,
+  .enemy.infantry-3,
+  .enemy.infantry-4,
+  .enemy.infantry-5 {
     width: 160px;
     height: 160px;
     bottom: 50px;
@@ -149,11 +164,11 @@ button {
   .enemy.machinery-3 {
     width: 350px;
     height: 127px;
-     bottom: 40px;
+    bottom: 40px;
   }
   .enemy.machinery-4 {
     width: 270px;
-     bottom: 60px;
+    bottom: 60px;
     height: 150px;
   }
   .enemy.machinery-5 {
@@ -168,32 +183,40 @@ button {
 
 @media (min-width: 768px) and (max-width: 1279px) {
   #background {
+    width: 2000px;
     background-size: 1000px;
   }
-  .bg-start{
+  .bg-start {
     width: 100vw;
   }
   .logo-start {
     width: 300px;
   }
   @keyframes background-move {
-     0% {
-        background-position-x: 0;
+    0% {
+      transform: translateX(0px);
     }
-     100% {
-      background-position-x: -1000px;
+    50% {
+      transform: translateX(-500px);
+    }
+    100% {
+      transform: translateX(-1000px);
     }
   }
   #bird.duck {
-     width: 200px;
+    width: 200px;
   }
-  #bird.duck-fly-1, #bird.duck-fly-3 {
+  #bird.duck-fly-1,
+  #bird.duck-fly-3 {
     width: 200px !important;
     background-repeat: no-repeat !important;
     background-size: contain !important;
     margin-top: 50px !important;
   }
-  #bird.duck-fly-2, #bird.duck-fly-6, #bird.duck-fly-5, #bird.duck-fly-4  {
+  #bird.duck-fly-2,
+  #bird.duck-fly-6,
+  #bird.duck-fly-5,
+  #bird.duck-fly-4 {
     width: 250px;
     background-repeat: no-repeat !important;
     background-size: contain !important;
@@ -201,15 +224,15 @@ button {
   }
   #options {
     margin: 30px auto;
-   }
-  .scoreBox{
+  }
+  .scoreBox {
     margin: 6px 20px;
   }
-  .levelAndLife{
+  .levelAndLife {
     top: 5px;
     left: 20px;
   }
-  .levelIcon{
+  .levelIcon {
     width: 100px;
   }
   #lives {
@@ -221,12 +244,15 @@ button {
     background-color: #008fd0;
     background-repeat: repeat-x;
   }
-  .logoPopUp{
+  .logoPopUp {
     top: -80px;
     width: 200px;
     left: 20px;
   }
-  #start, #end, #previous-level, #next-level {
+  #start,
+  #end,
+  #previous-level,
+  #next-level {
     top: 50%;
     width: 200px;
     height: 400px;
@@ -240,12 +266,16 @@ button {
   #nextLevelBtn {
     margin: 20px auto 0;
   }
-   .titlePopUp{
+  .titlePopUp {
     margin-top: 80px;
   }
-   .enemy.infantry-1, .enemy.infantry-2, .enemy.infantry-3, .enemy.infantry-4, .enemy.infantry-5 {
+  .enemy.infantry-1,
+  .enemy.infantry-2,
+  .enemy.infantry-3,
+  .enemy.infantry-4,
+  .enemy.infantry-5 {
     width: 170px;
-     bottom: 50px;
+    bottom: 50px;
   }
 
   .enemy.machinery-1 {
@@ -256,12 +286,12 @@ button {
   .enemy.machinery-2 {
     width: 250px;
     height: 140px;
-     bottom: 50px;
+    bottom: 50px;
   }
   .enemy.machinery-3 {
     width: 250px;
     height: 127px;
-     bottom: 60px;
+    bottom: 60px;
   }
   .enemy.machinery-4 {
     width: 250px;
@@ -270,7 +300,7 @@ button {
   }
   .enemy.machinery-5 {
     width: 400px;
-     bottom: 60px;
+    bottom: 60px;
     height: 130px;
   }
     .aboutWraper{
@@ -280,45 +310,53 @@ button {
 
 @media (min-width: 320px) and (max-width: 767px) {
   #background {
+    width: 1400px;
     background-size: 700px;
   }
- .logo-start {
+  .logo-start {
     width: 150px;
   }
-   @keyframes background-move {
-  0% {
-    background-position-x: 0;
+  @keyframes background-move {
+    0% {
+      transform: translateX(0px);
+    }
+    50% {
+      transform: translateX(-350px);
+    }
+    100% {
+      transform: translateX(-700px);
+    }
   }
-  100% {
-    background-position-x: -700px;
-  }
-}
   #bird.duck {
     width: 200px;
   }
-  #bird.duck-fly-1, #bird.duck-fly-3  {
+  #bird.duck-fly-1,
+  #bird.duck-fly-3 {
     width: 200px !important;
     background-repeat: no-repeat !important;
     background-size: contain !important;
     margin-top: 80px !important;
   }
-  #bird.duck-fly-2, #bird.duck-fly-6, #bird.duck-fly-5, #bird.duck-fly-4 {
+  #bird.duck-fly-2,
+  #bird.duck-fly-6,
+  #bird.duck-fly-5,
+  #bird.duck-fly-4 {
     width: 200px;
     background-repeat: no-repeat !important;
     background-size: contain !important;
     margin-top: 80px !important;
   }
   #options {
-     margin: 10px auto;
-    }
-  .scoreBox{
+    margin: 10px auto;
+  }
+  .scoreBox {
     margin: 6px 10px 6px 20px;
   }
-  .levelAndLife{
+  .levelAndLife {
     top: 45px;
     left: 10px;
   }
-  .levelIcon{
+  .levelIcon {
     width: 70px;
   }
   #lives {
@@ -335,12 +373,15 @@ button {
     background-size: contain;
     z-index: auto;
   }
-  .logoPopUp{
+  .logoPopUp {
     top: -80px;
     width: 200px;
     left: 20px;
   }
-  #start, #end, #previous-level, #next-level {
+  #start,
+  #end,
+  #previous-level,
+  #next-level {
     top: 50%;
     width: 200px;
     height: 400px;
@@ -351,21 +392,25 @@ button {
   #start button,
   #end button,
   #previousLevelBtn,
-  #nextLevelBtn{
+  #nextLevelBtn {
     margin: 20px auto 0;
   }
-  .titlePopUp{
+  .titlePopUp {
     margin-top: 80px;
   }
-  .enemy.infantry-1, .enemy.infantry-2, .enemy.infantry-3, .enemy.infantry-4, .enemy.infantry-5 {
+  .enemy.infantry-1,
+  .enemy.infantry-2,
+  .enemy.infantry-3,
+  .enemy.infantry-4,
+  .enemy.infantry-5 {
     width: 100px;
-   bottom: 40px;
+    bottom: 40px;
   }
 
   .enemy.machinery-1 {
     width: 160px;
     height: 80px;
-     bottom: 50px;
+    bottom: 50px;
   }
   .enemy.machinery-2 {
     width: 150px;
@@ -374,7 +419,7 @@ button {
   }
   .enemy.machinery-3 {
     width: 180px;
-   bottom: -30px;
+    bottom: -30px;
     height: 90px;
   }
   .enemy.machinery-4 {
@@ -393,67 +438,78 @@ button {
 }
 
 @media (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
-   #bird.duck-fly-1, #bird.duck-fly-3  {
+  #bird.duck-fly-1,
+  #bird.duck-fly-3 {
     width: 100px !important;
     background-repeat: no-repeat !important;
     background-size: contain !important;
     margin-top: 10px !important;
   }
-  #bird.duck-fly-2, #bird.duck-fly-6, #bird.duck-fly-5, #bird.duck-fly-4 {
+  #bird.duck-fly-2,
+  #bird.duck-fly-6,
+  #bird.duck-fly-5,
+  #bird.duck-fly-4 {
     width: 100px;
     background-repeat: no-repeat !important;
     background-size: contain !important;
     margin-top: 10px !important;
   }
-   .levelAndLife {
+  .levelAndLife {
     top: 10px;
     left: 10px;
   }
-   .logoPopUp{
+  .logoPopUp {
     top: -50px;
     width: 140px;
     left: 150px;
   }
-   #start, #end, #previous-level, #next-level {
+  #start,
+  #end,
+  #previous-level,
+  #next-level {
     top: 45%;
     width: 400px;
     height: 250px;
   }
-   .logo-start {
+  .logo-start {
     width: 150px;
   }
-   .logo-and-btn-wrap {
+  .logo-and-btn-wrap {
     top: 30%;
   }
   #start button,
   #end button,
   #previousLevelBtn,
-  #nextLevelBtn{
+  #nextLevelBtn {
     margin: 10px auto 0;
   }
-  .titlePopUp{
+  .titlePopUp {
     margin-top: 60px;
   }
-  .duckStartWrap{
+  .duckStartWrap {
     width: 100px;
   }
-  #start{
+  #start {
     height: 280px;
     margin-top: 30px;
   }
-  .enemy.infantry-1, .enemy.infantry-2, .enemy.infantry-3, .enemy.infantry-4, .enemy.infantry-5 {
+  .enemy.infantry-1,
+  .enemy.infantry-2,
+  .enemy.infantry-3,
+  .enemy.infantry-4,
+  .enemy.infantry-5 {
     width: 100px;
     bottom: 20px;
   }
-   .enemy.machinery-1 {
-     width: 160px;
-     bottom: 30px;
-     height: 75px;
+  .enemy.machinery-1 {
+    width: 160px;
+    bottom: 30px;
+    height: 75px;
   }
   .enemy.machinery-2 {
-      width: 150px;
-      height: content-box;
-      bottom: 20px;
+    width: 150px;
+    height: content-box;
+    bottom: 20px;
   }
   .enemy.machinery-3 {
     width: 180px;
@@ -463,11 +519,11 @@ button {
   .enemy.machinery-4 {
     width: 220px;
     height: 80px;
-      bottom: 20px;
+    bottom: 20px;
   }
   .enemy.machinery-5 {
     width: 180px;
-      bottom: 10px;
+    bottom: 10px;
     height: 60px;
   }
     .aboutWraper{
@@ -476,6 +532,10 @@ button {
 }
 /*----------------background---------------- */
 
+.background-block {
+  position: relative;
+  overflow: hidden;
+}
 #background {
   padding: 0;
   overflow: hidden;
@@ -484,11 +544,11 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #D6E1F5;
+  background-color: #d6e1f5;
   background-repeat: repeat-x;
   background-position: center bottom;
 }
-#background-start{
+#background-start {
   height: 100%;
   position: relative;
   padding: 0;
@@ -499,11 +559,11 @@ button {
   flex-direction: column;
 }
 .bg-start-phone {
-    width: 100vw;
-    position: absolute;
-    bottom: 0;
-    background-color: #008fd0;
-    background-size: cover;
+  width: 100vw;
+  position: absolute;
+  bottom: 0;
+  background-color: #008fd0;
+  background-size: cover;
 }
 .logo-and-btn-wrap {
   display: flex;
@@ -519,7 +579,9 @@ button {
 .loading {
   display: none;
 }
-.btn-start, .btn-about, .btn-help {
+.btn-start,
+.btn-about,
+.btn-help {
   font-size: 16px;
   width: 180px;
   height: 45px;
@@ -534,9 +596,11 @@ button {
   transition-duration: 0.2s;
   margin: 20px auto 0;
 }
-.btn-start:hover, .btn-about:hover, .btn-help:hover {
-  -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
-  box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
+.btn-start:hover,
+.btn-about:hover,
+.btn-help:hover {
+  -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
   transform: translateY(-5px);
   transition-timing-function: ease-in;
   transition-duration: 0.2s;
@@ -551,7 +615,7 @@ button {
 }
 #background.bg-level-3 {
   background-image: url(images/backgrounds/bg-level-3.png);
-  background-color:#0f1418;
+  background-color: #0f1418;
   animation: background-move 6s linear infinite;
 }
 #background.bg-level-4 {
@@ -562,7 +626,6 @@ button {
   background-image: url(images/backgrounds/bg-level-5.png);
   animation: background-move 5s linear infinite;
 }
-
 
 /*--------------------------------birds---------------- */
 
@@ -613,29 +676,29 @@ button {
 
 /*--------------------------------score---------------- */
 
-.iconOptions{
+.iconOptions {
   width: 60px;
   position: absolute;
   left: -30px;
   top: -20px;
 }
-.current{
+.current {
   font-weight: bold;
   font-size: 11px;
   color: black;
   margin-left: 25px;
 }
-.total{
+.total {
   font-weight: bold;
   font-size: 9px;
   color: #6f6f6f;
 }
-.scoreLine{
+.scoreLine {
   font-weight: bold;
   font-size: 9px;
   color: #6f6f6f;
 }
-.scoreBox{
+.scoreBox {
   position: relative;
   width: 70px;
   background-color: white;
@@ -643,7 +706,7 @@ button {
   border-radius: 50px;
   height: 20px;
 }
-.levelAndLife{
+.levelAndLife {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -682,7 +745,7 @@ button {
 #options #sound img {
   height: 100%;
 }
-#score-putin .iconOptions{
+#score-putin .iconOptions {
   top: -10px;
 }
 /*--------------------------------weapon---------------- */
@@ -700,7 +763,7 @@ button {
 }
 .bullet.weapon-2 {
   background: url(images/weapons/weapon-2.png) transparent no-repeat;
-   width: 17px;
+  width: 17px;
   height: 43px;
 }
 .bullet.weapon-3 {
@@ -743,7 +806,8 @@ button {
   background: url(images/booms/boom-3.gif) transparent no-repeat;
 }
 
-.enemy.infantry, .enemy.machinery {
+.enemy.infantry,
+.enemy.machinery {
   position: absolute;
   right: -300px;
   z-index: 999999;
@@ -837,17 +901,20 @@ button {
 
 /*--------------------------------popUps---------------- */
 
-.logoPopUp{
+.logoPopUp {
   position: absolute;
 }
 
-.titlePopUp{
+.titlePopUp {
   font-weight: bold;
   font-size: 16px;
   line-height: normal;
 }
 
-#start, #end, #previous-level, #next-level {
+#start,
+#end,
+#previous-level,
+#next-level {
   position: relative;
   left: 50%;
   margin-right: -50%;
@@ -857,7 +924,7 @@ button {
   border-radius: 20px;
   text-align: center;
   padding: 2px 20px;
- -webkit-box-shadow: 0px 15px 20px -10px #000000;
+  -webkit-box-shadow: 0px 15px 20px -10px #000000;
   box-shadow: 0px 15px 20px -10px #000000;
 }
 #about {
@@ -936,7 +1003,7 @@ button {
 #start button,
 #end button,
 #previousLevelBtn,
-#nextLevelBtn{
+#nextLevelBtn {
   font-size: 16px;
   padding: 0 20px;
   height: 45px;
@@ -954,9 +1021,9 @@ button {
 #start button:hover,
 #end button:hover,
 #previousLevelBtn,
-#nextLevelBtn{
-  -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
-  box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
+#nextLevelBtn {
+  -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
   transform: translateY(-5px);
   transition-timing-function: ease-in;
   transition-duration: 0.2s;
@@ -978,7 +1045,7 @@ button {
   bottom: 0;
 }
 .boxLoading:before {
-  content: "";
+  content: '';
   width: 50px;
   height: 5px;
   background: #000;
@@ -990,7 +1057,7 @@ button {
   animation: shadow 0.5s linear infinite;
 }
 .boxLoading:after {
-  content: "";
+  content: '';
   width: 50px;
   height: 50px;
   background: #ffffff;
@@ -1008,7 +1075,7 @@ button {
     transform: translateY(9px) rotate(22.5deg);
   }
   50% {
-    transform: translateY(18px) scale(1,0.9) rotate(45deg);
+    transform: translateY(18px) scale(1, 0.9) rotate(45deg);
     border-bottom-right-radius: 40px;
   }
   75% {
@@ -1019,10 +1086,11 @@ button {
   }
 }
 @keyframes shadow {
-  0%, 100% {
-    transform: scale(1,1);
+  0%,
+  100% {
+    transform: scale(1, 1);
   }
   50% {
-    transform: scale(1.2,1);
+    transform: scale(1.2, 1);
   }
 }
