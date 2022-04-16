@@ -8,6 +8,8 @@ window.onload = () => {
 
   const btnStart = document.querySelector('.btn-start');
   const btnAbout = document.querySelector('.btn-about');
+  const facebookBtn = document.getElementById('facebookBtn');
+  const telegramBtn = document.getElementById('telegramBtn');
   const btnHelp = document.querySelectorAll('.btn-help');
 
   const aboutBlock = document.querySelector('#about');
@@ -71,7 +73,11 @@ window.onload = () => {
     return array;
   };
 
+  const LINK_APP = 'https://birds-attack.web.app/';
+  const TEXT_APP = 'Бойовий качур готовий до полювання на рашистів';
   const LINK_BANK = 'https://bank.gov.ua/ua/news/all/natsionalniy-bank-vidkriv-spetsrahunok-dlya-zboru-koshtiv-na-potrebi-armiyi';
+  const LINK_FACEBOOK = `https://www.facebook.com/sharer/sharer.php?u=${LINK_APP}`;
+  const LINK_TELEGRAM = `https://t.me/share/url?url=${LINK_APP}&text=${TEXT_APP}`;
 
   const AUDIO_TRACKS = shuffle([
     './audio/music/Carved%20From%20Stone%20-%20TrackTribe.mp3',
@@ -636,6 +642,14 @@ window.onload = () => {
 
   btnAbout.onclick = () => {
     aboutBlock.style.display = 'block';
+  };
+
+  facebookBtn.onclick = () => {
+    window.open(LINK_FACEBOOK, '_blank');
+  };
+
+  telegramBtn.onclick = () => {
+    window.open(LINK_TELEGRAM, '_blank');
   };
 
   aboutCloseBtn.onclick = () => {
