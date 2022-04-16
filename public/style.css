@@ -176,9 +176,9 @@ button {
     bottom: 60px;
     height: 140px;
   }
-  .aboutWraper{
-  width: 550px;
-}
+  .aboutWraper {
+    width: 550px;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1279px) {
@@ -303,9 +303,9 @@ button {
     bottom: 60px;
     height: 130px;
   }
-    .aboutWraper{
-  width: 450px;
-}
+  .aboutWraper {
+    width: 450px;
+  }
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
@@ -432,9 +432,9 @@ button {
     bottom: 10px;
     height: 70px;
   }
-    .aboutWraper{
-  width: 350px;
-}
+  .aboutWraper {
+    width: 350px;
+  }
 }
 
 @media (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
@@ -526,9 +526,9 @@ button {
     bottom: 10px;
     height: 60px;
   }
-    .aboutWraper{
-  width: 450px;
-}
+  .aboutWraper {
+    width: 450px;
+  }
 }
 /*----------------background---------------- */
 
@@ -941,48 +941,48 @@ button {
   padding: 0;
   z-index: 2;
 }
-  .stepImg{
+.stepImg {
   width: 400px;
-  }
-.aboutTextWrap{
+}
+.aboutTextWrap {
   overflow: visible;
   overflow-y: auto;
   width: auto;
-  background: #D6E1F5;
-  background-image: url("images/backgrounds/about-bg.svg");
+  background: #d6e1f5;
+  background-image: url('images/backgrounds/about-bg.svg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center bottom;
   height: 100vh;
 }
-.aboutBtnWrap{
+.aboutBtnWrap {
   margin-bottom: 50px;
 }
-.aboutTitle{
+.aboutTitle {
   font-size: 24px;
   color: white;
   margin-top: 80px;
 }
-.aboutDescr{
+.aboutDescr {
   font-size: 16px;
   color: black;
   font-weight: bold;
   line-height: 1.5em;
 }
-.smallText{
+.smallText {
   font-size: 16px;
   color: black;
   font-weight: normal;
   line-height: 1.2em;
 }
-.textMail{
+.textMail {
   font-size: 16px;
   color: black;
   font-weight: bold;
   line-height: 1.2em;
   text-decoration: underline;
 }
-.aboutWraper{
+.aboutWraper {
   background-color: white;
   border: 3px dashed black;
   border-radius: 20px;
@@ -990,7 +990,7 @@ button {
   padding-bottom: 30px;
   margin: 0 auto;
 }
-.socialIcon{
+.socialIcon {
   width: 30px;
   margin: 0 10px;
   cursor: pointer;
