@@ -431,7 +431,7 @@ window.onload = () => {
     let enemy = document.createElement('div');
     const type = typeEnemy();
     enemy.className = `enemy ${type} ${CONFIG.LEVELS[LEVELS[LEVEL]].enemies[type].className}`;
-    enemy.style.top = document.querySelector('#app').clientHeight - 200 + 'px';
+    // enemy.style.top = document.querySelector('#app').clientHeight - 200 + 'px';
 
     gameBlock.appendChild(enemy);
     moveEnemy(enemy);

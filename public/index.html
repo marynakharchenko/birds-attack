@@ -14,8 +14,11 @@
 			  media="(min-width: 768px)"
 			  srcset="images/backgrounds/bg-main-100.jpg">
   			<source
-			  media="(max-width: 767px) and (min-width: 320px)"
+			  media="(max-width: 767px) and (min-width: 320px) and (orientation: portrait)"
 			  srcset="images/backgrounds/bg-main-phone.jpg">
+            <source
+			  media="(max-width: 767px) and (min-width: 320px) and (orientation: landscape)"
+			  srcset="images/backgrounds/bg-main-100.jpg">
    			<img src="images/backgrounds/bg-main-100.jpg" class="bg-start-phone">
 		</picture>
 		<div class="logo-and-btn-wrap">
@@ -98,7 +101,7 @@
 
 			<div id="select-bird" class="clearfix">
 				<span class="selected" id='duck'>
-					<img src="images/icons/duck-start.png">
+					<img src="images/icons/duck-start.png" class="duckStartWrap">
 				</span>
 			</div>
 			<button id="startBtn">Розпочати</button>
