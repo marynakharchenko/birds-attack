@@ -79,16 +79,7 @@ window.onload = () => {
   const LINK_FACEBOOK = `https://www.facebook.com/sharer/sharer.php?u=${LINK_APP}`;
   const LINK_TELEGRAM = `https://t.me/share/url?url=${LINK_APP}&text=${TEXT_APP}`;
 
-  const AUDIO_TRACKS = shuffle([
-    './audio/music/Carved%20From%20Stone%20-%20TrackTribe.mp3',
-    './audio/music/Desert%20Brawl%20-%20Vans%20in%20Japan.mp3',
-    './audio/music/Go%20Down%20Swinging%20(Instrumental)%20-%20NEFFEX.mp3',
-    './audio/music/Higher%20Octane%20-%20Vans%20in%20Japan.mp3',
-    './audio/music/Riffs%20For%20Days%20-%20TrackTribe.mp3',
-    './audio/music/Tropical%20Thunder%20-%20RKVC.mp3',
-    './audio/music/Tuff%20Data%20-%20Vans%20in%20Japan.mp3',
-  ]);
-  let AUDIO_TRACK = 0;
+  const LINK_MUSIC = 'https://freesound.org/data/previews/210/210751_1556689-lq.mp3';
 
   const bulletInterval = 500;
   let bulletTimestamp = Date.now();
@@ -671,14 +662,9 @@ window.onload = () => {
     birdSkin = 'duck';
   };
 
-  source.src = AUDIO_TRACKS[AUDIO_TRACK];
+  source.src = LINK_MUSIC;
   music.load();
   music.addEventListener('ended', () => {
-    AUDIO_TRACK += 1;
-    if (AUDIO_TRACK === AUDIO_TRACKS.length) {
-      AUDIO_TRACK = 0;
-    }
-    music.src = AUDIO_TRACKS[AUDIO_TRACK];
     music.pause();
     music.load();
     music.play();
