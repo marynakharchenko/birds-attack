@@ -62,7 +62,7 @@ button {
 
 @media (min-width: 1280px) {
   #background {
-    width: 2000px;
+    width: 200vw;
     background-size: 1000px;
   }
   .bg-start {
@@ -365,11 +365,11 @@ button {
   #background.bg-level-6 {
     background-image: url(images/backgrounds/bg-level6-m.png);
     background-position: bottom;
-    position: absolute;
+    /*position: absolute;*/
     background-color: #008fd0;
     background-repeat: repeat-x;
     bottom: 0;
-    width: 100vw;
+    width: auto;
     background-size: contain;
     z-index: auto;
   }
@@ -438,6 +438,16 @@ button {
 }
 
 @media (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
+  #background.bg-level-6 {
+    background-image: url(images/backgrounds/bg-level6-d.png);
+    background-position: bottom;
+    background-color: #008fd0;
+    background-repeat: repeat-x;
+    bottom: 0;
+    width: auto;
+    background-size: contain;
+    z-index: auto;
+  }
   #bird.duck-fly-1,
   #bird.duck-fly-3 {
     width: 100px !important;
@@ -890,15 +900,33 @@ button {
 }
 .enemy.putin {
   position: absolute;
-  right: 20px;
+  right: -300px;
   z-index: 999999;
   height: 200px;
   width: 200px;
   bottom: 0 !important;
   background-size: contain !important;
-  background: url(images/enemies/putin-300.gif) no-repeat;
 }
-
+.enemy.putin.putinLeft {
+  background: url(images/enemies/putin-left.gif) no-repeat;
+}
+.enemy.putin.putinRight {
+  background: url(images/enemies/putin-right.gif) no-repeat;
+}
+.jumpUp {
+  animation: putinUp 0.2s ease-in-out infinite;
+}
+@keyframes putinUp {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -30px, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
 /*--------------------------------popUps---------------- */
 
 .logoPopUp {

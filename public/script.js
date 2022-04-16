@@ -93,7 +93,7 @@ window.onload = () => {
 
   let sound = 'on';
 
-  let LEVEL = 0;
+  let LEVEL = 5;
   let ENEMIES_ARRAY = [];
   const LEVELS = [0, 1, 2, 3, 4, 5];
   let PUTIN_LIVES = 10;
@@ -389,10 +389,14 @@ window.onload = () => {
   };
 
   const putinMoveEnemy = (enemy) => {
+    const clientWidth = Number(String(document.querySelector('body').clientWidth).replace('px', ''));
+
     const goLeft = () => {
+      enemy.classList.add('putinLeft');
+      enemy.classList.remove('putinRight');
       let moveLeft = setInterval(() => {
         enemy.style.left = enemy.offsetLeft - 10 + 'px';
-        if (enemy.offsetLeft < 200) {
+        if (enemy.offsetLeft <= -300) {
           clearInterval(moveLeft);
           goRight();
         }
@@ -400,16 +404,18 @@ window.onload = () => {
     };
 
     const goRight = () => {
+      enemy.classList.add('putinRight');
+      enemy.classList.remove('putinLeft');
       let moveRight = setInterval(() => {
         enemy.style.left = enemy.offsetLeft + 10 + 'px';
-        if (enemy.offsetLeft > 1500) {
+        if (enemy.offsetLeft > clientWidth + 300) {
           clearInterval(moveRight);
           goLeft();
         }
       }, 30);
     };
 
-    enemy.style.left = '1500px';
+    enemy.style.left = clientWidth + 300 + 'px';
     goLeft();
   };
 
@@ -442,7 +448,7 @@ window.onload = () => {
 
   const putinCreateEnemy = () => {
     let enemy = document.createElement('div');
-    enemy.className = `enemy ${PUTIN}`;
+    enemy.className = `enemy ${PUTIN} putinLeft`;
     enemy.style.top = document.querySelector('#app').clientHeight - 200 + 'px';
 
     gameBlock.appendChild(enemy);
@@ -473,6 +479,8 @@ window.onload = () => {
       if (enemyClass === PUTIN) {
         createBoom(bullet.offsetTop, bullet.offsetLeft, MACHINERY);
         bullet.remove();
+        enemy.classList.add('jumpUp');
+        setTimeout(() => enemy.classList.remove('jumpUp'), 500);
         PUTIN_LIVES -= 1;
         scorePutinCurrent.innerHTML = String(PUTIN_LIVES);
         if (PUTIN_LIVES === 0) {
