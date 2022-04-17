@@ -300,7 +300,7 @@ window.onload = () => {
         createEnemy();
         createEnemyLoop(level);
       }
-    }, random(1000, 5000));
+    }, random(1000 - LEVEL * 100, 5000 - LEVEL * 1000));
   };
 
   const startGame = () => {
@@ -381,7 +381,7 @@ window.onload = () => {
 
   const moveEnemy = (enemy) => {
     let timerId = setInterval(() => {
-      enemy.style.left = enemy.offsetLeft - 10 + 'px';
+      enemy.style.left = enemy.offsetLeft - (10 + LEVEL) + 'px';
       if (enemy.offsetLeft < -100) {
         enemy.remove();
         clearInterval(timerId);
