@@ -6,6 +6,13 @@
     <link rel="stylesheet" type="text/css" href="style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/x-icon" href="images/favicon.png" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://birds-attack.web.app/" />
+    <meta property="og:site_name" content="Birds Attack 2022" />
+    <meta property="og:title" content="Birds Attack 2022" />
+    <meta property="og:description" content="Не дай рашистам пройти поряд. Знешкоджуй загарбників, покращуй озброєння, доберися до бункера." />
+    <meta property="og:image" content="https://birds-attack.web.app/images/backgrounds/facebook-cover.png" />
   </head>
   <body>
     <div class="start-bg" id="background-start">
@@ -42,8 +49,8 @@
           <h3>Сподобалася гра?</h3>
           <p>Поділись із друзями і допоможи українській армії</p>
           <div>
-            <img id="facebookBtn" src="images/icons/facebook.png" class="socialIcon" />
-            <img id="telegramBtn" src="images/icons/telegram.png" class="socialIcon" />
+            <img class="socialIcon facebookBtn" src="images/icons/facebook.png" />
+            <img class="socialIcon telegramBtn" src="images/icons/telegram.png" />
           </div>
           <button class="btn-help">Підтримати ЗСУ</button>
         </div>
@@ -117,14 +124,29 @@
       </div>
       <div id="previous-level">
         <img src="images/icons/logo-pop-up.png" class="logoPopUp" />
-        <h2 class="titlePopUp">Бойовий качур готовий до полювання на рашистів</h2>
+        <h2 class="titlePopUp">Спробуй ще раз</h2>
         <button id="previousLevelBtn">Попередній рівень</button>
       </div>
-      <div id="end">
+      <div id="end-success">
+        <img src="images/icons/logo-pop-up.png" class="logoPopUp" />
+        <h2 class="titlePopUp">Вітаю! <br />Місія успішно завершена</h2>
+        <p class="smallTextPopUp">Не забудь поділитися грою з друзями та підтримати армію</p>
+        <div>
+          <img class="socialIcon facebookBtn" src="images/icons/facebook.png" />
+          <img class="socialIcon telegramBtn" src="images/icons/telegram.png" />
+        </div>
+        <button class="btn-help">Допомогти ЗСУ</button>
+        <div class="home-link-Wrap">
+          <a href="https://birds-attack.web.app/" class="home-link">На головну</a>
+        </div>
+      </div>
+      <div id="end-fail">
         <img src="images/icons/logo-pop-up.png" class="logoPopUp" />
         <h2 class="titlePopUp">Спробуй ще раз</h2>
-        <h3>Твій рахунок: <span>0</span></h3>
         <button id="restartBtn">Розпочати полювання</button>
+        <div class="home-link-Wrap">
+          <a href="https://birds-attack.web.app/" class="home-link">На головну</a>
+        </div>
       </div>
     </div>
 

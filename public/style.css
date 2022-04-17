@@ -25,13 +25,10 @@ button {
   background: gray;
 }
 
-#end,
+#end-success,
+#end-fail,
 #next-level,
 #previous-level {
-  display: none;
-}
-
-#end {
   display: none;
 }
 
@@ -73,6 +70,13 @@ button {
   }
   .logo-start {
     width: 300px;
+  }
+  #bird.duck-fly-1,
+  #bird.duck-fly-3 {
+    width: 200px !important;
+    background-repeat: no-repeat !important;
+    background-size: contain !important;
+    margin-top: 50px !important;
   }
   #bird.duck-fly-2,
   #bird.duck-fly-6,
@@ -122,18 +126,26 @@ button {
     left: 20px;
   }
   #start,
-  #end,
-  #previous-level,
-  #next-level {
+  #end-success {
     top: 50%;
     width: 200px;
     height: 400px;
+  }
+  #next-level {
+    top: 40%;
+    width: 200px;
+    height: 300px;
+  }
+  #end-fail,
+  #previous-level {
+    top: 50%;
+    width: 200px;
+    height: 200px;
   }
   .logo-and-btn-wrap {
     top: 20%;
   }
   #start button,
-  #end button,
   #previousLevelBtn,
   #nextLevelBtn {
     margin: 20px auto 0;
@@ -250,18 +262,26 @@ button {
     left: 20px;
   }
   #start,
-  #end,
-  #previous-level,
-  #next-level {
+  #end-success {
     top: 50%;
     width: 200px;
     height: 400px;
+  }
+  #end-fail,
+  #previous-level {
+    top: 50%;
+    width: 200px;
+    height: 200px;
+  }
+  #next-level {
+    top: 40%;
+    width: 200px;
+    height: 300px;
   }
   .logo-and-btn-wrap {
     top: 20%;
   }
   #start button,
-  #end button,
   #previousLevelBtn,
   #nextLevelBtn {
     margin: 20px auto 0;
@@ -365,7 +385,6 @@ button {
   #background.bg-level-6 {
     background-image: url(images/backgrounds/bg-level6-m.png);
     background-position: bottom;
-    /*position: absolute;*/
     background-color: #008fd0;
     background-repeat: repeat-x;
     bottom: 0;
@@ -379,12 +398,21 @@ button {
     left: 20px;
   }
   #start,
-  #end,
-  #previous-level,
-  #next-level {
+  #end-success {
     top: 50%;
     width: 200px;
     height: 400px;
+  }
+  #end-fail,
+  #previous-level {
+    top: 50%;
+    width: 200px;
+    height: 200px;
+  }
+  #next-level {
+    top: 40%;
+    width: 200px;
+    height: 300px;
   }
   .logo-and-btn-wrap {
     top: 20%;
@@ -437,7 +465,7 @@ button {
   }
 }
 
-@media (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
+@media (min-width: 320px) and (max-width: 1279px) and (orientation: landscape) {
   #background.bg-level-6 {
     background-image: url(images/backgrounds/bg-level6-d.png);
     background-position: bottom;
@@ -473,13 +501,26 @@ button {
     width: 140px;
     left: 150px;
   }
-  #start,
-  #end,
-  #previous-level,
-  #next-level {
+  #start {
     top: 45%;
     width: 400px;
     height: 250px;
+  }
+  #next-level {
+    top: 40%;
+    width: 400px;
+    height: 200px;
+  }
+  #end-fail,
+  #previous-level {
+    top: 40%;
+    width: 400px;
+    height: 200px;
+  }
+  #end-success {
+    top: 30%;
+    width: 400px;
+    height: 320px;
   }
   .logo-start {
     width: 150px;
@@ -794,8 +835,8 @@ button {
 }
 .bullet.weapon-6 {
   background: url(images/weapons/weapon-6.png) transparent no-repeat;
-  width: 54px;
-  height: 120px;
+  width: 34px;
+  height: 76px;
   background-size: cover;
 }
 .boom {
@@ -870,32 +911,36 @@ button {
   top: 50% !important;
   right: -300px;
   z-index: 999999;
-  height: 300px;
-  padding-bottom: 250px;
+  height: content-box;
 }
 .enemy.airforce-1 {
   background: url(images/enemies/airforce-1.png) no-repeat;
   width: 90px;
+  height: 40px;
   background-size: contain;
 }
 .enemy.airforce-2 {
   background: url(images/enemies/airforce-2.png) no-repeat;
   width: 150px;
+  height: 50px;
   background-size: contain;
 }
 .enemy.airforce-3 {
   background: url(images/enemies/airforce-3.png) no-repeat;
   width: 200px;
+  height: 90px;
   background-size: contain;
 }
 .enemy.airforce-4 {
   background: url(images/enemies/airforce-4.png) no-repeat;
   width: 200px;
+  height: 70px;
   background-size: contain;
 }
 .enemy.airforce-5 {
   background: url(images/enemies/airforce-5.png) no-repeat;
   width: 200px;
+  height: 70px;
   background-size: contain;
 }
 .enemy.putin {
@@ -928,6 +973,27 @@ button {
   }
 }
 /*--------------------------------popUps---------------- */
+.home-link-Wrap {
+  margin-top: 10px;
+}
+.home-link {
+  font-weight: normal;
+  font-size: 12px;
+  color: black;
+  line-height: normal;
+  text-decoration: none;
+}
+.home-link:hover {
+  color: #0083ff;
+  text-decoration: underline;
+}
+
+.smallTextPopUp {
+  font-size: 14px;
+  color: black;
+  font-weight: normal;
+  line-height: 1.2em;
+}
 
 .logoPopUp {
   position: absolute;
@@ -940,7 +1006,8 @@ button {
 }
 
 #start,
-#end,
+#end-success,
+#end-fail,
 #previous-level,
 #next-level {
   position: relative;
@@ -1031,7 +1098,8 @@ button {
 #start button,
 #end button,
 #previousLevelBtn,
-#nextLevelBtn {
+#nextLevelBtn,
+#restartBtn {
   font-size: 16px;
   padding: 0 20px;
   height: 45px;
@@ -1048,8 +1116,9 @@ button {
 
 #start button:hover,
 #end button:hover,
-#previousLevelBtn,
-#nextLevelBtn {
+#previousLevelBtn:hover,
+#nextLevelBtn:hover,
+#restartBtn:hover {
   -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
   box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
   transform: translateY(-5px);

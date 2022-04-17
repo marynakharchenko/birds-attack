@@ -8,8 +8,8 @@ window.onload = () => {
 
   const btnStart = document.querySelector('.btn-start');
   const btnAbout = document.querySelector('.btn-about');
-  const facebookBtn = document.getElementById('facebookBtn');
-  const telegramBtn = document.getElementById('telegramBtn');
+  const facebookBtn = document.querySelectorAll('.facebookBtn');
+  const telegramBtn = document.querySelectorAll('.telegramBtn');
   const btnHelp = document.querySelectorAll('.btn-help');
 
   const aboutBlock = document.querySelector('#about');
@@ -23,7 +23,8 @@ window.onload = () => {
   const previousLevelBlock = document.querySelector('#previous-level');
   const previousLevelBtn = document.getElementById('previousLevelBtn');
 
-  const endBlock = document.querySelector('#end');
+  const endBlockSuccess = document.querySelector('#end-success');
+  const endBlockFail = document.querySelector('#end-fail');
   const restartBtn = document.getElementById('restartBtn');
 
   const background = document.getElementById('background');
@@ -303,7 +304,8 @@ window.onload = () => {
 
   const startGame = () => {
     startBlock.style.display = 'none';
-    endBlock.style.display = 'none';
+    endBlockFail.style.display = 'none';
+    endBlockSuccess.style.display = 'none';
     gameBlock.style.display = 'block';
     putin.style.display = 'none';
     infantry.style.display = 'block';
@@ -345,8 +347,10 @@ window.onload = () => {
 
   const putinStartGame = () => {
     startBlock.style.display = 'none';
-    endBlock.style.display = 'none';
+    endBlockFail.style.display = 'none';
+    endBlockSuccess.style.display = 'none';
     gameBlock.style.display = 'block';
+    putin.style.display = 'block';
     infantry.style.display = 'none';
     machinery.style.display = 'none';
     airforce.style.display = 'none';
@@ -437,7 +441,6 @@ window.onload = () => {
     let enemy = document.createElement('div');
     const type = typeEnemy();
     enemy.className = `enemy ${type} ${CONFIG.LEVELS[LEVELS[LEVEL]].enemies[type].className}`;
-    // enemy.style.top = document.querySelector('#app').clientHeight - 200 + 'px';
 
     gameBlock.appendChild(enemy);
     moveEnemy(enemy);
@@ -455,8 +458,8 @@ window.onload = () => {
   const createBullet = () => {
     let bullet = document.createElement('div');
     bullet.className = 'bullet';
-    bullet.style.top = bird.offsetTop + 150 + 'px';
-    bullet.style.left = bird.offsetLeft + 50 + 'px';
+    bullet.style.top = bird.offsetTop + (bird.offsetTop > 100 ? 150 : 75) + 'px';
+    bullet.style.left = bird.offsetLeft + (bird.offsetTop > 100 ? 50 : 20) + 'px';
     bullet.classList.add(CONFIG.LEVELS[LEVELS[LEVEL]].weaponClass);
 
     gameBlock.appendChild(bullet);
@@ -599,17 +602,11 @@ window.onload = () => {
     ENEMIES_ARRAY = [];
     LEVEL = 0;
 
-    let scoreBlock = document.querySelector('#end h3 span');
-    scoreBlock.innerText = ENEMIES[INFANTRY].number + ENEMIES[MACHINERY].number + ENEMIES[AIRFORCE].number;
-
     resetLives();
     resetScore();
     document.querySelectorAll('.enemy').forEach((e) => e.remove());
 
-    endBlock.style.display = 'block';
-
-    let restartBtn = document.querySelector('#end button');
-    restartBtn.onclick = startGame;
+    endBlockFail.style.display = 'block';
   };
 
   const endGameSuccess = () => {
@@ -617,13 +614,7 @@ window.onload = () => {
     ENEMIES_ARRAY = [];
     LEVEL = 0;
 
-    let scoreBlock = document.querySelector('#end h3 span');
-    scoreBlock.innerText = 'Success';
-
-    endBlock.style.display = 'block';
-
-    let restartBtn = document.querySelector('#end button');
-    restartBtn.onclick = startGame;
+    endBlockSuccess.style.display = 'block';
   };
 
   startBtn.onclick = () => {
@@ -643,13 +634,17 @@ window.onload = () => {
     aboutBlock.style.display = 'block';
   };
 
-  facebookBtn.onclick = () => {
-    window.open(LINK_FACEBOOK, '_blank');
-  };
+  facebookBtn.forEach((fb) => {
+    fb.onclick = () => {
+      window.open(LINK_FACEBOOK, '_blank');
+    };
+  });
 
-  telegramBtn.onclick = () => {
-    window.open(LINK_TELEGRAM, '_blank');
-  };
+  telegramBtn.forEach((fb) => {
+    fb.onclick = () => {
+      window.open(LINK_TELEGRAM, '_blank');
+    };
+  });
 
   aboutCloseBtn.onclick = () => {
     aboutBlock.style.display = 'none';
