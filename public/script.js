@@ -11,6 +11,7 @@ window.onload = () => {
   const facebookBtn = document.querySelectorAll('.facebookBtn');
   const telegramBtn = document.querySelectorAll('.telegramBtn');
   const btnHelp = document.querySelectorAll('.btn-help');
+  const homeBtn = document.querySelectorAll('.home-link');
 
   const aboutBlock = document.querySelector('#about');
   const aboutCloseBtn = document.querySelector('#about-close');
@@ -75,7 +76,7 @@ window.onload = () => {
   };
 
   const LINK_APP = 'https://birds-attack.web.app/';
-  const TEXT_APP = 'Бойовий качур готовий до полювання на рашистів';
+  const TEXT_APP = 'Birds Attack 2022. Не дай рашистам пройти поряд. Знешкоджуй загарбників, покращуй озброєння, доберися до бункера.';
   const LINK_BANK = 'https://bank.gov.ua/ua/news/all/natsionalniy-bank-vidkriv-spetsrahunok-dlya-zboru-koshtiv-na-potrebi-armiyi';
   const LINK_FACEBOOK = `https://www.facebook.com/sharer/sharer.php?u=${LINK_APP}`;
   const LINK_TELEGRAM = `https://t.me/share/url?url=${LINK_APP}&text=${TEXT_APP}`;
@@ -653,6 +654,12 @@ window.onload = () => {
   btnHelp.forEach((bh) => {
     bh.onclick = () => {
       window.open(LINK_BANK, '_blank');
+    };
+  });
+
+  homeBtn.forEach((bh) => {
+    bh.onclick = () => {
+      location.reload();
     };
   });
 

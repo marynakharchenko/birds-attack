@@ -982,6 +982,9 @@ button {
   color: black;
   line-height: normal;
   text-decoration: none;
+  background-color: white;
+  border: none;
+  outline: none;
 }
 .home-link:hover {
   color: #0083ff;
