@@ -25,13 +25,10 @@ button {
   background: gray;
 }
 
-#end,
+#end-success,
+#end-fail,
 #next-level,
 #previous-level {
-  display: none;
-}
-
-#end {
   display: none;
 }
 
@@ -73,6 +70,13 @@ button {
   }
   .logo-start {
     width: 300px;
+  }
+  #bird.duck-fly-1,
+  #bird.duck-fly-3 {
+    width: 200px !important;
+    background-repeat: no-repeat !important;
+    background-size: contain !important;
+    margin-top: 50px !important;
   }
   #bird.duck-fly-2,
   #bird.duck-fly-6,
@@ -122,18 +126,26 @@ button {
     left: 20px;
   }
   #start,
-  #end,
-  #previous-level,
-  #next-level {
+  #end-success {
     top: 50%;
     width: 200px;
     height: 400px;
+  }
+  #next-level {
+    top: 40%;
+    width: 200px;
+    height: 300px;
+  }
+  #end-fail,
+  #previous-level {
+    top: 50%;
+    width: 200px;
+    height: 200px;
   }
   .logo-and-btn-wrap {
     top: 20%;
   }
   #start button,
-  #end button,
   #previousLevelBtn,
   #nextLevelBtn {
     margin: 20px auto 0;
@@ -178,6 +190,10 @@ button {
   }
   .aboutWraper {
     width: 550px;
+  }
+  .bullet.weapon-6 {
+    width: 34px;
+    height: 76px;
   }
 }
 
@@ -250,18 +266,26 @@ button {
     left: 20px;
   }
   #start,
-  #end,
-  #previous-level,
-  #next-level {
+  #end-success {
     top: 50%;
     width: 200px;
     height: 400px;
+  }
+  #end-fail,
+  #previous-level {
+    top: 50%;
+    width: 200px;
+    height: 200px;
+  }
+  #next-level {
+    top: 40%;
+    width: 200px;
+    height: 300px;
   }
   .logo-and-btn-wrap {
     top: 20%;
   }
   #start button,
-  #end button,
   #previousLevelBtn,
   #nextLevelBtn {
     margin: 20px auto 0;
@@ -305,6 +329,10 @@ button {
   }
   .aboutWraper {
     width: 450px;
+  }
+  .bullet.weapon-6 {
+    width: 34px;
+    height: 76px;
   }
 }
 
@@ -365,7 +393,6 @@ button {
   #background.bg-level-6 {
     background-image: url(images/backgrounds/bg-level6-m.png);
     background-position: bottom;
-    /*position: absolute;*/
     background-color: #008fd0;
     background-repeat: repeat-x;
     bottom: 0;
@@ -379,12 +406,21 @@ button {
     left: 20px;
   }
   #start,
-  #end,
-  #previous-level,
-  #next-level {
+  #end-success {
     top: 50%;
     width: 200px;
     height: 400px;
+  }
+  #end-fail,
+  #previous-level {
+    top: 50%;
+    width: 200px;
+    height: 200px;
+  }
+  #next-level {
+    top: 40%;
+    width: 200px;
+    height: 300px;
   }
   .logo-and-btn-wrap {
     top: 20%;
@@ -435,9 +471,20 @@ button {
   .aboutWraper {
     width: 350px;
   }
+  .bullet.weapon-6 {
+    width: 24px;
+    height: 56px;
+  }
+  .enemy.putin.putinLeft,
+  .enemy.putin.putinRight {
+    height: 180px;
+    width: 180px;
+    bottom: 50px;
+    background-size: contain !important;
+  }
 }
 
-@media (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
+@media (min-width: 320px) and (max-width: 1279px) and (orientation: landscape) {
   #background.bg-level-6 {
     background-image: url(images/backgrounds/bg-level6-d.png);
     background-position: bottom;
@@ -473,13 +520,26 @@ button {
     width: 140px;
     left: 150px;
   }
-  #start,
-  #end,
-  #previous-level,
-  #next-level {
+  #start {
     top: 45%;
     width: 400px;
     height: 250px;
+  }
+  #next-level {
+    top: 40%;
+    width: 400px;
+    height: 200px;
+  }
+  #end-fail,
+  #previous-level {
+    top: 40%;
+    width: 400px;
+    height: 200px;
+  }
+  #end-success {
+    top: 30%;
+    width: 400px;
+    height: 320px;
   }
   .logo-start {
     width: 150px;
@@ -538,6 +598,17 @@ button {
   }
   .aboutWraper {
     width: 450px;
+  }
+  .enemy.putin.putinLeft,
+  .enemy.putin.putinRight {
+    height: 150px;
+    width: 150px;
+    bottom: 0;
+    background-size: contain !important;
+  }
+  .bullet.weapon-6 {
+    width: 24px;
+    height: 56px;
   }
 }
 /*----------------background---------------- */
@@ -685,7 +756,19 @@ button {
 }
 
 /*--------------------------------score---------------- */
-
+.totalWrap {
+  width: inherit;
+  background-color: white;
+  border-radius: 30px;
+  height: 10px;
+  border: 3px solid black;
+}
+.currentWrap {
+  width: 100%;
+  background-color: red;
+  border-radius: 30px;
+  height: 10px;
+}
 .iconOptions {
   width: 60px;
   position: absolute;
@@ -697,6 +780,17 @@ button {
   font-size: 11px;
   color: black;
   margin-left: 25px;
+}
+.putinScore {
+  font-weight: bold;
+  font-size: 14px;
+  color: #ffffff;
+  margin-left: 25px;
+}
+.scoreLinePutin {
+  font-weight: bold;
+  font-size: 12px;
+  color: #ffffff;
 }
 .total {
   font-weight: bold;
@@ -713,6 +807,14 @@ button {
   width: 70px;
   background-color: white;
   border: 3px solid black;
+  border-radius: 50px;
+  height: 20px;
+}
+#score-putin {
+  position: relative;
+  width: 70px;
+  background-color: transparent !important;
+  border: none !important;
   border-radius: 50px;
   height: 20px;
 }
@@ -756,7 +858,7 @@ button {
   height: 100%;
 }
 #score-putin .iconOptions {
-  top: -10px;
+  top: -20px;
 }
 /*--------------------------------weapon---------------- */
 
@@ -794,8 +896,6 @@ button {
 }
 .bullet.weapon-6 {
   background: url(images/weapons/weapon-6.png) transparent no-repeat;
-  width: 54px;
-  height: 120px;
   background-size: cover;
 }
 .boom {
@@ -870,32 +970,36 @@ button {
   top: 50% !important;
   right: -300px;
   z-index: 999999;
-  height: 300px;
-  padding-bottom: 250px;
+  height: content-box;
 }
 .enemy.airforce-1 {
   background: url(images/enemies/airforce-1.png) no-repeat;
   width: 90px;
+  height: 40px;
   background-size: contain;
 }
 .enemy.airforce-2 {
   background: url(images/enemies/airforce-2.png) no-repeat;
   width: 150px;
+  height: 50px;
   background-size: contain;
 }
 .enemy.airforce-3 {
   background: url(images/enemies/airforce-3.png) no-repeat;
   width: 200px;
+  height: 90px;
   background-size: contain;
 }
 .enemy.airforce-4 {
   background: url(images/enemies/airforce-4.png) no-repeat;
   width: 200px;
+  height: 70px;
   background-size: contain;
 }
 .enemy.airforce-5 {
   background: url(images/enemies/airforce-5.png) no-repeat;
   width: 200px;
+  height: 70px;
   background-size: contain;
 }
 .enemy.putin {
@@ -928,6 +1032,30 @@ button {
   }
 }
 /*--------------------------------popUps---------------- */
+.home-link-Wrap {
+  margin-top: 10px;
+}
+.home-link {
+  font-weight: normal;
+  font-size: 12px;
+  color: black;
+  line-height: normal;
+  text-decoration: none;
+  background-color: white;
+  border: none;
+  outline: none;
+}
+.home-link:hover {
+  color: #0083ff;
+  text-decoration: underline;
+}
+
+.smallTextPopUp {
+  font-size: 14px;
+  color: black;
+  font-weight: normal;
+  line-height: 1.2em;
+}
 
 .logoPopUp {
   position: absolute;
@@ -940,7 +1068,8 @@ button {
 }
 
 #start,
-#end,
+#end-success,
+#end-fail,
 #previous-level,
 #next-level {
   position: relative;
@@ -1003,6 +1132,14 @@ button {
   font-weight: normal;
   line-height: 1.2em;
 }
+.disclaimer {
+  padding: 20px;
+  opacity: 0.5;
+  font-size: 11px;
+  color: black;
+  font-weight: normal;
+  line-height: 1.2em;
+}
 .textMail {
   font-size: 16px;
   color: black;
@@ -1031,7 +1168,8 @@ button {
 #start button,
 #end button,
 #previousLevelBtn,
-#nextLevelBtn {
+#nextLevelBtn,
+#restartBtn {
   font-size: 16px;
   padding: 0 20px;
   height: 45px;
@@ -1048,8 +1186,9 @@ button {
 
 #start button:hover,
 #end button:hover,
-#previousLevelBtn,
-#nextLevelBtn {
+#previousLevelBtn:hover,
+#nextLevelBtn:hover,
+#restartBtn:hover {
   -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
   box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
   transform: translateY(-5px);

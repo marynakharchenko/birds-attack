@@ -6,6 +6,27 @@
     <link rel="stylesheet" type="text/css" href="style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/x-icon" href="images/favicon.png" />
+    <link rel="manifest" href="manifest.json" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://birds-attack.web.app/" />
+    <meta property="og:site_name" content="Birds Attack 2022" />
+    <meta property="og:title" content="Birds Attack 2022" />
+    <meta property="og:description" content="Не дай рашистам пройти поряд. Знешкоджуй загарбників, покращуй озброєння, доберися до бункера." />
+    <meta property="og:image" content="https://birds-attack.web.app/images/backgrounds/facebook-cover.png" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PCQS40ZBDZ"></script>
+    <script>
+      const hostname = window.location.hostname;
+      if (hostname !== 'localhost') {
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-PCQS40ZBDZ');
+      }
+    </script>
   </head>
   <body>
     <div class="start-bg" id="background-start">
@@ -32,18 +53,18 @@
         <img src="images/icons/logo-pop-up.png" class="logoAbout" />
         <div class="aboutWraper">
           <p class="aboutDescr">
-            Не дай рашистам та техніці окупантів пройти поряд, бойовий качур допоможе тобі в цьому. Тебе очікує 5 різних локацій, для знешкодження
-            загарбників, та фінішний рівень в бункері, де твоя ціль - головний негідник.
+            Не дай рашистам та техніці окупантів пройти поряд: бойовий качур допоможе тобі в цьому. Тебе очікує 5 різних локацій для знешкодження
+            загарбників, та фінішний рівень в бункері, де твоя ціль - путін.
           </p>
           <h3>Як грати?</h3>
-          <p>Клікай по екрану, та знешкоджуй ворожі об'єкти.</p>
-          <p>Щоб перейти до наступного рівня вполюй необхідну кількість загарбників.</p>
-          <p>Якщо пропустиш більше 3 ворожих об'єктів - повертаєшся на попередній рівень</p>
+          <p>Клікай по екрану та знешкоджуй ворожі об'єкти.</p>
+          <p>Щоб перейти до наступного рівня, вполюй необхідну кількість загарбників.</p>
+          <p>Якщо пропустиш більше 3 ворожих об'єктів - повертаєшся на попередній рівень.</p>
           <h3>Сподобалася гра?</h3>
           <p>Поділись із друзями і допоможи українській армії</p>
           <div>
-            <img id="facebookBtn" src="images/icons/facebook.png" class="socialIcon" />
-            <img id="telegramBtn" src="images/icons/telegram.png" class="socialIcon" />
+            <img class="socialIcon facebookBtn" src="images/icons/facebook.png" />
+            <img class="socialIcon telegramBtn" src="images/icons/telegram.png" />
           </div>
           <button class="btn-help">Підтримати ЗСУ</button>
         </div>
@@ -52,6 +73,12 @@
         <img src="images/icons/step3.png" class="stepImg" />
         <p class="smallText">Залишилися питання чи виникли пропозиції - пишіть нам на пошту:</p>
         <a href="mailto:birdsattack2022@gmail.com" class="textMail">birdsattack2022@gmail.com</a>
+        <p class="disclaimer">
+          <b>Дисклеймер</b><br />
+          Даний ресурс носить розважальний характер. Всі персонажі та описані події є вигаданими, будь-який збіг з реальними людьми або подіями, є
+          випадковістю.<br />
+          Жодний качур не постраждав під час створення гри.
+        </p>
         <div class="aboutBtnWrap">
           <button id="about-close" class="btn-start">На головну</button>
         </div>
@@ -88,7 +115,10 @@
           </div>
           <div id="score-putin" class="scoreBox">
             <img src="images/icons/putin-icon.png" class="iconOptions" />
-            <span class="current">0</span><span class="scoreLine">/</span><span class="total">0</span>
+            <div class="totalWrap">
+              <div class="currentWrap"></div>
+            </div>
+            <span class="current putinScore">0</span><span class="scoreLinePutin">%</span>
           </div>
           <div id="sound">
             <img src="images/icons/sound-on.png" />
@@ -117,14 +147,29 @@
       </div>
       <div id="previous-level">
         <img src="images/icons/logo-pop-up.png" class="logoPopUp" />
-        <h2 class="titlePopUp">Бойовий качур готовий до полювання на рашистів</h2>
+        <h2 class="titlePopUp">Спробуй ще раз</h2>
         <button id="previousLevelBtn">Попередній рівень</button>
       </div>
-      <div id="end">
+      <div id="end-success">
+        <img src="images/icons/logo-pop-up.png" class="logoPopUp" />
+        <h2 class="titlePopUp">Вітаю! <br />Місія успішно завершена</h2>
+        <p class="smallTextPopUp">Не забудь поділитися грою з друзями та підтримати армію</p>
+        <div>
+          <img class="socialIcon facebookBtn" src="images/icons/facebook.png" />
+          <img class="socialIcon telegramBtn" src="images/icons/telegram.png" />
+        </div>
+        <button class="btn-help">Допомогти ЗСУ</button>
+        <div class="home-link-Wrap">
+          <button class="home-link">На головну</button>
+        </div>
+      </div>
+      <div id="end-fail">
         <img src="images/icons/logo-pop-up.png" class="logoPopUp" />
         <h2 class="titlePopUp">Спробуй ще раз</h2>
-        <h3>Твій рахунок: <span>0</span></h3>
         <button id="restartBtn">Розпочати полювання</button>
+        <div class="home-link-Wrap">
+          <button class="home-link">На головну</button>
+        </div>
       </div>
     </div>
 

@@ -8,9 +8,10 @@ window.onload = () => {
 
   const btnStart = document.querySelector('.btn-start');
   const btnAbout = document.querySelector('.btn-about');
-  const facebookBtn = document.getElementById('facebookBtn');
-  const telegramBtn = document.getElementById('telegramBtn');
+  const facebookBtn = document.querySelectorAll('.facebookBtn');
+  const telegramBtn = document.querySelectorAll('.telegramBtn');
   const btnHelp = document.querySelectorAll('.btn-help');
+  const homeBtn = document.querySelectorAll('.home-link');
 
   const aboutBlock = document.querySelector('#about');
   const aboutCloseBtn = document.querySelector('#about-close');
@@ -23,7 +24,8 @@ window.onload = () => {
   const previousLevelBlock = document.querySelector('#previous-level');
   const previousLevelBtn = document.getElementById('previousLevelBtn');
 
-  const endBlock = document.querySelector('#end');
+  const endBlockSuccess = document.querySelector('#end-success');
+  const endBlockFail = document.querySelector('#end-fail');
   const restartBtn = document.getElementById('restartBtn');
 
   const background = document.getElementById('background');
@@ -38,10 +40,10 @@ window.onload = () => {
   const scoreMachineryCurrent = document.querySelector('#score-machinery .current');
   const scoreAirforceCurrent = document.querySelector('#score-airforce .current');
   const scorePutinCurrent = document.querySelector('#score-putin .current');
+  const scorePutinWrap = document.querySelector('.currentWrap');
   const scoreInfantryTotal = document.querySelector('#score-infantry .total');
   const scoreMachineryTotal = document.querySelector('#score-machinery .total');
   const scoreAirforceTotal = document.querySelector('#score-airforce .total');
-  const scorePutinTotal = document.querySelector('#score-putin .total');
   const gameBlock = document.querySelector('#game');
   const soundBtn = document.querySelector('#sound img');
   const bird = document.querySelector('#bird');
@@ -74,7 +76,7 @@ window.onload = () => {
   };
 
   const LINK_APP = 'https://birds-attack.web.app/';
-  const TEXT_APP = 'Бойовий качур готовий до полювання на рашистів';
+  const TEXT_APP = 'Birds Attack 2022. Не дай рашистам пройти поряд. Знешкоджуй загарбників, покращуй озброєння, доберися до бункера.';
   const LINK_BANK = 'https://bank.gov.ua/ua/news/all/natsionalniy-bank-vidkriv-spetsrahunok-dlya-zboru-koshtiv-na-potrebi-armiyi';
   const LINK_FACEBOOK = `https://www.facebook.com/sharer/sharer.php?u=${LINK_APP}`;
   const LINK_TELEGRAM = `https://t.me/share/url?url=${LINK_APP}&text=${TEXT_APP}`;
@@ -93,7 +95,7 @@ window.onload = () => {
   let LEVEL = 0;
   let ENEMIES_ARRAY = [];
   const LEVELS = [0, 1, 2, 3, 4, 5];
-  let PUTIN_LIVES = 10;
+  let PUTIN_LIVES = 100;
   const INFANTRY = 'infantry';
   const MACHINERY = 'machinery';
   const AIRFORCE = 'airforce';
@@ -298,12 +300,13 @@ window.onload = () => {
         createEnemy();
         createEnemyLoop(level);
       }
-    }, random(1000, 5000));
+    }, random(1000 - LEVEL * 100, 5000 - LEVEL * 1000));
   };
 
   const startGame = () => {
     startBlock.style.display = 'none';
-    endBlock.style.display = 'none';
+    endBlockFail.style.display = 'none';
+    endBlockSuccess.style.display = 'none';
     gameBlock.style.display = 'block';
     putin.style.display = 'none';
     infantry.style.display = 'block';
@@ -345,8 +348,10 @@ window.onload = () => {
 
   const putinStartGame = () => {
     startBlock.style.display = 'none';
-    endBlock.style.display = 'none';
+    endBlockFail.style.display = 'none';
+    endBlockSuccess.style.display = 'none';
     gameBlock.style.display = 'block';
+    putin.style.display = 'block';
     infantry.style.display = 'none';
     machinery.style.display = 'none';
     airforce.style.display = 'none';
@@ -365,7 +370,6 @@ window.onload = () => {
     bird.classList.add(CONFIG.LEVELS[LEVELS[LEVEL]].birdClass);
 
     scorePutinCurrent.innerHTML = String(PUTIN_LIVES);
-    scorePutinTotal.innerHTML = String(PUTIN_LIVES);
 
     createLives();
     putinCreateEnemy();
@@ -376,7 +380,7 @@ window.onload = () => {
 
   const moveEnemy = (enemy) => {
     let timerId = setInterval(() => {
-      enemy.style.left = enemy.offsetLeft - 10 + 'px';
+      enemy.style.left = enemy.offsetLeft - (10 + LEVEL) + 'px';
       if (enemy.offsetLeft < -100) {
         enemy.remove();
         clearInterval(timerId);
@@ -391,9 +395,10 @@ window.onload = () => {
     const goLeft = () => {
       enemy.classList.add('putinLeft');
       enemy.classList.remove('putinRight');
+      const randomNumber = random(100, -30);
       let moveLeft = setInterval(() => {
-        enemy.style.left = enemy.offsetLeft - 10 + 'px';
-        if (enemy.offsetLeft <= -300) {
+        enemy.style.left = enemy.offsetLeft - 12 + 'px';
+        if (enemy.offsetLeft <= randomNumber * 10) {
           clearInterval(moveLeft);
           goRight();
         }
@@ -403,9 +408,10 @@ window.onload = () => {
     const goRight = () => {
       enemy.classList.add('putinRight');
       enemy.classList.remove('putinLeft');
+      const randomNumber = random(100, 300);
       let moveRight = setInterval(() => {
-        enemy.style.left = enemy.offsetLeft + 10 + 'px';
-        if (enemy.offsetLeft > clientWidth + 300) {
+        enemy.style.left = enemy.offsetLeft + 35 + 'px';
+        if (enemy.offsetLeft > clientWidth + randomNumber) {
           clearInterval(moveRight);
           goLeft();
         }
@@ -437,7 +443,6 @@ window.onload = () => {
     let enemy = document.createElement('div');
     const type = typeEnemy();
     enemy.className = `enemy ${type} ${CONFIG.LEVELS[LEVELS[LEVEL]].enemies[type].className}`;
-    // enemy.style.top = document.querySelector('#app').clientHeight - 200 + 'px';
 
     gameBlock.appendChild(enemy);
     moveEnemy(enemy);
@@ -446,7 +451,6 @@ window.onload = () => {
   const putinCreateEnemy = () => {
     let enemy = document.createElement('div');
     enemy.className = `enemy ${PUTIN} putinLeft`;
-    enemy.style.top = document.querySelector('#app').clientHeight - 200 + 'px';
 
     gameBlock.appendChild(enemy);
     putinMoveEnemy(enemy);
@@ -455,8 +459,8 @@ window.onload = () => {
   const createBullet = () => {
     let bullet = document.createElement('div');
     bullet.className = 'bullet';
-    bullet.style.top = bird.offsetTop + 150 + 'px';
-    bullet.style.left = bird.offsetLeft + 50 + 'px';
+    bullet.style.top = bird.offsetTop + (bird.offsetTop > 100 ? 150 : 75) + 'px';
+    bullet.style.left = bird.offsetLeft + (bird.offsetTop > 100 ? 50 : 20) + 'px';
     bullet.classList.add(CONFIG.LEVELS[LEVELS[LEVEL]].weaponClass);
 
     gameBlock.appendChild(bullet);
@@ -478,8 +482,9 @@ window.onload = () => {
         bullet.remove();
         enemy.classList.add('jumpUp');
         setTimeout(() => enemy.classList.remove('jumpUp'), 500);
-        PUTIN_LIVES -= 1;
+        PUTIN_LIVES -= 2;
         scorePutinCurrent.innerHTML = String(PUTIN_LIVES);
+        scorePutinWrap.style.width = `${PUTIN_LIVES}%`;
         if (PUTIN_LIVES === 0) {
           enemy.remove();
           endGameSuccess();
@@ -560,6 +565,7 @@ window.onload = () => {
     LEVEL += 1;
     resetLives();
     resetScore();
+    document.querySelector('body').requestFullscreen();
     LEVEL === LEVELS[LEVELS.length - 1] ? putinStartGame() : startGame();
   };
 
@@ -578,6 +584,7 @@ window.onload = () => {
     LEVEL -= 1;
     resetLives();
     resetScore();
+    document.querySelector('body').requestFullscreen();
     LEVEL === LEVELS[LEVELS.length - 1] ? putinStartGame() : startGame();
   };
 
@@ -599,17 +606,11 @@ window.onload = () => {
     ENEMIES_ARRAY = [];
     LEVEL = 0;
 
-    let scoreBlock = document.querySelector('#end h3 span');
-    scoreBlock.innerText = ENEMIES[INFANTRY].number + ENEMIES[MACHINERY].number + ENEMIES[AIRFORCE].number;
-
     resetLives();
     resetScore();
     document.querySelectorAll('.enemy').forEach((e) => e.remove());
 
-    endBlock.style.display = 'block';
-
-    let restartBtn = document.querySelector('#end button');
-    restartBtn.onclick = startGame;
+    endBlockFail.style.display = 'block';
   };
 
   const endGameSuccess = () => {
@@ -617,20 +618,16 @@ window.onload = () => {
     ENEMIES_ARRAY = [];
     LEVEL = 0;
 
-    let scoreBlock = document.querySelector('#end h3 span');
-    scoreBlock.innerText = 'Success';
-
-    endBlock.style.display = 'block';
-
-    let restartBtn = document.querySelector('#end button');
-    restartBtn.onclick = startGame;
+    endBlockSuccess.style.display = 'block';
   };
 
   startBtn.onclick = () => {
     LEVEL === LEVELS[LEVELS.length - 1] ? putinStartGame() : startGame();
+    document.querySelector('body').requestFullscreen();
   };
   restartBtn.onclick = () => {
     LEVEL === LEVELS[LEVELS.length - 1] ? putinStartGame() : startGame();
+    document.querySelector('body').requestFullscreen();
   };
 
   btnStart.onclick = () => {
@@ -643,13 +640,17 @@ window.onload = () => {
     aboutBlock.style.display = 'block';
   };
 
-  facebookBtn.onclick = () => {
-    window.open(LINK_FACEBOOK, '_blank');
-  };
+  facebookBtn.forEach((fb) => {
+    fb.onclick = () => {
+      window.open(LINK_FACEBOOK, '_blank');
+    };
+  });
 
-  telegramBtn.onclick = () => {
-    window.open(LINK_TELEGRAM, '_blank');
-  };
+  telegramBtn.forEach((fb) => {
+    fb.onclick = () => {
+      window.open(LINK_TELEGRAM, '_blank');
+    };
+  });
 
   aboutCloseBtn.onclick = () => {
     aboutBlock.style.display = 'none';
@@ -658,6 +659,12 @@ window.onload = () => {
   btnHelp.forEach((bh) => {
     bh.onclick = () => {
       window.open(LINK_BANK, '_blank');
+    };
+  });
+
+  homeBtn.forEach((bh) => {
+    bh.onclick = () => {
+      location.reload();
     };
   });
 
