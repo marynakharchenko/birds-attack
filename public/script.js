@@ -1,4 +1,6 @@
 window.onload = () => {
+  const gtag = window.gtag ? window.gtag : () => {};
+
   const btnWrap = document.querySelectorAll('.logo-and-btn-wrap button');
   const divWrap = document.querySelectorAll('.logo-and-btn-wrap div');
   btnWrap.forEach((bw) => bw.classList.remove('loading'));
@@ -74,6 +76,10 @@ window.onload = () => {
 
     return array;
   };
+
+  const BANK_CLICK = 'BANK_CLICK';
+  const FACEBOOK_CLICK = 'FACEBOOK_CLICK';
+  const TELEGRAM_CLICK = 'TELEGRAM_CLICK';
 
   const LINK_APP = 'https://birds-attack.web.app/';
   const TEXT_APP = 'Birds Attack 2022. Не дай рашистам пройти поряд. Знешкоджуй загарбників, покращуй озброєння, доберися до бункера.';
@@ -642,12 +648,14 @@ window.onload = () => {
 
   facebookBtn.forEach((fb) => {
     fb.onclick = () => {
+      gtag('event', FACEBOOK_CLICK);
       window.open(LINK_FACEBOOK, '_blank');
     };
   });
 
   telegramBtn.forEach((fb) => {
     fb.onclick = () => {
+      gtag('event', TELEGRAM_CLICK);
       window.open(LINK_TELEGRAM, '_blank');
     };
   });
@@ -658,6 +666,7 @@ window.onload = () => {
 
   btnHelp.forEach((bh) => {
     bh.onclick = () => {
+      gtag('event', BANK_CLICK);
       window.open(LINK_BANK, '_blank');
     };
   });
