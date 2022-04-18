@@ -40,10 +40,10 @@ window.onload = () => {
   const scoreMachineryCurrent = document.querySelector('#score-machinery .current');
   const scoreAirforceCurrent = document.querySelector('#score-airforce .current');
   const scorePutinCurrent = document.querySelector('#score-putin .current');
+  const scorePutinWrap = document.querySelector('.currentWrap');
   const scoreInfantryTotal = document.querySelector('#score-infantry .total');
   const scoreMachineryTotal = document.querySelector('#score-machinery .total');
   const scoreAirforceTotal = document.querySelector('#score-airforce .total');
-  const scorePutinTotal = document.querySelector('#score-putin .total');
   const gameBlock = document.querySelector('#game');
   const soundBtn = document.querySelector('#sound img');
   const bird = document.querySelector('#bird');
@@ -92,10 +92,10 @@ window.onload = () => {
 
   let sound = 'on';
 
-  let LEVEL = 0;
+  let LEVEL = 5;
   let ENEMIES_ARRAY = [];
   const LEVELS = [0, 1, 2, 3, 4, 5];
-  let PUTIN_LIVES = 10;
+  let PUTIN_LIVES = 100;
   const INFANTRY = 'infantry';
   const MACHINERY = 'machinery';
   const AIRFORCE = 'airforce';
@@ -370,7 +370,6 @@ window.onload = () => {
     bird.classList.add(CONFIG.LEVELS[LEVELS[LEVEL]].birdClass);
 
     scorePutinCurrent.innerHTML = String(PUTIN_LIVES);
-    scorePutinTotal.innerHTML = String(PUTIN_LIVES);
 
     createLives();
     putinCreateEnemy();
@@ -484,8 +483,9 @@ window.onload = () => {
         bullet.remove();
         enemy.classList.add('jumpUp');
         setTimeout(() => enemy.classList.remove('jumpUp'), 500);
-        PUTIN_LIVES -= 1;
+        PUTIN_LIVES -= 2;
         scorePutinCurrent.innerHTML = String(PUTIN_LIVES);
+        scorePutinWrap.style.width = `${PUTIN_LIVES}%`;
         if (PUTIN_LIVES === 0) {
           enemy.remove();
           endGameSuccess();
