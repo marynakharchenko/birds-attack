@@ -764,7 +764,7 @@ button {
   border: 3px solid black;
 }
 .currentWrap {
-  width: 40%;
+  width: 100%;
   background-color: red;
   border-radius: 30px;
   height: 10px;

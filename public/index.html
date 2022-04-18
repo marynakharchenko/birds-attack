@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/x-icon" href="images/favicon.png" />
+    <link rel="manifest" href="manifest.json" />
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://birds-attack.web.app/" />
@@ -13,6 +14,19 @@
     <meta property="og:title" content="Birds Attack 2022" />
     <meta property="og:description" content="Не дай рашистам пройти поряд. Знешкоджуй загарбників, покращуй озброєння, доберися до бункера." />
     <meta property="og:image" content="https://birds-attack.web.app/images/backgrounds/facebook-cover.png" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PCQS40ZBDZ"></script>
+    <script>
+      const hostname = window.location.hostname;
+      if (hostname !== 'localhost') {
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-PCQS40ZBDZ');
+      }
+    </script>
   </head>
   <body>
     <div class="start-bg" id="background-start">
@@ -104,7 +118,7 @@
             <div class="totalWrap">
               <div class="currentWrap"></div>
             </div>
-            <span class="current putinScore">0</span><span class="scoreLinePutin">%</span><span class="total">0</span>
+            <span class="current putinScore">0</span><span class="scoreLinePutin">%</span>
           </div>
           <div id="sound">
             <img src="images/icons/sound-on.png" />

@@ -1,0 +1,14 @@
+{
+  "short_name": "Birds Attack 2022",
+  "name": "Birds Attack 2022",
+  "icons": [
+    {
+      "src": "images/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "display": "fullscreen",
+  "orientation": "landscape"
+}
