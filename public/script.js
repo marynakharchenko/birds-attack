@@ -452,7 +452,6 @@ window.onload = () => {
   const putinCreateEnemy = () => {
     let enemy = document.createElement('div');
     enemy.className = `enemy ${PUTIN} putinLeft`;
-    enemy.style.top = document.querySelector('#app').clientHeight - 200 + 'px';
 
     gameBlock.appendChild(enemy);
     putinMoveEnemy(enemy);

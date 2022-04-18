@@ -475,6 +475,13 @@ button {
     width: 24px;
     height: 56px;
   }
+  .enemy.putin.putinLeft,
+  .enemy.putin.putinRight {
+    height: 180px;
+    width: 180px;
+    bottom: 50px;
+    background-size: contain !important;
+  }
 }
 
 @media (min-width: 320px) and (max-width: 1279px) and (orientation: landscape) {
@@ -594,7 +601,6 @@ button {
   }
   .enemy.putin.putinLeft,
   .enemy.putin.putinRight {
-    top: 0;
     height: 150px;
     width: 150px;
     bottom: 0;
