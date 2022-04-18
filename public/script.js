@@ -92,7 +92,7 @@ window.onload = () => {
 
   let sound = 'on';
 
-  let LEVEL = 5;
+  let LEVEL = 0;
   let ENEMIES_ARRAY = [];
   const LEVELS = [0, 1, 2, 3, 4, 5];
   let PUTIN_LIVES = 100;
