@@ -396,9 +396,10 @@ window.onload = () => {
     const goLeft = () => {
       enemy.classList.add('putinLeft');
       enemy.classList.remove('putinRight');
+      const randomNumber = random(100, -30);
       let moveLeft = setInterval(() => {
-        enemy.style.left = enemy.offsetLeft - 10 + 'px';
-        if (enemy.offsetLeft <= -300) {
+        enemy.style.left = enemy.offsetLeft - 12 + 'px';
+        if (enemy.offsetLeft <= randomNumber * 10) {
           clearInterval(moveLeft);
           goRight();
         }
@@ -408,9 +409,10 @@ window.onload = () => {
     const goRight = () => {
       enemy.classList.add('putinRight');
       enemy.classList.remove('putinLeft');
+      const randomNumber = random(100, 300);
       let moveRight = setInterval(() => {
-        enemy.style.left = enemy.offsetLeft + 10 + 'px';
-        if (enemy.offsetLeft > clientWidth + 300) {
+        enemy.style.left = enemy.offsetLeft + 35 + 'px';
+        if (enemy.offsetLeft > clientWidth + randomNumber) {
           clearInterval(moveRight);
           goLeft();
         }
@@ -712,4 +714,23 @@ window.onload = () => {
       createBullet();
     }
   };
+
+  // const hideAddressBar = () => {
+  //   setTimeout(() => {
+  //     document.body.style.height = window.outerHeight + 'px';
+  //     setTimeout(() => {
+  //       window.scrollTo(0, 1);
+  //     }, 1100);
+  //   }, 1000);
+  //   return false;
+  // };
+  //
+  // hideAddressBar();
+  // window.addEventListener(
+  //   'orientationchange',
+  //   () => {
+  //     hideAddressBar();
+  //   },
+  //   false,
+  // );
 };

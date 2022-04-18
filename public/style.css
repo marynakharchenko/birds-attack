@@ -191,6 +191,10 @@ button {
   .aboutWraper {
     width: 550px;
   }
+  .bullet.weapon-6 {
+    width: 34px;
+    height: 76px;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1279px) {
@@ -325,6 +329,10 @@ button {
   }
   .aboutWraper {
     width: 450px;
+  }
+  .bullet.weapon-6 {
+    width: 34px;
+    height: 76px;
   }
 }
 
@@ -463,6 +471,10 @@ button {
   .aboutWraper {
     width: 350px;
   }
+  .bullet.weapon-6 {
+    width: 24px;
+    height: 56px;
+  }
 }
 
 @media (min-width: 320px) and (max-width: 1279px) and (orientation: landscape) {
@@ -579,6 +591,18 @@ button {
   }
   .aboutWraper {
     width: 450px;
+  }
+  .enemy.putin.putinLeft,
+  .enemy.putin.putinRight {
+    top: 0;
+    height: 150px;
+    width: 150px;
+    bottom: 0;
+    background-size: contain !important;
+  }
+  .bullet.weapon-6 {
+    width: 24px;
+    height: 56px;
   }
 }
 /*----------------background---------------- */
@@ -726,7 +750,19 @@ button {
 }
 
 /*--------------------------------score---------------- */
-
+.totalWrap {
+  width: inherit;
+  background-color: white;
+  border-radius: 30px;
+  height: 10px;
+  border: 3px solid black;
+}
+.currentWrap {
+  width: 40%;
+  background-color: red;
+  border-radius: 30px;
+  height: 10px;
+}
 .iconOptions {
   width: 60px;
   position: absolute;
@@ -738,6 +774,17 @@ button {
   font-size: 11px;
   color: black;
   margin-left: 25px;
+}
+.putinScore {
+  font-weight: bold;
+  font-size: 14px;
+  color: #ffffff;
+  margin-left: 25px;
+}
+.scoreLinePutin {
+  font-weight: bold;
+  font-size: 12px;
+  color: #ffffff;
 }
 .total {
   font-weight: bold;
@@ -754,6 +801,14 @@ button {
   width: 70px;
   background-color: white;
   border: 3px solid black;
+  border-radius: 50px;
+  height: 20px;
+}
+#score-putin {
+  position: relative;
+  width: 70px;
+  background-color: transparent !important;
+  border: none !important;
   border-radius: 50px;
   height: 20px;
 }
@@ -797,7 +852,7 @@ button {
   height: 100%;
 }
 #score-putin .iconOptions {
-  top: -10px;
+  top: -20px;
 }
 /*--------------------------------weapon---------------- */
 
@@ -835,8 +890,6 @@ button {
 }
 .bullet.weapon-6 {
   background: url(images/weapons/weapon-6.png) transparent no-repeat;
-  width: 34px;
-  height: 76px;
   background-size: cover;
 }
 .boom {
@@ -1069,6 +1122,14 @@ button {
 }
 .smallText {
   font-size: 16px;
+  color: black;
+  font-weight: normal;
+  line-height: 1.2em;
+}
+.disclaimer {
+  padding: 20px;
+  opacity: 0.5;
+  font-size: 11px;
   color: black;
   font-weight: normal;
   line-height: 1.2em;
