@@ -566,6 +566,7 @@ window.onload = () => {
     LEVEL += 1;
     resetLives();
     resetScore();
+    document.querySelector('body').requestFullscreen();
     LEVEL === LEVELS[LEVELS.length - 1] ? putinStartGame() : startGame();
   };
 
@@ -584,6 +585,7 @@ window.onload = () => {
     LEVEL -= 1;
     resetLives();
     resetScore();
+    document.querySelector('body').requestFullscreen();
     LEVEL === LEVELS[LEVELS.length - 1] ? putinStartGame() : startGame();
   };
 
@@ -622,9 +624,11 @@ window.onload = () => {
 
   startBtn.onclick = () => {
     LEVEL === LEVELS[LEVELS.length - 1] ? putinStartGame() : startGame();
+    document.querySelector('body').requestFullscreen();
   };
   restartBtn.onclick = () => {
     LEVEL === LEVELS[LEVELS.length - 1] ? putinStartGame() : startGame();
+    document.querySelector('body').requestFullscreen();
   };
 
   btnStart.onclick = () => {
@@ -714,23 +718,4 @@ window.onload = () => {
       createBullet();
     }
   };
-
-  // const hideAddressBar = () => {
-  //   setTimeout(() => {
-  //     document.body.style.height = window.outerHeight + 'px';
-  //     setTimeout(() => {
-  //       window.scrollTo(0, 1);
-  //     }, 1100);
-  //   }, 1000);
-  //   return false;
-  // };
-  //
-  // hideAddressBar();
-  // window.addEventListener(
-  //   'orientationchange',
-  //   () => {
-  //     hideAddressBar();
-  //   },
-  //   false,
-  // );
 };
