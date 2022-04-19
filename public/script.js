@@ -571,8 +571,8 @@ window.onload = () => {
     LEVEL += 1;
     resetLives();
     resetScore();
-    document.querySelector('body').requestFullscreen();
     LEVEL === LEVELS[LEVELS.length - 1] ? putinStartGame() : startGame();
+    document.querySelector('body').requestFullscreen();
   };
 
   const endLevelPrevious = () => {
@@ -590,8 +590,8 @@ window.onload = () => {
     LEVEL -= 1;
     resetLives();
     resetScore();
-    document.querySelector('body').requestFullscreen();
     LEVEL === LEVELS[LEVELS.length - 1] ? putinStartGame() : startGame();
+    document.querySelector('body').requestFullscreen();
   };
 
   const resetScore = () => {
