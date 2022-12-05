@@ -12,6 +12,7 @@ window.onload = () => {
   const btnAbout = document.querySelector('.btn-about');
   const facebookBtn = document.querySelectorAll('.facebookBtn');
   const telegramBtn = document.querySelectorAll('.telegramBtn');
+  const snifferBtn = document.querySelectorAll('.btn-sniffer-game');
   const btnHelp = document.querySelectorAll('.btn-help');
   const homeBtn = document.querySelectorAll('.home-link');
 
@@ -80,12 +81,14 @@ window.onload = () => {
   const BANK_CLICK = 'BANK_CLICK';
   const FACEBOOK_CLICK = 'FACEBOOK_CLICK';
   const TELEGRAM_CLICK = 'TELEGRAM_CLICK';
+  const SNIFFER_CLICK = 'SNIFFER_CLICK';
 
   const LINK_APP = 'https://birds-attack.web.app/';
   const TEXT_APP = 'Birds Attack 2022. Не дай рашистам пройти поряд. Знешкоджуй загарбників, покращуй озброєння, доберися до бункера.';
   const LINK_BANK = 'https://bank.gov.ua/ua/news/all/natsionalniy-bank-vidkriv-spetsrahunok-dlya-zboru-koshtiv-na-potrebi-armiyi';
   const LINK_FACEBOOK = `https://www.facebook.com/sharer/sharer.php?u=${LINK_APP}`;
   const LINK_TELEGRAM = `https://t.me/share/url?url=${LINK_APP}&text=${TEXT_APP}`;
+  const LINK_SNIFFER = 'https://sniffer-dog-quest.web.app/';
 
   const LINK_MUSIC = 'https://freesound.org/data/previews/210/210751_1556689-lq.mp3';
 
@@ -657,6 +660,13 @@ window.onload = () => {
     fb.onclick = () => {
       gtag('event', TELEGRAM_CLICK);
       window.open(LINK_TELEGRAM, '_blank');
+    };
+  });
+
+  snifferBtn.forEach((fb) => {
+    fb.onclick = () => {
+      gtag('event', SNIFFER_CLICK);
+      window.open(LINK_SNIFFER, '_blank');
     };
   });
 
